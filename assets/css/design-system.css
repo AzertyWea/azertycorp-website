@@ -809,3 +809,86 @@ ul, ol { list-style: none; }
   .reveal { opacity: 1 !important; transform: none !important; }
   body { background: #fff; color: #000; }
 }
+
+/* =====================================================
+   MOBILE MENU
+   ===================================================== */
+@keyframes menuSlideIn {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+@keyframes overlayFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+#mobile-menu {
+  background: var(--card) !important;
+  border-bottom: none !important;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15) !important;
+  gap: 4px !important;
+}
+
+#mobile-menu a {
+  display: flex !important;
+  align-items: center !important;
+  min-height: 48px !important;
+  padding: 14px 20px !important;
+  border-radius: 12px !important;
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  color: var(--foreground) !important;
+  transition: background 0.2s ease !important;
+}
+
+#mobile-menu a:hover,
+#mobile-menu a:active {
+  background: var(--muted) !important;
+}
+
+#mobile-menu a.nav-active {
+  color: var(--gold) !important;
+  background: rgba(184,134,11,0.08) !important;
+}
+
+/* Close button (X) in top-right of mobile menu */
+#mobile-menu .mobile-close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid var(--card-border);
+  background: var(--card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--foreground);
+}
+
+/* Dark mode mobile menu */
+.dark #mobile-menu {
+  background: rgba(17,17,17,0.98) !important;
+}
+.dark #mobile-menu a:hover,
+.dark #mobile-menu a:active {
+  background: #222 !important;
+}
+.dark #mobile-menu .mobile-close-btn {
+  background: #222;
+  border-color: rgba(255,255,255,0.1);
+}
+
+/* Overlay dark mode */
+.dark #mobile-menu-overlay {
+  background: rgba(0,0,0,0.6) !important;
+}
+
+/* Desktop: hide mobile menu button and overlay */
+@media (min-width: 1024px) {
+  #mobile-menu-btn { display: none !important; }
+  #mobile-menu { display: none !important; }
+  #mobile-menu-overlay { display: none !important; }
+}

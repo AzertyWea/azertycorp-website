@@ -40,7 +40,7 @@
     </div>
   </div>
 
-  <div id="mobile-menu" class="hidden" style="position:absolute;top:100%;left:0;right:0;background:var(--card);border-bottom:1px solid var(--card-border);padding:16px 24px;display:none;flex-direction:column;gap:8px;box-shadow:0 8px 30px rgba(0,0,0,0.08);">
+  <div id="mobile-menu" style="display:none;">
     <a href="index.html" style="padding:12px 16px;border-radius:10px;font-size:14px;font-weight:500;transition:background 0.3s;">Home</a>
     <a href="about.html" style="padding:12px 16px;border-radius:10px;font-size:14px;font-weight:500;transition:background 0.3s;">About</a>
     <a href="services.html" style="padding:12px 16px;border-radius:10px;font-size:14px;font-weight:500;transition:background 0.3s;">Services</a>
@@ -58,8 +58,6 @@
 <style>
   .nav-link.nav-active, .nav-link:hover { opacity: 1 !important; color: var(--gold) !important; }
   .nav-scrolled { padding: 10px 0 !important; box-shadow: 0 4px 20px rgba(0,0,0,0.06) !important; }
-  .nav-mobile-menu { display: none; }
-  .nav-mobile-menu.open { display: flex !important; }
   @media (max-width: 1023px) {
     .nav-desktop { display: none !important; }
     #mobile-menu-btn { display: flex !important; }

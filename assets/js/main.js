@@ -40,13 +40,49 @@ document.addEventListener('DOMContentLoaded', () => {
   // ===== MOBILE MENU =====
   const menuBtn = document.getElementById('mobile-menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
+  let menuOverlay = document.getElementById('mobile-menu-overlay');
+
+  if (!menuOverlay) {
+    menuOverlay = document.createElement('div');
+    menuOverlay.id = 'mobile-menu-overlay';
+    menuOverlay.style.cssText = 'display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:99;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);';
+    document.body.appendChild(menuOverlay);
+  }
+
+  function openMenu() {
+    mobileMenu.style.display = 'flex';
+    mobileMenu.style.position = 'fixed';
+    mobileMenu.style.top = '0';
+    mobileMenu.style.left = '0';
+    mobileMenu.style.right = '0';
+    mobileMenu.style.bottom = '0';
+    mobileMenu.style.zIndex = '101';
+    mobileMenu.style.padding = '80px 24px 24px';
+    mobileMenu.style.overflowY = 'auto';
+    mobileMenu.style.animation = 'menuSlideIn 0.3s ease';
+    menuOverlay.style.display = 'block';
+    menuOverlay.style.animation = 'overlayFadeIn 0.3s ease';
+    document.body.style.overflow = 'hidden';
+    menuBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';
+  }
+
+  function closeMenu() {
+    mobileMenu.style.display = 'none';
+    menuOverlay.style.display = 'none';
+    document.body.style.overflow = '';
+    menuBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
+  }
+
   if (menuBtn && mobileMenu) {
     menuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-      const isOpen = !mobileMenu.classList.contains('hidden');
-      menuBtn.innerHTML = isOpen
-        ? '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>'
-        : '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
+      const isOpen = mobileMenu.style.display === 'flex';
+      isOpen ? closeMenu() : openMenu();
+    });
+
+    menuOverlay.addEventListener('click', closeMenu);
+
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeMenu);
     });
   }
 
@@ -175,10 +211,10 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ===== ACTIVE NAV LINK =====
-  const currentPage = window.location.pathname.split('/').pop() || 'index.php';
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav-link').forEach(link => {
     const href = link.getAttribute('href');
-    if (href === currentPage || (currentPage === '' && href === 'index.php')) {
+    if (href === currentPage || (currentPage === '' && href === 'index.html')) {
       link.classList.add('nav-active');
     }
   });
@@ -189,7 +225,10 @@ document.addEventListener('DOMContentLoaded', () => {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
       const formData = new FormData(contactForm);
-      fetch('process-contact.php', {
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending...'; }
+
+      fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         body: formData
       })
@@ -206,6 +245,9 @@ document.addEventListener('DOMContentLoaded', () => {
       .catch(() => {
         alert('Thank you! We\'ll reply within 24 hours.');
         contactForm.reset();
+      })
+      .finally(() => {
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Send Message'; }
       });
     });
   }
