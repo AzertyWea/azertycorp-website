@@ -1,0 +1,69 @@
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --card: #111111;
+  --card-border: rgba(255,255,255,0.08);
+  --muted: #1a1a1a;
+}
+
+/* ===== DARK TEXT VISIBILITY ===== */
+.dark .card-text { color: rgba(255,255,255,0.8); opacity: 1; }
+.dark .stat-label { color: rgba(255,255,255,0.75); opacity: 1; font-weight: 500; }
+.dark .timeline-desc { color: rgba(255,255,255,0.8); opacity: 1; }
+.dark .accordion-body-inner { color: rgba(255,255,255,0.8); opacity: 1; }
+.dark .testimonial-role { color: rgba(255,255,255,0.65); opacity: 1; }
+.dark .testimonial-text { color: rgba(255,255,255,0.85); }
+.dark .form-label { color: rgba(255,255,255,0.75); opacity: 1; }
+.dark .skill-tag { color: rgba(255,255,255,0.75); opacity: 1; background: #222; }
+.dark .pricing-features li span { color: rgba(255,255,255,0.8); opacity: 1; }
+.dark .partner-name { color: rgba(255,255,255,0.55); opacity: 1; }
+.dark .accordion-header svg { color: rgba(255,255,255,0.5); opacity: 1; }
+.dark .card-tag { color: var(--gold); opacity: 1; }
+
+/* ===== DARK NAV ===== */
+.dark .nav-bar {
+  background: rgba(10,10,10,0.85);
+  border-color: rgba(255,255,255,0.06);
+}
+.dark .nav-mobile-menu {
+  background: rgba(17,17,17,0.98);
+  border-color: rgba(255,255,255,0.06);
+}
+
+/* ===== DARK FORM ===== */
+.dark .form-input, .dark .form-textarea, .dark .form-select {
+  background: #161616;
+  border-color: rgba(255,255,255,0.1);
+  color: #fff;
+}
+.dark .form-input:focus, .dark .form-textarea:focus, .dark .form-select:focus {
+  border-color: rgba(184,134,11,0.4);
+}
+
+/* ===== DARK CARDS ===== */
+.dark .bento-card:hover {
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+  border-color: rgba(184,134,11,0.2);
+}
+.dark .bento-card {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* ===== DARK HERO ===== */
+.dark .hero-bg::after {
+  background: linear-gradient(to bottom, var(--background), rgba(10,10,10,0.95), var(--background));
+}
+
+/* ===== DARK GALLERY OVERLAY ===== */
+.dark .gallery-overlay {
+  background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+}
+
+/* ===== DARK ACCORDION HEADER ===== */
+.dark .accordion-header { color: rgba(255,255,255,0.9); }
+
+/* ===== DARK FOOTER ===== */
+.dark footer { border-top-color: rgba(255,255,255,0.08); }
+
+/* ===== DARK CTA GOLD ===== */
+.dark .cta-section.cta-gold .card-text { color: rgba(255,255,255,0.75); }

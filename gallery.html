@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery | AZERTYCORP</title>
+  <meta name="description" content="A visual showcase of our work across software, AI, design, and digital transformation.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/design-system.css">
+  <link rel="stylesheet" href="assets/css/dark-mode.css">
+</head>
+<body>
+
+<nav class="nav-bar" style="position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 0;transition:all 0.3s ease;background:rgba(250,250,250,0.7);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--card-border);box-shadow:0 2px 8px rgba(0,0,0,0.03);">
+  <div class="container" style="display:flex;align-items:center;justify-content:space-between;">
+    <a href="index.html" style="display:flex;align-items:center;gap:8px;font-weight:700;font-size:18px;letter-spacing:-0.02em;">
+      <span style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:8px;background:var(--gold);color:#fff;font-size:13px;font-weight:700;">A</span>
+      AZERTYCORP
+    </a>
+
+    <div style="display:flex;align-items:center;gap:32px;" class="nav-desktop">
+      <a href="index.html" class="nav-link" style="font-size:13px;font-weight:500;opacity:0.5;transition:opacity 0.3s;">Home</a>
+      <a href="about.html" class="nav-link" style="font-size:13px;font-weight:500;opacity:0.5;transition:opacity 0.3s;">About</a>
+      <a href="services.html" class="nav-link" style="font-size:13px;font-weight:500;opacity:0.5;transition:opacity 0.3s;">Services</a>
+      <a href="pricing.html" class="nav-link" style="font-size:13px;font-weight:500;opacity:0.5;transition:opacity 0.3s;">Pricing</a>
+      <a href="gallery.html" class="nav-link" style="font-size:13px;font-weight:500;opacity:0.5;transition:opacity 0.3s;">Gallery</a>
+      <a href="portfolio.html" class="nav-link" style="font-size:13px;font-weight:500;opacity:0.5;transition:opacity 0.3s;">Portfolio</a>
+      <a href="blog.html" class="nav-link" style="font-size:13px;font-weight:500;opacity:0.5;transition:opacity 0.3s;">Blog</a>
+      <a href="contact.html" class="nav-link" style="font-size:13px;font-weight:500;opacity:0.5;transition:opacity 0.3s;">Contact</a>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:12px;">
+      <button id="theme-toggle" style="width:36px;height:36px;border-radius:10px;border:1px solid var(--card-border);background:var(--card);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.3s;color:var(--foreground);" aria-label="Toggle theme"></button>
+      <a href="contact.html" class="btn btn-primary" style="padding:10px 20px;font-size:12px;" class="nav-desktop">Get Started</a>
+      <button id="mobile-menu-btn" style="display:none;width:36px;height:36px;border-radius:10px;border:1px solid var(--card-border);background:var(--card);align-items:center;justify-content:center;cursor:pointer;color:var(--foreground);" aria-label="Menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="hidden" style="position:absolute;top:100%;left:0;right:0;background:var(--card);border-bottom:1px solid var(--card-border);padding:16px 24px;display:none;flex-direction:column;gap:8px;box-shadow:0 8px 30px rgba(0,0,0,0.08);">
+    <a href="index.html" style="padding:12px 16px;border-radius:10px;font-size:14px;font-weight:500;transition:background 0.3s;">Home</a>
+    <a href="about.html" style="padding:12px 16px;border-radius:10px;font-size:14px;font-weight:500;transition:background 0.3s;">About</a>
+    <a href="services.html" style="padding:12px 16px;border-radius:10px;font-size:14px;font-weight:500;transition:background 0.3s;">Services</a>
+    <a href="pricing.html" style="padding:12px 16px;border-radius:10px;font-size:14px;font-weight:500;transition:background 0.3s;">Pricing</a>
+    <a href="gallery.html" style="padding:12px 16px;border-radius:10px;font-size:14px;font-weight:500;transition:background 0.3s;">Gallery</a>
+    <a href="portfolio.html" style="padding:12px 16px;border-radius:10px;font-size:14px;font-weight:500;transition:background 0.3s;">Portfolio</a>
+    <a href="blog.html" style="padding:12px 16px;border-radius:10px;font-size:14px;font-weight:500;transition:background 0.3s;">Blog</a>
+    <a href="contact.html" style="padding:12px 16px;border-radius:10px;font-size:14px;font-weight:500;transition:background 0.3s;">Contact</a>
+    <a href="redi.html" style="padding:12px 16px;border-radius:10px;font-size:14px;font-weight:500;transition:background 0.3s;">REDI</a>
+    <a href="elite-biz.html" style="padding:12px 16px;border-radius:10px;font-size:14px;font-weight:500;transition:background 0.3s;">Elite Biz</a>
+    <a href="cv.html" style="padding:12px 16px;border-radius:10px;font-size:14px;font-weight:500;transition:background 0.3s;">CV</a>
+  </div>
+</nav>
+
+<style>
+  .nav-link.nav-active, .nav-link:hover { opacity: 1 !important; color: var(--gold) !important; }
+  .nav-scrolled { padding: 10px 0 !important; box-shadow: 0 4px 20px rgba(0,0,0,0.06) !important; }
+  .nav-mobile-menu { display: none; }
+  .nav-mobile-menu.open { display: flex !important; }
+  @media (max-width: 1023px) {
+    .nav-desktop { display: none !important; }
+    #mobile-menu-btn { display: flex !important; }
+    a.btn.nav-desktop { display: none !important; }
+  }
+</style>
+
+<section class="page-hero">
+  <div class="hero-glow"></div>
+  <div class="container" style="position:relative;">
+    <div class="reveal" style="max-width:700px;">
+      <span class="section-label">Our Work</span>
+      <h1 class="heading-xl" style="margin-bottom:32px;">
+        Creative <span class="text-gradient">Gallery</span>
+      </h1>
+      <p class="card-text" style="max-width:560px;font-size:16px;">
+        A visual journey through our projects, designs, and digital experiences.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Featured Slideshow -->
+<section style="padding:0 0 96px;">
+  <div class="container">
+    <div class="reveal">
+      <div class="slideshow" style="height:480px;" tabindex="0">
+        <div class="slideshow-track">
+          <div class="slideshow-slide active">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80" alt="Featured Work 1">
+            <div class="slideshow-caption"><h3>REDI Dashboard</h3><p>AI-powered educational analytics</p></div>
+          </div>
+          <div class="slideshow-slide">
+            <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200&q=80" alt="Featured Work 2">
+            <div class="slideshow-caption"><h3>Brand Identity Systems</h3><p>Complete visual language design</p></div>
+          </div>
+          <div class="slideshow-slide">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80" alt="Featured Work 3">
+            <div class="slideshow-caption"><h3>Elite Biz Platform</h3><p>Business consulting dashboard</p></div>
+          </div>
+          <div class="slideshow-slide">
+            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&q=80" alt="Featured Work 4">
+            <div class="slideshow-caption"><h3>AfriMarket E-Commerce</h3><p>Marketplace connecting artisans globally</p></div>
+          </div>
+          <div class="slideshow-slide">
+            <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&q=80" alt="Featured Work 5">
+            <div class="slideshow-caption"><h3>AI Research</h3><p>Machine learning and NLP solutions</p></div>
+          </div>
+        </div>
+        <button class="slideshow-arrow prev" aria-label="Previous">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="slideshow-arrow next" aria-label="Next">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+        <div class="slideshow-dots">
+          <button class="slideshow-dot active" aria-label="Slide 1"></button>
+          <button class="slideshow-dot" aria-label="Slide 2"></button>
+          <button class="slideshow-dot" aria-label="Slide 3"></button>
+          <button class="slideshow-dot" aria-label="Slide 4"></button>
+          <button class="slideshow-dot" aria-label="Slide 5"></button>
+        </div>
+        <div class="slideshow-progress"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <!-- Filter Buttons -->
+    <div class="reveal" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:64px;">
+      <button data-filter="all" class="btn" style="font-size:12px;padding:8px 16px;background:var(--foreground);color:var(--background);border-radius:9999px;border:none;cursor:pointer;">All Work</button>
+      <button data-filter="web" class="btn" style="font-size:12px;padding:8px 16px;border:1px solid var(--card-border);background:transparent;border-radius:9999px;cursor:pointer;">Web Design</button>
+      <button data-filter="branding" class="btn" style="font-size:12px;padding:8px 16px;border:1px solid var(--card-border);background:transparent;border-radius:9999px;cursor:pointer;">Branding</button>
+      <button data-filter="ai" class="btn" style="font-size:12px;padding:8px 16px;border:1px solid var(--card-border);background:transparent;border-radius:9999px;cursor:pointer;">AI & Data</button>
+      <button data-filter="mobile" class="btn" style="font-size:12px;padding:8px 16px;border:1px solid var(--card-border);background:transparent;border-radius:9999px;cursor:pointer;">Mobile Apps</button>
+      <button data-filter="uiux" class="btn" style="font-size:12px;padding:8px 16px;border:1px solid var(--card-border);background:transparent;border-radius:9999px;cursor:pointer;">UI/UX</button>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div id="gallery-grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;">
+      <div class="bento-card reveal reveal-delay-0" data-category="web" style="overflow:hidden;cursor:pointer;" onclick="openLightbox(this)">
+        <div style="position:relative;height:320px;overflow:hidden;">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80" alt="REDI Dashboard" style="width:100%;height:100%;object-fit:cover;transition:transform 0.7s ease;" loading="lazy">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.6),transparent);opacity:0;transition:opacity 0.3s ease;display:flex;align-items:flex-end;padding:24px;">
+            <div>
+              <h3 style="font-size:16px;font-weight:700;color:#fff;margin-bottom:4px;">REDI Dashboard</h3>
+              <p style="font-size:12px;color:rgba(255,255,255,0.7);">AI-powered educational analytics platform</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bento-card reveal reveal-delay-1" data-category="branding" style="overflow:hidden;cursor:pointer;" onclick="openLightbox(this)">
+        <div style="position:relative;height:240px;overflow:hidden;">
+          <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80" alt="Pan-African Telecom Rebrand" style="width:100%;height:100%;object-fit:cover;transition:transform 0.7s ease;" loading="lazy">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.6),transparent);opacity:0;transition:opacity 0.3s ease;display:flex;align-items:flex-end;padding:24px;">
+            <div>
+              <h3 style="font-size:16px;font-weight:700;color:#fff;margin-bottom:4px;">Pan-African Telecom Rebrand</h3>
+              <p style="font-size:12px;color:rgba(255,255,255,0.7);">Complete brand identity redesign</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bento-card reveal reveal-delay-2" data-category="ai" style="overflow:hidden;cursor:pointer;" onclick="openLightbox(this)">
+        <div style="position:relative;height:240px;overflow:hidden;">
+          <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80" alt="MedScan AI Interface" style="width:100%;height:100%;object-fit:cover;transition:transform 0.7s ease;" loading="lazy">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.6),transparent);opacity:0;transition:opacity 0.3s ease;display:flex;align-items:flex-end;padding:24px;">
+            <div>
+              <h3 style="font-size:16px;font-weight:700;color:#fff;margin-bottom:4px;">MedScan AI Interface</h3>
+              <p style="font-size:12px;color:rgba(255,255,255,0.7);">Medical imaging analysis tool</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bento-card reveal reveal-delay-3" data-category="uiux" style="overflow:hidden;cursor:pointer;" onclick="openLightbox(this)">
+        <div style="position:relative;height:320px;overflow:hidden;">
+          <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80" alt="AfriMarket Mobile" style="width:100%;height:100%;object-fit:cover;transition:transform 0.7s ease;" loading="lazy">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.6),transparent);opacity:0;transition:opacity 0.3s ease;display:flex;align-items:flex-end;padding:24px;">
+            <div>
+              <h3 style="font-size:16px;font-weight:700;color:#fff;margin-bottom:4px;">AfriMarket Mobile</h3>
+              <p style="font-size:12px;color:rgba(255,255,255,0.7);">E-commerce platform design</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bento-card reveal reveal-delay-0" data-category="web" style="overflow:hidden;cursor:pointer;" onclick="openLightbox(this)">
+        <div style="position:relative;height:240px;overflow:hidden;">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" alt="Enterprise Portal" style="width:100%;height:100%;object-fit:cover;transition:transform 0.7s ease;" loading="lazy">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.6),transparent);opacity:0;transition:opacity 0.3s ease;display:flex;align-items:flex-end;padding:24px;">
+            <div>
+              <h3 style="font-size:16px;font-weight:700;color:#fff;margin-bottom:4px;">Enterprise Portal</h3>
+              <p style="font-size:12px;color:rgba(255,255,255,0.7);">Digital governance platform</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bento-card reveal reveal-delay-1" data-category="mobile" style="overflow:hidden;cursor:pointer;" onclick="openLightbox(this)">
+        <div style="position:relative;height:240px;overflow:hidden;">
+          <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&q=80" alt="REDI Student App" style="width:100%;height:100%;object-fit:cover;transition:transform 0.7s ease;" loading="lazy">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.6),transparent);opacity:0;transition:opacity 0.3s ease;display:flex;align-items:flex-end;padding:24px;">
+            <div>
+              <h3 style="font-size:16px;font-weight:700;color:#fff;margin-bottom:4px;">REDI Student App</h3>
+              <p style="font-size:12px;color:rgba(255,255,255,0.7);">Mobile learning companion</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bento-card reveal reveal-delay-2" data-category="branding" style="overflow:hidden;cursor:pointer;" onclick="openLightbox(this)">
+        <div style="position:relative;height:320px;overflow:hidden;">
+          <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=800&q=80" alt="GreenTech Identity" style="width:100%;height:100%;object-fit:cover;transition:transform 0.7s ease;" loading="lazy">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.6),transparent);opacity:0;transition:opacity 0.3s ease;display:flex;align-items:flex-end;padding:24px;">
+            <div>
+              <h3 style="font-size:16px;font-weight:700;color:#fff;margin-bottom:4px;">GreenTech Identity</h3>
+              <p style="font-size:12px;color:rgba(255,255,255,0.7);">Sustainable tech brand system</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bento-card reveal reveal-delay-3" data-category="ai" style="overflow:hidden;cursor:pointer;" onclick="openLightbox(this)">
+        <div style="position:relative;height:240px;overflow:hidden;">
+          <img src="https://images.unsplash.com/photo-1562774053-701939374585?w=800&q=80" alt="Smart Campus IoT" style="width:100%;height:100%;object-fit:cover;transition:transform 0.7s ease;" loading="lazy">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.6),transparent);opacity:0;transition:opacity 0.3s ease;display:flex;align-items:flex-end;padding:24px;">
+            <div>
+              <h3 style="font-size:16px;font-weight:700;color:#fff;margin-bottom:4px;">Smart Campus IoT</h3>
+              <p style="font-size:12px;color:rgba(255,255,255,0.7);">University management dashboard</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bento-card reveal reveal-delay-0" data-category="uiux" style="overflow:hidden;cursor:pointer;" onclick="openLightbox(this)">
+        <div style="position:relative;height:240px;overflow:hidden;">
+          <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&q=80" alt="Elite Biz Platform" style="width:100%;height:100%;object-fit:cover;transition:transform 0.7s ease;" loading="lazy">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.6),transparent);opacity:0;transition:opacity 0.3s ease;display:flex;align-items:flex-end;padding:24px;">
+            <div>
+              <h3 style="font-size:16px;font-weight:700;color:#fff;margin-bottom:4px;">Elite Biz Platform</h3>
+              <p style="font-size:12px;color:rgba(255,255,255,0.7);">Consulting service interface</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bento-card reveal reveal-delay-1" data-category="web" style="overflow:hidden;cursor:pointer;" onclick="openLightbox(this)">
+        <div style="position:relative;height:240px;overflow:hidden;">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80" alt="FinanceHub App" style="width:100%;height:100%;object-fit:cover;transition:transform 0.7s ease;" loading="lazy">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.6),transparent);opacity:0;transition:opacity 0.3s ease;display:flex;align-items:flex-end;padding:24px;">
+            <div>
+              <h3 style="font-size:16px;font-weight:700;color:#fff;margin-bottom:4px;">FinanceHub App</h3>
+              <p style="font-size:12px;color:rgba(255,255,255,0.7);">Fintech web application</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bento-card reveal reveal-delay-2" data-category="mobile" style="overflow:hidden;cursor:pointer;" onclick="openLightbox(this)">
+        <div style="position:relative;height:320px;overflow:hidden;">
+          <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=80" alt="Health Innovation" style="width:100%;height:100%;object-fit:cover;transition:transform 0.7s ease;" loading="lazy">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.6),transparent);opacity:0;transition:opacity 0.3s ease;display:flex;align-items:flex-end;padding:24px;">
+            <div>
+              <h3 style="font-size:16px;font-weight:700;color:#fff;margin-bottom:4px;">Health Innovation</h3>
+              <p style="font-size:12px;color:rgba(255,255,255,0.7);">Healthcare mobile solution</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bento-card reveal reveal-delay-3" data-category="branding" style="overflow:hidden;cursor:pointer;" onclick="openLightbox(this)">
+        <div style="position:relative;height:240px;overflow:hidden;">
+          <img src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=800&q=80" alt="AfriMarket Brand" style="width:100%;height:100%;object-fit:cover;transition:transform 0.7s ease;" loading="lazy">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.6),transparent);opacity:0;transition:opacity 0.3s ease;display:flex;align-items:flex-end;padding:24px;">
+            <div>
+              <h3 style="font-size:16px;font-weight:700;color:#fff;margin-bottom:4px;">AfriMarket Brand</h3>
+              <p style="font-size:12px;color:rgba(255,255,255,0.7);">Marketplace brand guidelines</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bento-card reveal reveal-delay-0" data-category="ai" style="overflow:hidden;cursor:pointer;" onclick="openLightbox(this)">
+        <div style="position:relative;height:240px;overflow:hidden;">
+          <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80" alt="NLP Assessment Tool" style="width:100%;height:100%;object-fit:cover;transition:transform 0.7s ease;" loading="lazy">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.6),transparent);opacity:0;transition:opacity 0.3s ease;display:flex;align-items:flex-end;padding:24px;">
+            <div>
+              <h3 style="font-size:16px;font-weight:700;color:#fff;margin-bottom:4px;">NLP Assessment Tool</h3>
+              <p style="font-size:12px;color:rgba(255,255,255,0.7);">Automated essay grading system</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bento-card reveal reveal-delay-1" data-category="uiux" style="overflow:hidden;cursor:pointer;" onclick="openLightbox(this)">
+        <div style="position:relative;height:240px;overflow:hidden;">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80" alt="Dashboard Design" style="width:100%;height:100%;object-fit:cover;transition:transform 0.7s ease;" loading="lazy">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.6),transparent);opacity:0;transition:opacity 0.3s ease;display:flex;align-items:flex-end;padding:24px;">
+            <div>
+              <h3 style="font-size:16px;font-weight:700;color:#fff;margin-bottom:4px;">Dashboard Design</h3>
+              <p style="font-size:12px;color:rgba(255,255,255,0.7);">Analytics dashboard system</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bento-card reveal reveal-delay-2" data-category="web" style="overflow:hidden;cursor:pointer;" onclick="openLightbox(this)">
+        <div style="position:relative;height:320px;overflow:hidden;">
+          <img src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=800&q=80" alt="Digital Skills Portal" style="width:100%;height:100%;object-fit:cover;transition:transform 0.7s ease;" loading="lazy">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.6),transparent);opacity:0;transition:opacity 0.3s ease;display:flex;align-items:flex-end;padding:24px;">
+            <div>
+              <h3 style="font-size:16px;font-weight:700;color:#fff;margin-bottom:4px;">Digital Skills Portal</h3>
+              <p style="font-size:12px;color:rgba(255,255,255,0.7);">Training platform interface</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bento-card reveal reveal-delay-3" data-category="branding" style="overflow:hidden;cursor:pointer;" onclick="openLightbox(this)">
+        <div style="position:relative;height:240px;overflow:hidden;">
+          <img src="https://images.unsplash.com/photo-1600134467661-3d775b999c8b?w=800&q=80" alt="Innovate Africa" style="width:100%;height:100%;object-fit:cover;transition:transform 0.7s ease;" loading="lazy">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.6),transparent);opacity:0;transition:opacity 0.3s ease;display:flex;align-items:flex-end;padding:24px;">
+            <div>
+              <h3 style="font-size:16px;font-weight:700;color:#fff;margin-bottom:4px;">Innovate Africa</h3>
+              <p style="font-size:12px;color:rgba(255,255,255,0.7);">Startup brand identity</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bento-card reveal reveal-delay-0" data-category="mobile" style="overflow:hidden;cursor:pointer;" onclick="openLightbox(this)">
+        <div style="position:relative;height:240px;overflow:hidden;">
+          <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&q=80" alt="Marketplace App" style="width:100%;height:100%;object-fit:cover;transition:transform 0.7s ease;" loading="lazy">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.6),transparent);opacity:0;transition:opacity 0.3s ease;display:flex;align-items:flex-end;padding:24px;">
+            <div>
+              <h3 style="font-size:16px;font-weight:700;color:#fff;margin-bottom:4px;">Marketplace App</h3>
+              <p style="font-size:12px;color:rgba(255,255,255,0.7);">Artisan e-commerce mobile app</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bento-card reveal reveal-delay-1" data-category="ai" style="overflow:hidden;cursor:pointer;" onclick="openLightbox(this)">
+        <div style="position:relative;height:240px;overflow:hidden;">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80" alt="Predictive Analytics" style="width:100%;height:100%;object-fit:cover;transition:transform 0.7s ease;" loading="lazy">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.6),transparent);opacity:0;transition:opacity 0.3s ease;display:flex;align-items:flex-end;padding:24px;">
+            <div>
+              <h3 style="font-size:16px;font-weight:700;color:#fff;margin-bottom:4px;">Predictive Analytics</h3>
+              <p style="font-size:12px;color:rgba(255,255,255,0.7);">Student performance prediction</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bento-card reveal reveal-delay-2" data-category="uiux" style="overflow:hidden;cursor:pointer;" onclick="openLightbox(this)">
+        <div style="position:relative;height:320px;overflow:hidden;">
+          <img src="https://images.unsplash.com/photo-1586717799252-bd134f5c0c10?w=800&q=80" alt="Onboarding Flow" style="width:100%;height:100%;object-fit:cover;transition:transform 0.7s ease;" loading="lazy">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.6),transparent);opacity:0;transition:opacity 0.3s ease;display:flex;align-items:flex-end;padding:24px;">
+            <div>
+              <h3 style="font-size:16px;font-weight:700;color:#fff;margin-bottom:4px;">Onboarding Flow</h3>
+              <p style="font-size:12px;color:rgba(255,255,255,0.7);">User onboarding experience design</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bento-card reveal reveal-delay-3" data-category="web" style="overflow:hidden;cursor:pointer;" onclick="openLightbox(this)">
+        <div style="position:relative;height:240px;overflow:hidden;">
+          <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80" alt="Telecom Portal" style="width:100%;height:100%;object-fit:cover;transition:transform 0.7s ease;" loading="lazy">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.6),transparent);opacity:0;transition:opacity 0.3s ease;display:flex;align-items:flex-end;padding:24px;">
+            <div>
+              <h3 style="font-size:16px;font-weight:700;color:#fff;margin-bottom:4px;">Telecom Portal</h3>
+              <p style="font-size:12px;color:rgba(255,255,255,0.7);">Customer service platform</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div id="lightbox" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.9);backdrop-filter:blur(8px);align-items:center;justify-content:center;padding:40px;cursor:pointer;" onclick="closeLightbox()">
+  <button onclick="closeLightbox()" style="position:absolute;top:20px;right:20px;width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.1);color:#fff;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10;" aria-label="Close">&times;</button>
+  <img id="lightbox-img" src="" alt="" style="max-width:90%;max-height:85vh;object-fit:contain;border-radius:12px;">
+  <div id="lightbox-caption" style="position:absolute;bottom:32px;left:50%;transform:translateX(-50%);text-align:center;">
+    <h3 id="lightbox-title" style="font-size:18px;font-weight:700;color:#fff;margin-bottom:4px;"></h3>
+    <p id="lightbox-desc" style="font-size:13px;color:rgba(255,255,255,0.6);"></p>
+  </div>
+</div>
+
+<style>
+  #gallery-grid > div:hover img { transform: scale(1.05); }
+  #gallery-grid > div > div > div:last-child { opacity: 1; }
+  @media (min-width: 640px) {
+    #gallery-grid { grid-template-columns: repeat(3, 1fr) !important; }
+  }
+</style>
+
+<script>
+function openLightbox(el) {
+  const img = el.querySelector('img');
+  const title = el.querySelector('h3');
+  const desc = el.querySelector('p');
+  document.getElementById('lightbox-img').src = img.src;
+  document.getElementById('lightbox-img').alt = img.alt;
+  document.getElementById('lightbox-title').textContent = title ? title.textContent : '';
+  document.getElementById('lightbox-desc').textContent = desc ? desc.textContent : '';
+  document.getElementById('lightbox').style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').style.display = 'none';
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+</script>
+
+<footer style="padding:64px 0 32px;border-top:1px solid var(--card-border);">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr;gap:48px;margin-bottom:48px;" class="footer-grid">
+      <div>
+        <a href="index.html" style="display:flex;align-items:center;gap:8px;font-weight:700;font-size:18px;letter-spacing:-0.02em;margin-bottom:16px;">
+          <span style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:8px;background:var(--gold);color:#fff;font-size:13px;font-weight:700;">A</span>
+          AZERTYCORP
+        </a>
+        <p class="card-text" style="max-width:280px;">Engineering Digital Excellence. Premium African technology company.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:32px;">
+        <div>
+          <h4 style="font-size:12px;font-weight:700;margin-bottom:16px;text-transform:uppercase;letter-spacing:0.1em;">Company</h4>
+          <ul style="display:flex;flex-direction:column;gap:10px;">
+            <li><a href="about.html" class="card-text" style="font-size:13px;">About</a></li>
+            <li><a href="services.html" class="card-text" style="font-size:13px;">Services</a></li>
+            <li><a href="pricing.html" class="card-text" style="font-size:13px;">Pricing</a></li>
+            <li><a href="gallery.html" class="card-text" style="font-size:13px;">Gallery</a></li>
+            <li><a href="portfolio.html" class="card-text" style="font-size:13px;">Portfolio</a></li>
+            <li><a href="blog.html" class="card-text" style="font-size:13px;">Blog</a></li>
+            <li><a href="redi.html" class="card-text" style="font-size:13px;">REDI</a></li>
+            <li><a href="elite-biz.html" class="card-text" style="font-size:13px;">Elite Biz</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="font-size:12px;font-weight:700;margin-bottom:16px;text-transform:uppercase;letter-spacing:0.1em;">Resources</h4>
+          <ul style="display:flex;flex-direction:column;gap:10px;">
+            <li><a href="cv.html" class="card-text" style="font-size:13px;">CV</a></li>
+            <li><a href="contact.html" class="card-text" style="font-size:13px;">Contact</a></li>
+            <li><a href="#" class="card-text" style="font-size:13px;">Privacy</a></li>
+            <li><a href="#" class="card-text" style="font-size:13px;">Terms</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid var(--card-border);padding-top:24px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;">
+      <p class="card-text" style="font-size:12px;">&copy; 2026 AZERTYCORP. All rights reserved.</p>
+      <p class="card-text" style="font-size:12px;">Built with care from Africa</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  @media (min-width: 640px) {
+    .footer-grid { grid-template-columns: 1fr 2fr !important; }
+  }
+</style>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

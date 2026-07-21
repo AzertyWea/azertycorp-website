@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elite Biz — Strategic Consulting | AZERTYCORP</title>
+  <meta name="description" content="Helping startups and enterprises navigate digital transformation with precision.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/design-system.css">
+  <link rel="stylesheet" href="assets/css/dark-mode.css">
+</head>
+<body>
+<nav class="nav-bar" style="position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 0;transition:all 0.3s ease;background:rgba(250,250,250,0.7);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--card-border);box-shadow:0 2px 8px rgba(0,0,0,0.03);">
+  <div class="container" style="display:flex;align-items:center;justify-content:space-between;">
+    <a href="index.html" style="display:flex;align-items:center;gap:8px;font-weight:700;font-size:18px;letter-spacing:-0.02em;">
+      <span style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:8px;background:var(--gold);color:#fff;font-size:13px;font-weight:700;">A</span>
+      AZERTYCORP
+    </a>
+
+    <div style="display:flex;align-items:center;gap:32px;" class="nav-desktop">
+      <a href="index.html" class="nav-link" style="font-size:13px;font-weight:500;opacity:0.5;transition:opacity 0.3s;">Home</a>
+      <a href="about.html" class="nav-link" style="font-size:13px;font-weight:500;opacity:0.5;transition:opacity 0.3s;">About</a>
+      <a href="services.html" class="nav-link" style="font-size:13px;font-weight:500;opacity:0.5;transition:opacity 0.3s;">Services</a>
+      <a href="pricing.html" class="nav-link" style="font-size:13px;font-weight:500;opacity:0.5;transition:opacity 0.3s;">Pricing</a>
+      <a href="gallery.html" class="nav-link" style="font-size:13px;font-weight:500;opacity:0.5;transition:opacity 0.3s;">Gallery</a>
+      <a href="portfolio.html" class="nav-link" style="font-size:13px;font-weight:500;opacity:0.5;transition:opacity 0.3s;">Portfolio</a>
+      <a href="blog.html" class="nav-link" style="font-size:13px;font-weight:500;opacity:0.5;transition:opacity 0.3s;">Blog</a>
+      <a href="contact.html" class="nav-link" style="font-size:13px;font-weight:500;opacity:0.5;transition:opacity 0.3s;">Contact</a>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:12px;">
+      <button id="theme-toggle" style="width:36px;height:36px;border-radius:10px;border:1px solid var(--card-border);background:var(--card);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.3s;color:var(--foreground);" aria-label="Toggle theme"></button>
+      <a href="contact.html" class="btn btn-primary" style="padding:10px 20px;font-size:12px;" class="nav-desktop">Get Started</a>
+      <button id="mobile-menu-btn" style="display:none;width:36px;height:36px;border-radius:10px;border:1px solid var(--card-border);background:var(--card);align-items:center;justify-content:center;cursor:pointer;color:var(--foreground);" aria-label="Menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="hidden" style="position:absolute;top:100%;left:0;right:0;background:var(--card);border-bottom:1px solid var(--card-border);padding:16px 24px;display:none;flex-direction:column;gap:8px;box-shadow:0 8px 30px rgba(0,0,0,0.08);">
+    <a href="index.html" style="padding:12px 16px;border-radius:10px;font-size:14px;font-weight:500;transition:background 0.3s;">Home</a>
+    <a href="about.html" style="padding:12px 16px;border-radius:10px;font-size:14px;font-weight:500;transition:background 0.3s;">About</a>
+    <a href="services.html" style="padding:12px 16px;border-radius:10px;font-size:14px;font-weight:500;transition:background 0.3s;">Services</a>
+    <a href="pricing.html" style="padding:12px 16px;border-radius:10px;font-size:14px;font-weight:500;transition:background 0.3s;">Pricing</a>
+    <a href="gallery.html" style="padding:12px 16px;border-radius:10px;font-size:14px;font-weight:500;transition:background 0.3s;">Gallery</a>
+    <a href="portfolio.html" style="padding:12px 16px;border-radius:10px;font-size:14px;font-weight:500;transition:background 0.3s;">Portfolio</a>
+    <a href="blog.html" style="padding:12px 16px;border-radius:10px;font-size:14px;font-weight:500;transition:background 0.3s;">Blog</a>
+    <a href="contact.html" style="padding:12px 16px;border-radius:10px;font-size:14px;font-weight:500;transition:background 0.3s;">Contact</a>
+    <a href="redi.html" style="padding:12px 16px;border-radius:10px;font-size:14px;font-weight:500;transition:background 0.3s;">REDI</a>
+    <a href="elite-biz.html" style="padding:12px 16px;border-radius:10px;font-size:14px;font-weight:500;transition:background 0.3s;">Elite Biz</a>
+    <a href="cv.html" style="padding:12px 16px;border-radius:10px;font-size:14px;font-weight:500;transition:background 0.3s;">CV</a>
+  </div>
+</nav>
+
+<style>
+  .nav-link.nav-active, .nav-link:hover { opacity: 1 !important; color: var(--gold) !important; }
+  .nav-scrolled { padding: 10px 0 !important; box-shadow: 0 4px 20px rgba(0,0,0,0.06) !important; }
+  .nav-mobile-menu { display: none; }
+  .nav-mobile-menu.open { display: flex !important; }
+  @media (max-width: 1023px) {
+    .nav-desktop { display: none !important; }
+    #mobile-menu-btn { display: flex !important; }
+    a.btn.nav-desktop { display: none !important; }
+  }
+</style>
+
+<section class="page-hero">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&q=80" alt="" loading="eager">
+  </div>
+  <div class="hero-glow"></div>
+  <div class="container" style="position:relative;">
+    <div class="reveal" style="display:grid;grid-template-columns:1fr;gap:48px;align-items:center;" class="elite-grid">
+      <div>
+        <span class="section-label">Business Consulting</span>
+        <h1 class="heading-xl" style="margin-bottom:32px;">
+          <span class="text-gradient">Elite Biz</span><br>Strategic Consulting
+        </h1>
+        <p class="card-text" style="max-width:480px;font-size:16px;">
+          Helping startups and enterprises navigate digital transformation with precision.
+        </p>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;" class="elite-images">
+        <div style="height:160px;border-radius:16px;overflow:hidden;margin-top:24px;">
+          <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&q=80" alt="" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
+        </div>
+        <div style="height:160px;border-radius:16px;overflow:hidden;margin-top:48px;">
+          <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80" alt="" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
+        </div>
+        <div style="height:160px;border-radius:16px;overflow:hidden;margin-top:-24px;">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" alt="" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
+        </div>
+        <div style="height:160px;border-radius:16px;overflow:hidden;">
+          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80" alt="" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section class="section-muted">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:80px;">
+      <span class="section-label">Services</span>
+      <h2 class="heading-lg">What We Offer</h2>
+    </div>
+    <div class="grid-3">
+      <div class="bento-card reveal reveal-delay-0" style="padding:32px;">
+        <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+        <h3 class="card-title" style="margin-bottom:12px;">Digital Transformation</h3>
+        <p class="card-text">Complete digitization of business processes.</p>
+      </div>
+      <div class="bento-card reveal reveal-delay-1" style="padding:32px;">
+        <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 1 1 7.072 0l-.548.547A3.374 3.374 0 0 0 14 18.469V19a2 2 0 1 1-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg></div>
+        <h3 class="card-title" style="margin-bottom:12px;">Startup Consulting</h3>
+        <p class="card-text">From ideation to MVP to growth.</p>
+      </div>
+      <div class="bento-card reveal reveal-delay-2" style="padding:32px;">
+        <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+        <h3 class="card-title" style="margin-bottom:12px;">Technology Strategy</h3>
+        <p class="card-text">Roadmaps aligned with business objectives.</p>
+      </div>
+      <div class="bento-card reveal reveal-delay-0" style="padding:32px;">
+        <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3 class="card-title" style="margin-bottom:12px;">Team Augmentation</h3>
+        <p class="card-text">Access expert engineers and designers.</p>
+      </div>
+      <div class="bento-card reveal reveal-delay-1" style="padding:32px;">
+        <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/></svg></div>
+        <h3 class="card-title" style="margin-bottom:12px;">Product Launch</h3>
+        <p class="card-text">Go-to-market strategy and execution.</p>
+      </div>
+      <div class="bento-card reveal reveal-delay-2" style="padding:32px;">
+        <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3 class="card-title" style="margin-bottom:12px;">Risk Assessment</h3>
+        <p class="card-text">Technology due diligence for investments.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Packages -->
+<section class="section">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:80px;">
+      <span class="section-label">Packages</span>
+      <h2 class="heading-lg">Choose Your Path</h2>
+    </div>
+    <div class="grid-3">
+      <div class="bento-card reveal " style="padding:36px;">
+        <h3 style="font-size:20px;font-weight:700;margin-bottom:8px;">Starter</h3>
+        <p class="card-text" style="font-size:12px;margin-bottom:20px;">For early-stage startups</p>
+        <div style="margin-bottom:24px;">
+          <span style="font-size:32px;font-weight:700;">$2,500</span>
+          <span class="card-text" style="font-size:12px;">/project</span>
+        </div>
+        <ul class="pricing-features" style="margin-bottom:32px;">
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Business assessment</span>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Digital strategy roadmap</span>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Market analysis</span>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>2 consulting sessions</span>
+          </li>
+        </ul>
+        <a href="contact.html" style="display:block;text-align:center;padding:12px;border-radius:9999px;font-size:13px;font-weight:500;transition:all 0.3s;border:1px solid var(--card-border);">Get Started</a>
+      </div>
+      <div class="bento-card reveal  pricing-card popular" style="padding:36px;border:2px solid var(--gold);">
+        <span class="pricing-badge">Most Popular</span>
+        <h3 style="font-size:20px;font-weight:700;margin-bottom:8px;">Growth</h3>
+        <p class="card-text" style="font-size:12px;margin-bottom:20px;">For growing companies</p>
+        <div style="margin-bottom:24px;">
+          <span style="font-size:32px;font-weight:700;">$7,500</span>
+          <span class="card-text" style="font-size:12px;">/project</span>
+        </div>
+        <ul class="pricing-features" style="margin-bottom:32px;">
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Everything in Starter</span>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>MVP development guidance</span>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>4 consulting sessions</span>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>3-month follow-up</span>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Priority support</span>
+          </li>
+        </ul>
+        <a href="contact.html" style="display:block;text-align:center;padding:12px;border-radius:9999px;font-size:13px;font-weight:500;transition:all 0.3s;background:var(--foreground);color:var(--background);">Get Started</a>
+      </div>
+      <div class="bento-card reveal " style="padding:36px;">
+        <h3 style="font-size:20px;font-weight:700;margin-bottom:8px;">Enterprise</h3>
+        <p class="card-text" style="font-size:12px;margin-bottom:20px;">For large organizations</p>
+        <div style="margin-bottom:24px;">
+          <span style="font-size:32px;font-weight:700;">$Custom</span>
+        </div>
+        <ul class="pricing-features" style="margin-bottom:32px;">
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Everything in Growth</span>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Full digital transformation</span>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Unlimited sessions</span>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>12-month partnership</span>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Board advisory</span>
+          </li>
+        </ul>
+        <a href="contact.html" style="display:block;text-align:center;padding:12px;border-radius:9999px;font-size:13px;font-weight:500;transition:all 0.3s;border:1px solid var(--card-border);">Get Started</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Process -->
+<section class="section-muted">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:80px;">
+      <span class="section-label">Process</span>
+      <h2 class="heading-lg">Our Process</h2>
+    </div>
+    <div class="grid-4">
+      <div class="bento-card reveal reveal-delay-0" style="padding:32px;text-align:center;">
+        <div class="process-num"><span>01</span></div>
+        <h3 style="font-size:14px;font-weight:700;margin-bottom:8px;">Discovery</h3>
+        <p class="card-text" style="font-size:12px;">Deep understanding of your business and goals.</p>
+      </div>
+      <div class="bento-card reveal reveal-delay-1" style="padding:32px;text-align:center;">
+        <div class="process-num"><span>02</span></div>
+        <h3 style="font-size:14px;font-weight:700;margin-bottom:8px;">Strategy</h3>
+        <p class="card-text" style="font-size:12px;">Tailored roadmap for transformation.</p>
+      </div>
+      <div class="bento-card reveal reveal-delay-2" style="padding:32px;text-align:center;">
+        <div class="process-num"><span>03</span></div>
+        <h3 style="font-size:14px;font-weight:700;margin-bottom:8px;">Implementation</h3>
+        <p class="card-text" style="font-size:12px;">Precision execution alongside your team.</p>
+      </div>
+      <div class="bento-card reveal reveal-delay-3" style="padding:32px;text-align:center;">
+        <div class="process-num"><span>04</span></div>
+        <h3 style="font-size:14px;font-weight:700;margin-bottom:8px;">Optimization</h3>
+        <p class="card-text" style="font-size:12px;">Continuous measurement and optimization.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section cta-gold">
+  <div class="container">
+    <div class="reveal">
+      <h2 class="heading-lg" style="margin-bottom:32px;">Ready to Transform?</h2>
+      <p class="card-text" style="max-width:480px;margin:0 auto 40px;font-size:14px;color:rgba(255,255,255,0.6);">
+        Let's discuss how Elite Biz can help you navigate your digital transformation.
+      </p>
+      <a href="contact.html" class="btn btn-white">Book a Free Consultation</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  @media (min-width: 1024px) {
+    .elite-grid { grid-template-columns: 1fr 1fr !important; }
+  }
+</style>
+
+<footer style="padding:64px 0 32px;border-top:1px solid var(--card-border);">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr;gap:48px;margin-bottom:48px;" class="footer-grid">
+      <div>
+        <a href="index.html" style="display:flex;align-items:center;gap:8px;font-weight:700;font-size:18px;letter-spacing:-0.02em;margin-bottom:16px;">
+          <span style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:8px;background:var(--gold);color:#fff;font-size:13px;font-weight:700;">A</span>
+          AZERTYCORP
+        </a>
+        <p class="card-text" style="max-width:280px;">Engineering Digital Excellence. Premium African technology company.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:32px;">
+        <div>
+          <h4 style="font-size:12px;font-weight:700;margin-bottom:16px;text-transform:uppercase;letter-spacing:0.1em;">Company</h4>
+          <ul style="display:flex;flex-direction:column;gap:10px;">
+            <li><a href="about.html" class="card-text" style="font-size:13px;">About</a></li>
+            <li><a href="services.html" class="card-text" style="font-size:13px;">Services</a></li>
+            <li><a href="pricing.html" class="card-text" style="font-size:13px;">Pricing</a></li>
+            <li><a href="gallery.html" class="card-text" style="font-size:13px;">Gallery</a></li>
+            <li><a href="portfolio.html" class="card-text" style="font-size:13px;">Portfolio</a></li>
+            <li><a href="blog.html" class="card-text" style="font-size:13px;">Blog</a></li>
+            <li><a href="redi.html" class="card-text" style="font-size:13px;">REDI</a></li>
+            <li><a href="elite-biz.html" class="card-text" style="font-size:13px;">Elite Biz</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="font-size:12px;font-weight:700;margin-bottom:16px;text-transform:uppercase;letter-spacing:0.1em;">Resources</h4>
+          <ul style="display:flex;flex-direction:column;gap:10px;">
+            <li><a href="cv.html" class="card-text" style="font-size:13px;">CV</a></li>
+            <li><a href="contact.html" class="card-text" style="font-size:13px;">Contact</a></li>
+            <li><a href="#" class="card-text" style="font-size:13px;">Privacy</a></li>
+            <li><a href="#" class="card-text" style="font-size:13px;">Terms</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid var(--card-border);padding-top:24px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;">
+      <p class="card-text" style="font-size:12px;">&copy; 2026 AZERTYCORP. All rights reserved.</p>
+      <p class="card-text" style="font-size:12px;">Built with care from Africa</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  @media (min-width: 640px) {
+    .footer-grid { grid-template-columns: 1fr 2fr !important; }
+  }
+</style>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

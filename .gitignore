@@ -1,0 +1,14 @@
+# OS
+Thumbs.db
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+
+# PHP (not needed on Vercel)
+*.php
+php.ini-production
+.htaccess
+vendor/
+composer.*
