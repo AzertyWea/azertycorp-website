@@ -4,300 +4,326 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Services | AZERTYCORP</title>
-  <meta name="description" content="End-to-end software solutions, AI, design, consulting, and training built with cutting-edge technologies.">
+  <meta name="description" content="Websites, management systems, AI features, brand identity, product design, and cloud engineering — engineered in-house in Douala, Cameroon.">
+  <meta name="theme-color" content="#F92C53">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23F92C53'/%3E%3Cstop offset='1' stop-color='%23EEAB21'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Ctext x='32' y='44' font-family='Arial' font-weight='800' font-size='34' text-anchor='middle' fill='white'%3EA%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/design-system.css">
-  <link rel="stylesheet" href="assets/css/dark-mode.css">
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=DM+Sans:opsz,wght@9..40,100..1000&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/site.css">
 </head>
 <body>
-<nav class="nav-bar" style="position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 0;transition:all 0.3s ease;background:rgba(250,250,250,0.7);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--card-border);box-shadow:0 2px 8px rgba(0,0,0,0.03);">
-  <div class="container" style="display:flex;align-items:center;justify-content:space-between;">
-    <a href="index.html" style="display:flex;align-items:center;gap:8px;font-weight:700;font-size:18px;letter-spacing:-0.02em;">
-      <span style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:8px;background:var(--gold);color:#fff;font-size:13px;font-weight:700;">A</span>
-      AZERTYCORP
+
+<!-- ============ MOBILE PILL NAV ============ -->
+<div class="mobile-nav-shell">
+  <div class="mobile-nav-pill">
+    <a class="mobile-nav-logo" href="index.html" aria-label="AZERTYCORP home">A</a>
+    <a href="contact.html" class="mobile-nav-label"><span class="mobile-nav-label-text" data-mobile-nav-text>Talk to the studio</span></a>
+    <a href="contact.html" class="mobile-nav-action coral" aria-label="Get a quote">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
     </a>
+    <a href="tel:+237687391985" class="mobile-nav-action" aria-label="Call us">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    </a>
+    <button type="button" class="mobile-nav-action outline" data-menu-open aria-label="Open menu">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</div>
 
-    <div style="display:flex;align-items:center;gap:32px;" class="nav-desktop">
-      <a href="index.html" class="nav-link" style="font-size:13px;font-weight:500;opacity:0.5;transition:opacity 0.3s;">Home</a>
-      <a href="about.html" class="nav-link" style="font-size:13px;font-weight:500;opacity:0.5;transition:opacity 0.3s;">About</a>
-      <a href="services.html" class="nav-link" style="font-size:13px;font-weight:500;opacity:0.5;transition:opacity 0.3s;">Services</a>
-      <a href="pricing.html" class="nav-link" style="font-size:13px;font-weight:500;opacity:0.5;transition:opacity 0.3s;">Pricing</a>
-      <a href="gallery.html" class="nav-link" style="font-size:13px;font-weight:500;opacity:0.5;transition:opacity 0.3s;">Gallery</a>
-      <a href="portfolio.html" class="nav-link" style="font-size:13px;font-weight:500;opacity:0.5;transition:opacity 0.3s;">Portfolio</a>
-      <a href="blog.html" class="nav-link" style="font-size:13px;font-weight:500;opacity:0.5;transition:opacity 0.3s;">Blog</a>
-      <a href="contact.html" class="nav-link" style="font-size:13px;font-weight:500;opacity:0.5;transition:opacity 0.3s;">Contact</a>
-    </div>
-
-    <div style="display:flex;align-items:center;gap:12px;">
-      <button id="theme-toggle" style="width:36px;height:36px;border-radius:10px;border:1px solid var(--card-border);background:var(--card);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.3s;color:var(--foreground);" aria-label="Toggle theme"></button>
-      <a href="contact.html" class="btn btn-primary" style="padding:10px 20px;font-size:12px;" class="nav-desktop">Get Started</a>
-      <button id="mobile-menu-btn" style="display:none;width:36px;height:36px;border-radius:10px;border:1px solid var(--card-border);background:var(--card);align-items:center;justify-content:center;cursor:pointer;color:var(--foreground);" aria-label="Menu">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+<!-- ============ DESKTOP FLOATING PILL NAV ============ -->
+<div class="nav-pill-wrap">
+  <div class="nav-pill">
+    <a href="index.html" class="nav-logo" aria-label="AZERTYCORP home">A</a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html" class="nav-active">Services</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <button type="button" class="nav-icon-btn dark" aria-label="Get a quote" data-open-quote>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      </button>
+      <a href="tel:+237687391985" class="nav-icon-btn" aria-label="Call us">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </a>
+      <button type="button" class="nav-icon-btn nav-hamburger" data-menu-open aria-label="Open menu">
+        <span></span><span></span><span></span>
       </button>
     </div>
   </div>
+</div>
 
-  <div id="mobile-menu" style="display:none;">
-    <a href="index.html" style="padding:12px 16px;border-radius:10px;font-size:14px;font-weight:500;transition:background 0.3s;">Home</a>
-    <a href="about.html" style="padding:12px 16px;border-radius:10px;font-size:14px;font-weight:500;transition:background 0.3s;">About</a>
-    <a href="services.html" style="padding:12px 16px;border-radius:10px;font-size:14px;font-weight:500;transition:background 0.3s;">Services</a>
-    <a href="pricing.html" style="padding:12px 16px;border-radius:10px;font-size:14px;font-weight:500;transition:background 0.3s;">Pricing</a>
-    <a href="gallery.html" style="padding:12px 16px;border-radius:10px;font-size:14px;font-weight:500;transition:background 0.3s;">Gallery</a>
-    <a href="portfolio.html" style="padding:12px 16px;border-radius:10px;font-size:14px;font-weight:500;transition:background 0.3s;">Portfolio</a>
-    <a href="blog.html" style="padding:12px 16px;border-radius:10px;font-size:14px;font-weight:500;transition:background 0.3s;">Blog</a>
-    <a href="contact.html" style="padding:12px 16px;border-radius:10px;font-size:14px;font-weight:500;transition:background 0.3s;">Contact</a>
-    <a href="redi.html" style="padding:12px 16px;border-radius:10px;font-size:14px;font-weight:500;transition:background 0.3s;">REDI</a>
-    <a href="elite-biz.html" style="padding:12px 16px;border-radius:10px;font-size:14px;font-weight:500;transition:background 0.3s;">Elite Biz</a>
-    <a href="cv.html" style="padding:12px 16px;border-radius:10px;font-size:14px;font-weight:500;transition:background 0.3s;">CV</a>
+<!-- ============ FULLSCREEN MOBILE MENU ============ -->
+<div class="full-menu" id="fullMenu" aria-hidden="true">
+  <div class="full-menu-top">
+    <a class="mobile-nav-logo" href="index.html" aria-label="AZERTYCORP home">A</a>
+    <button type="button" class="full-menu-close" id="fullMenuClose" aria-label="Close menu">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
   </div>
-</nav>
+  <nav class="full-menu-links" aria-label="Mobile">
+    <a href="index.html"><span class="idx">01</span>Home</a>
+    <a href="about.html"><span class="idx">02</span>About</a>
+    <a href="services.html" class="nav-active"><span class="idx">03</span>Services</a>
+    <a href="pricing.html"><span class="idx">04</span>Pricing</a>
+    <a href="portfolio.html"><span class="idx">05</span>Portfolio</a>
+    <a href="gallery.html"><span class="idx">06</span>Gallery</a>
+    <a href="blog.html"><span class="idx">07</span>Blog</a>
+    <a href="redi.html"><span class="idx">08</span>REDI</a>
+    <a href="elite-biz.html"><span class="idx">09</span>Elite Biz</a>
+    <a href="cv.html"><span class="idx">10</span>CV</a>
+    <a href="contact.html"><span class="idx">11</span>Contact</a>
+  </nav>
+  <div class="full-menu-foot">
+    <span>hello@azertycorp.com</span>
+    <a href="tel:+237687391985">+237 687 391 985</a>
+    <a href="contact.html">Book a call</a>
+  </div>
+</div>
 
-<style>
-  .nav-link.nav-active, .nav-link:hover { opacity: 1 !important; color: var(--gold) !important; }
-  .nav-scrolled { padding: 10px 0 !important; box-shadow: 0 4px 20px rgba(0,0,0,0.06) !important; }
-  @media (max-width: 1023px) {
-    .nav-desktop { display: none !important; }
-    #mobile-menu-btn { display: flex !important; }
-    a.btn.nav-desktop { display: none !important; }
-  }
-</style>
+<main>
 
+<!-- ============ PAGE HERO ============ -->
 <section class="page-hero">
-  <div class="hero-glow"></div>
-  <div class="container" style="position:relative;">
-    <div class="reveal" style="max-width:700px;">
-      <span class="section-label">Our Services</span>
-      <h1 class="heading-xl" style="margin-bottom:32px;">
-        Solutions That <span class="text-gradient">Drive Impact</span>
-      </h1>
-      <p class="card-text" style="max-width:560px;font-size:16px;">
-        End-to-end solutions built with cutting-edge technologies to transform your business.
-      </p>
+  <div class="page-hero-media" aria-hidden="true">
+    <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1600&q=80" alt="" loading="eager">
+  </div>
+  <div class="page-hero-content">
+    <p class="eyebrow">What we do</p>
+    <h1>Digital products, built <span class="grad">end to end.</span></h1>
+    <p>Six disciplines, one team. From the first sketch to the last deployment, we design and engineer the whole product.</p>
+    <div class="page-hero-actions">
+      <a href="contact.html" class="btn-pill btn-light">Start a project</a>
+      <a href="pricing.html" class="btn-pill btn-white-ghost">View pricing</a>
     </div>
   </div>
 </section>
 
+<!-- ============ SERVICES GRID ============ -->
 <section class="section">
   <div class="container">
-    <!-- Filter Buttons -->
-    <div class="reveal" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:64px;">
-      <button data-filter="all" class="btn" style="font-size:12px;padding:8px 16px;background:var(--foreground);color:var(--background);border-radius:9999px;border:none;cursor:pointer;">All</button>
-      <button data-filter="software" class="btn" style="font-size:12px;padding:8px 16px;border:1px solid var(--card-border);background:transparent;border-radius:9999px;cursor:pointer;">Software</button>
-      <button data-filter="ai" class="btn" style="font-size:12px;padding:8px 16px;border:1px solid var(--card-border);background:transparent;border-radius:9999px;cursor:pointer;">AI & ML</button>
-      <button data-filter="design" class="btn" style="font-size:12px;padding:8px 16px;border:1px solid var(--card-border);background:transparent;border-radius:9999px;cursor:pointer;">Design</button>
-      <button data-filter="consulting" class="btn" style="font-size:12px;padding:8px 16px;border:1px solid var(--card-border);background:transparent;border-radius:9999px;cursor:pointer;">Consulting</button>
-      <button data-filter="training" class="btn" style="font-size:12px;padding:8px 16px;border:1px solid var(--card-border);background:transparent;border-radius:9999px;cursor:pointer;">Training</button>
+    <div class="section-head">
+      <p class="eyebrow">Services</p>
+      <h2 class="h2-display">Everything you need to <span class="grad">go digital</span></h2>
+      <p class="lead">Fixed scopes, transparent pricing, and a team that ships on time. Choose a service or combine several.</p>
     </div>
+    <div class="grid-3 mt-12">
 
-    <div class="grid-3">
-      <div class="bento-card reveal" data-category="software" style="padding:32px;">
-        <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
-        <h3 class="card-title" style="margin-bottom:12px;">Web Applications</h3>
-        <p class="card-text" style="margin-bottom:16px;">Scalable, performant web applications built with React, Next.js, and modern frameworks.</p>
-        <div style="display:flex;flex-wrap:wrap;gap:6px;">
-          <span class="skill-tag">Next.js & React</span>
-          <span class="skill-tag">Progressive Web Apps</span>
-          <span class="skill-tag">Real-time Features</span>
-          <span class="skill-tag">API Integration</span>
-        </div>
+      <div class="bento-card reveal">
+        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+        <h3>Website development</h3>
+        <p>High-performance marketing sites, e-commerce, and corporate platforms designed to convert visitors into customers.</p>
+        <p class="tag-row"><span class="skill-tag">From $1,200</span><span class="skill-tag">4–8 weeks</span></p>
+        <button type="button" class="card-link" data-open-quote>Get a quote <span aria-hidden="true">&rarr;</span></button>
       </div>
-      <div class="bento-card reveal" data-category="software" style="padding:32px;">
-        <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
-        <h3 class="card-title" style="margin-bottom:12px;">Mobile Applications</h3>
-        <p class="card-text" style="margin-bottom:16px;">Native and cross-platform mobile applications that deliver exceptional user experiences.</p>
-        <div style="display:flex;flex-wrap:wrap;gap:6px;">
-          <span class="skill-tag">React Native</span>
-          <span class="skill-tag">iOS & Android</span>
-          <span class="skill-tag">Offline Support</span>
-          <span class="skill-tag">Push Notifications</span>
-        </div>
+
+      <div class="bento-card reveal" style="--d:.08s">
+        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6"/><path d="M8 6l-6 6 6 6"/></svg></div>
+        <h3>Management systems</h3>
+        <p>Custom dashboards, CRMs, and operations platforms that automate your workflows and put data at your fingertips.</p>
+        <p class="tag-row"><span class="skill-tag">From $3,500</span><span class="skill-tag">Custom scope</span></p>
+        <button type="button" class="card-link" data-open-quote>Get a quote <span aria-hidden="true">&rarr;</span></button>
       </div>
-      <div class="bento-card reveal" data-category="software" style="padding:32px;">
-        <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg></div>
-        <h3 class="card-title" style="margin-bottom:12px;">Cloud Solutions</h3>
-        <p class="card-text" style="margin-bottom:16px;">Cloud-native architectures and migration strategies that optimize performance and reduce costs.</p>
-        <div style="display:flex;flex-wrap:wrap;gap:6px;">
-          <span class="skill-tag">AWS & Azure</span>
-          <span class="skill-tag">Microservices</span>
-          <span class="skill-tag">DevOps</span>
-          <span class="skill-tag">Auto-scaling</span>
-        </div>
+
+      <div class="bento-card reveal" style="--d:.16s">
+        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17H8v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7z"/><line x1="9" y1="21" x2="15" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+        <h3>AI features</h3>
+        <p>Chatbots, recommendation engines, and intelligent automation embedded directly into your product experience.</p>
+        <p class="tag-row"><span class="skill-tag">Custom</span><span class="skill-tag">Most requested</span></p>
+        <button type="button" class="card-link" data-open-quote>Get a quote <span aria-hidden="true">&rarr;</span></button>
       </div>
-      <div class="bento-card reveal" data-category="software" style="padding:32px;">
-        <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
-        <h3 class="card-title" style="margin-bottom:12px;">API Development</h3>
-        <p class="card-text" style="margin-bottom:16px;">Robust RESTful and GraphQL APIs designed for scalability, security, and seamless integration.</p>
-        <div style="display:flex;flex-wrap:wrap;gap:6px;">
-          <span class="skill-tag">REST & GraphQL</span>
-          <span class="skill-tag">Authentication</span>
-          <span class="skill-tag">Rate Limiting</span>
-          <span class="skill-tag">Documentation</span>
-        </div>
+
+      <div class="bento-card reveal">
+        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg></div>
+        <h3>Brand identity</h3>
+        <p>Logos, visual systems, and brand guidelines that make your company unmistakable in the market.</p>
+        <p class="tag-row"><span class="skill-tag">From $800</span><span class="skill-tag">2–4 weeks</span></p>
+        <button type="button" class="card-link" data-open-quote>Get a quote <span aria-hidden="true">&rarr;</span></button>
       </div>
-      <div class="bento-card reveal" data-category="ai" style="padding:32px;">
-        <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a4 4 0 0 0-4 4v2H6a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h1v4a4 4 0 0 0 8 0v-4h1a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2h-2V6a4 4 0 0 0-4-4z"/></svg></div>
-        <h3 class="card-title" style="margin-bottom:12px;">Machine Learning</h3>
-        <p class="card-text" style="margin-bottom:16px;">Custom ML models and pipelines that extract insights from data and automate decisions.</p>
-        <div style="display:flex;flex-wrap:wrap;gap:6px;">
-          <span class="skill-tag">Deep Learning</span>
-          <span class="skill-tag">NLP</span>
-          <span class="skill-tag">Computer Vision</span>
-          <span class="skill-tag">Time Series</span>
-        </div>
+
+      <div class="bento-card reveal" style="--d:.08s">
+        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+        <h3>Product design</h3>
+        <p>Research, wireframes, and polished UI — a design practice that turns complexity into effortless experiences.</p>
+        <p class="tag-row"><span class="skill-tag">From $2,000</span><span class="skill-tag">3–6 weeks</span></p>
+        <button type="button" class="card-link" data-open-quote>Get a quote <span aria-hidden="true">&rarr;</span></button>
       </div>
-      <div class="bento-card reveal" data-category="ai" style="padding:32px;">
-        <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-        <h3 class="card-title" style="margin-bottom:12px;">AI Automation</h3>
-        <p class="card-text" style="margin-bottom:16px;">Intelligent automation solutions that streamline workflows and increase operational efficiency.</p>
-        <div style="display:flex;flex-wrap:wrap;gap:6px;">
-          <span class="skill-tag">Workflow Automation</span>
-          <span class="skill-tag">Document Processing</span>
-          <span class="skill-tag">Chatbots</span>
-          <span class="skill-tag">Predictive Analytics</span>
-        </div>
+
+      <div class="bento-card reveal" style="--d:.16s">
+        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg></div>
+        <h3>Cloud &amp; DevOps</h3>
+        <p>Reliable hosting, CI/CD pipelines, and monitoring so your product stays fast, secure, and always available.</p>
+        <p class="tag-row"><span class="skill-tag">Custom</span><span class="skill-tag">Continuous</span></p>
+        <button type="button" class="card-link" data-open-quote>Get a quote <span aria-hidden="true">&rarr;</span></button>
       </div>
-      <div class="bento-card reveal" data-category="ai" style="padding:32px;">
-        <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
-        <h3 class="card-title" style="margin-bottom:12px;">Data Science</h3>
-        <p class="card-text" style="margin-bottom:16px;">Advanced analytics and data engineering solutions that transform raw data into actionable intelligence.</p>
-        <div style="display:flex;flex-wrap:wrap;gap:6px;">
-          <span class="skill-tag">Analytics</span>
-          <span class="skill-tag">Visualization</span>
-          <span class="skill-tag">ETL Pipelines</span>
-          <span class="skill-tag">Business Intelligence</span>
-        </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section class="section bg-muted">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">How we work</p>
+      <h2 class="h2-display">A process that <span class="grad">keeps you in control</span></h2>
+    </div>
+    <div class="grid-4 mt-12">
+      <div class="bento-card reveal">
+        <div class="step-num">01</div>
+        <h3>Discovery</h3>
+        <p>We dig into your goals, audience, and constraints to define a clear scope.</p>
       </div>
-      <div class="bento-card reveal" data-category="ai" style="padding:32px;">
-        <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 1 1 7.072 0l-.548.547A3.374 3.374 0 0 0 14 18.469V19a2 2 0 1 1-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg></div>
-        <h3 class="card-title" style="margin-bottom:12px;">AI Consulting</h3>
-        <p class="card-text" style="margin-bottom:16px;">Strategic AI adoption roadmaps tailored to your business objectives, ensuring maximum ROI.</p>
-        <div style="display:flex;flex-wrap:wrap;gap:6px;">
-          <span class="skill-tag">Strategy</span>
-          <span class="skill-tag">Feasibility Study</span>
-          <span class="skill-tag">Implementation</span>
-          <span class="skill-tag">Training</span>
-        </div>
+      <div class="bento-card reveal" style="--d:.08s">
+        <div class="step-num">02</div>
+        <h3>Design</h3>
+        <p>Wireframes and visual design that align with your brand and convert.</p>
       </div>
-      <div class="bento-card reveal" data-category="design" style="padding:32px;">
-        <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="13.5" cy="6.5" r="2.5"/><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg></div>
-        <h3 class="card-title" style="margin-bottom:12px;">Brand Identity</h3>
-        <p class="card-text" style="margin-bottom:16px;">Comprehensive brand identity systems that establish memorable, cohesive visual languages.</p>
-        <div style="display:flex;flex-wrap:wrap;gap:6px;">
-          <span class="skill-tag">Logo Design</span>
-          <span class="skill-tag">Brand Guidelines</span>
-          <span class="skill-tag">Color Systems</span>
-          <span class="skill-tag">Typography</span>
-        </div>
+      <div class="bento-card reveal" style="--d:.16s">
+        <div class="step-num">03</div>
+        <h3>Build</h3>
+        <p>Clean code, weekly demos, and honest progress updates until it ships.</p>
       </div>
-      <div class="bento-card reveal" data-category="design" style="padding:32px;">
-        <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div>
-        <h3 class="card-title" style="margin-bottom:12px;">UI/UX Design</h3>
-        <p class="card-text" style="margin-bottom:16px;">User-centered design solutions that create intuitive, beautiful interfaces driving engagement.</p>
-        <div style="display:flex;flex-wrap:wrap;gap:6px;">
-          <span class="skill-tag">User Research</span>
-          <span class="skill-tag">Wireframing</span>
-          <span class="skill-tag">Prototyping</span>
-          <span class="skill-tag">Design Systems</span>
-        </div>
-      </div>
-      <div class="bento-card reveal" data-category="consulting" style="padding:32px;">
-        <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg></div>
-        <h3 class="card-title" style="margin-bottom:12px;">Digital Transformation</h3>
-        <p class="card-text" style="margin-bottom:16px;">End-to-end digital transformation strategies that modernize operations and unlock growth.</p>
-        <div style="display:flex;flex-wrap:wrap;gap:6px;">
-          <span class="skill-tag">Process Optimization</span>
-          <span class="skill-tag">Technology Adoption</span>
-          <span class="skill-tag">Change Management</span>
-          <span class="skill-tag">ROI Analysis</span>
-        </div>
-      </div>
-      <div class="bento-card reveal" data-category="consulting" style="padding:32px;">
-        <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
-        <h3 class="card-title" style="margin-bottom:12px;">Startup Consulting</h3>
-        <p class="card-text" style="margin-bottom:16px;">From ideation to launch and scaling, we guide startups through every stage of growth.</p>
-        <div style="display:flex;flex-wrap:wrap;gap:6px;">
-          <span class="skill-tag">MVP Development</span>
-          <span class="skill-tag">Growth Strategy</span>
-          <span class="skill-tag">Fundraising</span>
-          <span class="skill-tag">Market Fit</span>
-        </div>
-      </div>
-      <div class="bento-card reveal" data-category="training" style="padding:32px;">
-        <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
-        <h3 class="card-title" style="margin-bottom:12px;">Programming Training</h3>
-        <p class="card-text" style="margin-bottom:16px;">Comprehensive programming courses from beginner to advanced, covering all development areas.</p>
-        <div style="display:flex;flex-wrap:wrap;gap:6px;">
-          <span class="skill-tag">Web Development</span>
-          <span class="skill-tag">Python</span>
-          <span class="skill-tag">Data Structures</span>
-          <span class="skill-tag">Capstone Projects</span>
-        </div>
-      </div>
-      <div class="bento-card reveal" data-category="training" style="padding:32px;">
-        <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-        <h3 class="card-title" style="margin-bottom:12px;">Corporate Workshops</h3>
-        <p class="card-text" style="margin-bottom:16px;">Customized training programs for teams looking to upskill in technology and digital literacy.</p>
-        <div style="display:flex;flex-wrap:wrap;gap:6px;">
-          <span class="skill-tag">Team Training</span>
-          <span class="skill-tag">Digital Literacy</span>
-          <span class="skill-tag">Leadership</span>
-          <span class="skill-tag">Custom Curriculum</span>
-        </div>
+      <div class="bento-card reveal" style="--d:.24s">
+        <div class="step-num">04</div>
+        <h3>Launch &amp; support</h3>
+        <p>Deployment, training, and ongoing care so your product keeps growing.</p>
       </div>
     </div>
   </div>
 </section>
 
-<footer style="padding:64px 0 32px;border-top:1px solid var(--card-border);">
-  <div class="container">
-    <div style="display:grid;grid-template-columns:1fr;gap:48px;margin-bottom:48px;" class="footer-grid">
+<!-- ============ WHY IN-HOUSE ============ -->
+<section class="section">
+  <div class="container-narrow">
+    <div class="dark-panel reveal" style="display:grid;grid-template-columns:1fr;gap:2rem;align-items:center">
       <div>
-        <a href="index.html" style="display:flex;align-items:center;gap:8px;font-weight:700;font-size:18px;letter-spacing:-0.02em;margin-bottom:16px;">
-          <span style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:8px;background:var(--gold);color:#fff;font-size:13px;font-weight:700;">A</span>
-          AZERTYCORP
-        </a>
-        <p class="card-text" style="max-width:280px;">Engineering Digital Excellence. Premium African technology company.</p>
+        <p class="eyebrow" style="color:var(--gold)">One team, no handoffs</p>
+        <h3 style="font-family:var(--font-display);font-size:1.7rem;font-weight:700;margin-bottom:1rem">Everything engineered in-house</h3>
+        <p style="color:rgba(255,255,255,.72);line-height:1.8">No outsourcing, no third-party middlemen. Designers, engineers, and AI specialists sit on the same team — so your project never falls through the cracks between agencies.</p>
+        <div class="tag-row" style="margin-top:1.25rem">
+          <span class="skill-tag">100% in-house</span>
+          <span class="skill-tag">50+ projects shipped</span>
+          <span class="skill-tag">8+ industries</span>
+        </div>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:32px;">
-        <div>
-          <h4 style="font-size:12px;font-weight:700;margin-bottom:16px;text-transform:uppercase;letter-spacing:0.1em;">Company</h4>
-          <ul style="display:flex;flex-direction:column;gap:10px;">
-            <li><a href="about.html" class="card-text" style="font-size:13px;">About</a></li>
-            <li><a href="services.html" class="card-text" style="font-size:13px;">Services</a></li>
-            <li><a href="pricing.html" class="card-text" style="font-size:13px;">Pricing</a></li>
-            <li><a href="gallery.html" class="card-text" style="font-size:13px;">Gallery</a></li>
-            <li><a href="portfolio.html" class="card-text" style="font-size:13px;">Portfolio</a></li>
-            <li><a href="blog.html" class="card-text" style="font-size:13px;">Blog</a></li>
-            <li><a href="redi.html" class="card-text" style="font-size:13px;">REDI</a></li>
-            <li><a href="elite-biz.html" class="card-text" style="font-size:13px;">Elite Biz</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 style="font-size:12px;font-weight:700;margin-bottom:16px;text-transform:uppercase;letter-spacing:0.1em;">Resources</h4>
-          <ul style="display:flex;flex-direction:column;gap:10px;">
-            <li><a href="cv.html" class="card-text" style="font-size:13px;">CV</a></li>
-            <li><a href="contact.html" class="card-text" style="font-size:13px;">Contact</a></li>
-            <li><a href="#" class="card-text" style="font-size:13px;">Privacy</a></li>
-            <li><a href="#" class="card-text" style="font-size:13px;">Terms</a></li>
-          </ul>
-        </div>
+      <div class="grid-3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem">
+        <div class="bento-card" style="padding:1.5rem;text-align:center"><div style="font-family:var(--font-display);font-size:1.9rem;font-weight:800;color:var(--primary)">97%</div><p style="font-size:.8rem;margin-top:.4rem">Client satisfaction</p></div>
+        <div class="bento-card" style="padding:1.5rem;text-align:center"><div style="font-family:var(--font-display);font-size:1.9rem;font-weight:800;color:var(--accent)">24h</div><p style="font-size:.8rem;margin-top:.4rem">Response time</p></div>
+        <div class="bento-card" style="padding:1.5rem;text-align:center"><div style="font-family:var(--font-display);font-size:1.9rem;font-weight:800;color:var(--gold)">100%</div><p style="font-size:.8rem;margin-top:.4rem">In-house team</p></div>
       </div>
     </div>
-    <div style="border-top:1px solid var(--card-border);padding-top:24px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;">
-      <p class="card-text" style="font-size:12px;">&copy; 2026 AZERTYCORP. All rights reserved.</p>
-      <p class="card-text" style="font-size:12px;">Built with care from Africa</p>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="section bg-muted" style="padding-top:0">
+  <div class="container">
+    <div class="cta-center reveal">
+      <h2 class="cta-title"><span class="word">Let's</span> <span class="word">build</span> <span class="word">what's</span> <span class="word">next.</span></h2>
+      <p class="cta-sub">Tell us where you want to go — we'll engineer the path.</p>
+      <div class="cta-actions">
+        <span class="btn-ring"><button type="button" class="btn-pill" data-open-quote>Get a quote</button></span>
+        <a href="contact.html" class="btn-pill btn-ghost">Book a call</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="footer-panel">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="f-logo" href="index.html"><span class="mobile-nav-logo" style="font-size:1rem">A</span> AZERTYCORP</a>
+        <p class="f-tag">A design-engineering studio in Douala, Cameroon. We build websites that convert, apps that scale, and brands people remember.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="GitHub"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.27-.01-1.17-.02-2.13-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.7 1.25 3.35.96.1-.75.4-1.25.73-1.54-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.18-1.49 3.14-1.18 3.14-1.18.63 1.59.24 2.76.12 3.05.74.81 1.18 1.83 1.18 3.09 0 4.42-2.69 5.39-5.25 5.67.41.36.78 1.06.78 2.14 0 1.54-.01 2.78-.01 3.16 0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg></a>
+          <a href="#" aria-label="X"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.41l-5.8-7.58-6.64 7.58H.47l8.6-9.83L0 1.15h7.59l5.24 6.93 6.07-6.93zm-1.29 19.5h2.04L6.49 3.24H4.3l13.31 17.41z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html">Website development</a></li>
+          <li><a href="services.html">Management systems</a></li>
+          <li><a href="services.html">AI features</a></li>
+          <li><a href="services.html">Brand identity</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+        </ul>
+      </div>
+      <div class="footer-col footer-contact">
+        <h4>Studio &amp; Contact</h4>
+        <ul>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Douala, Cameroon</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><a href="tel:+237687391985">+237 687 391 985</a></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg><a href="mailto:hello@azertycorp.com">hello@azertycorp.com</a></li>
+        </ul>
+        <a href="contact.html" class="btn-pill btn-coral" style="margin-top:1.25rem;font-size:.8rem;padding:.7rem 1.4rem">Get a quote</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 AZERTYCORP. All rights reserved.</span>
+      <span>We build with empathy, creativity, and purpose.</span>
+      <span><a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></span>
     </div>
   </div>
 </footer>
 
-<style>
-  @media (min-width: 640px) {
-    .footer-grid { grid-template-columns: 1fr 2fr !important; }
-  }
-</style>
+<!-- ============ QUOTE MODAL ============ -->
+<div class="quote-modal-overlay" id="quoteModal" aria-hidden="true">
+  <div class="quote-modal-panel">
+    <div class="qm-head">
+      <div>
+        <h3>Get a quote</h3>
+        <p>Tell us what you're building. We reply within 24 hours.</p>
+      </div>
+      <button type="button" class="qm-close" aria-label="Close">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <form class="qm-form" id="quoteForm">
+      <input type="text" name="name" class="qm-bot" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="qm-row">
+        <div class="qm-field"><label for="qm-name">Name</label><input id="qm-name" name="name" type="text" placeholder="Your name" required></div>
+        <div class="qm-field"><label for="qm-email">Email</label><input id="qm-email" name="email" type="email" placeholder="you@company.com" required></div>
+      </div>
+      <div class="qm-field"><label for="qm-service">Service</label>
+        <select id="qm-service" name="service">
+          <option value="Website development">Website development</option>
+          <option value="Management system">Management system</option>
+          <option value="AI feature">AI-powered feature</option>
+          <option value="Brand identity">Brand identity</option>
+          <option value="Something else">Something else</option>
+        </select>
+      </div>
+      <div class="qm-field"><label for="qm-message">Project details</label><textarea id="qm-message" name="message" rows="4" placeholder="Tell us about your project..." required></textarea></div>
+      <button type="submit" class="btn-pill btn-coral qm-submit">Send request</button>
+      <p class="qm-status" id="quoteStatus" role="status"></p>
+    </form>
+  </div>
+</div>
 
-<script src="assets/js/main.js"></script>
+<script src="assets/js/site.js" defer></script>
 </body>
 </html>

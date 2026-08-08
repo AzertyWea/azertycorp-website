@@ -9,7 +9,9 @@
     { "source": "/contact", "destination": "/contact.html" },
     { "source": "/redi", "destination": "/redi.html" },
     { "source": "/elite-biz", "destination": "/elite-biz.html" },
-    { "source": "/cv", "destination": "/cv.html" }
+    { "source": "/cv", "destination": "/cv.html" },
+    { "source": "/privacy", "destination": "/privacy.html" },
+    { "source": "/terms", "destination": "/terms.html" }
   ],
   "headers": [
     {
