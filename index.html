@@ -1,611 +1,863 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AZERTYCORP — Engineering Digital Excellence | AZERTYCORP</title>
-  <meta name="description" content="Premium African technology company specializing in software engineering, artificial intelligence, graphic design, and digital transformation.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/design-system.css">
-  <link rel="stylesheet" href="assets/css/dark-mode.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AZERTYCORP — Design Engineering Studio in Douala, Cameroon</title>
+<meta name="description" content="AZERTYCORP is a design-engineering studio in Douala, Cameroon. We design and build websites, custom management systems, AI-powered features, and brand identities for clients around the world.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   AZERTYCORP — single-file studio site
+   ============================================================ */
+:root{
+  --ink:#0A0A0A;
+  --ink-2:#1A1A1A;
+  --ink-3:#2A2A2A;
+  --lime:#C6FF3D;
+  --lime-soft:#DCFFA0;
+  --olive:#7A9E1E;
+  --paper:#F0F0F0;
+  --grey:#B8B8B8;
+  --font:'Space Grotesk',system-ui,-apple-system,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+html{scroll-behavior:smooth}
+
+body{
+  font-family:var(--font);
+  background:var(--ink);
+  color:var(--paper);
+  line-height:1.7;
+  font-weight:400;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+ul,ol{list-style:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+
+:focus-visible{outline:2px solid var(--lime);outline-offset:3px;border-radius:4px}
+section[id]{scroll-margin-top:96px}
+
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+@media(min-width:768px){.container{padding:0 40px}}
+
+.mono{font-family:var(--mono)}
+
+/* ---------- keyboard-key eyebrow (signature motif) ---------- */
+.key{
+  display:inline-block;
+  font-family:var(--mono);
+  font-size:.7rem;
+  font-weight:500;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--lime);
+  background:var(--ink-2);
+  border:1px solid var(--ink-3);
+  border-radius:6px;
+  padding:.45rem .8rem;
+  box-shadow:0 2px 0 var(--olive);
+  margin-bottom:1.5rem;
+}
+
+/* ---------- headings ---------- */
+h1,h2,h3{font-weight:700;letter-spacing:-.02em;line-height:1.08}
+.section-title{font-size:clamp(1.9rem,4vw,3rem);margin-bottom:1rem}
+.section-head{margin-bottom:3.5rem}
+.section-head p{max-width:520px;color:var(--grey);font-size:1.02rem}
+.section{padding:110px 0}
+@media(max-width:768px){.section{padding:72px 0}}
+
+/* ============================================================
+   1. STICKY NAV
+   ============================================================ */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(10,10,10,.78);
+  -webkit-backdrop-filter:blur(16px);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--ink-3);
+}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:2rem;height:76px}
+.logo{font-size:1.15rem;font-weight:700;letter-spacing:-.02em;white-space:nowrap}
+.logo span{font-weight:300;color:var(--lime)}
+.nav-links{display:flex;gap:2rem;margin:0 auto}
+.nav-links a{
+  font-size:.92rem;color:var(--grey);position:relative;padding:.25rem 0;
+  transition:color .2s ease;
+}
+.nav-links a::after{
+  content:'';position:absolute;left:0;bottom:-2px;height:2px;width:0;
+  background:var(--lime);transition:width .25s ease;
+}
+.nav-links a:hover{color:var(--paper)}
+.nav-links a:hover::after{width:100%}
+.nav-actions{display:flex;align-items:center;gap:1rem}
+
+.hamburger{display:none;width:42px;height:42px;border:1px solid var(--ink-3);border-radius:8px;flex-direction:column;align-items:center;justify-content:center;gap:5px}
+.hamburger span{display:block;width:18px;height:2px;background:var(--paper);transition:transform .3s ease,opacity .3s ease}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* ---------- mobile slide-in panel ---------- */
+.overlay{
+  position:fixed;inset:0;z-index:120;background:rgba(0,0,0,.6);
+  opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s ease;
+}
+.overlay.show{opacity:1;visibility:visible}
+.mobile-menu{
+  position:fixed;top:0;right:0;bottom:0;z-index:130;
+  width:min(320px,85vw);
+  background:var(--ink-2);
+  border-left:1px solid var(--ink-3);
+  padding:2rem;
+  display:flex;flex-direction:column;gap:1rem;
+  transform:translateX(100%);
+  transition:transform .3s ease;
+}
+.mobile-menu.open{transform:translateX(0)}
+.mobile-menu .mm-links{display:flex;flex-direction:column;gap:.25rem;margin-top:1rem}
+.mobile-menu .mm-links a{padding:.9rem 0;font-size:1.05rem;font-weight:600;border-bottom:1px solid var(--ink-3);color:var(--paper);transition:color .2s ease}
+.mobile-menu .mm-links a:hover{color:var(--lime)}
+.mobile-menu .btn{margin-top:1.25rem}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.55rem;
+  padding:.9rem 1.55rem;border-radius:10px;
+  font-size:.95rem;font-weight:600;font-family:inherit;
+  border:1px solid transparent;
+  transition:transform .2s ease,box-shadow .2s ease,background .2s ease,border-color .2s ease;
+  will-change:transform;
+}
+.btn-lime{background:var(--lime);color:var(--ink);box-shadow:0 4px 0 var(--olive)}
+.btn-lime:hover{transform:translateY(-2px);box-shadow:0 6px 0 var(--olive),0 14px 30px rgba(198,255,61,.14)}
+.btn-ghost{border-color:var(--ink-3);color:var(--paper);background:transparent}
+.btn-ghost:hover{transform:translateY(-2px);border-color:var(--lime);color:var(--lime)}
+
+/* ============================================================
+   2. HERO
+   ============================================================ */
+.hero{
+  min-height:100vh;
+  display:flex;align-items:center;
+  padding:140px 0 90px;position:relative;overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;pointer-events:none;
+  background-image:
+    linear-gradient(var(--ink-3) 1px,transparent 1px),
+    linear-gradient(90deg,var(--ink-3) 1px,transparent 1px);
+  background-size:52px 52px;
+  -webkit-mask-image:radial-gradient(ellipse 85% 75% at 55% 40%,#000 25%,transparent 78%);
+  mask-image:radial-gradient(ellipse 85% 75% at 55% 40%,#000 25%,transparent 78%);
+  opacity:.45;
+}
+.hero-glow{
+  position:absolute;top:-20%;right:-10%;width:560px;height:560px;border-radius:50%;
+  background:radial-gradient(circle,rgba(198,255,61,.07),transparent 65%);
+  filter:blur(60px);pointer-events:none;
+}
+.hero-inner{position:relative;z-index:2}
+.hero h1{
+  font-size:clamp(2.5rem,7vw,5rem);
+  letter-spacing:-.03em;
+  margin-bottom:1.75rem;
+  max-width:15ch;
+}
+.hero h1 em{
+  font-style:normal;color:var(--lime);
+  text-shadow:0 0 30px rgba(198,255,61,.25);
+}
+.hero-sub{
+  font-size:clamp(1rem,1.6vw,1.12rem);
+  color:var(--grey);max-width:500px;margin-bottom:2.5rem;
+}
+.hero-cta{display:flex;flex-wrap:wrap;gap:1rem;margin-bottom:3.25rem}
+.ticker{
+  display:flex;align-items:center;gap:.75rem;
+  font-family:var(--mono);font-size:.8rem;
+  letter-spacing:.06em;text-transform:uppercase;color:var(--grey);
+}
+.ticker-dot{width:7px;height:7px;border-radius:50%;background:var(--lime);flex-shrink:0}
+#ticker-word{color:var(--lime-soft);transition:opacity .35s ease;white-space:nowrap}
+#ticker-word.fade{opacity:0}
+.cursor{color:var(--lime);animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{opacity:0}}
+
+/* ============================================================
+   3. ABOUT
+   ============================================================ */
+.about{background:var(--ink-2);border-top:1px solid var(--ink-3);border-bottom:1px solid var(--ink-3)}
+.about-grid{display:grid;grid-template-columns:1fr;gap:3rem}
+@media(min-width:960px){.about-grid{grid-template-columns:1.5fr 1fr}}
+.about-statement{
+  font-size:clamp(1.4rem,3vw,2.05rem);
+  font-weight:500;letter-spacing:-.015em;line-height:1.35;
+}
+.about-statement strong{color:var(--lime);font-weight:600}
+.about-facts{border-top:1px solid var(--ink-3)}
+.fact{
+  display:flex;justify-content:space-between;gap:1rem;
+  padding:1.05rem 0;border-bottom:1px solid var(--ink-3);
+  font-family:var(--mono);font-size:.82rem;
+}
+.fact dt{color:var(--grey);text-transform:uppercase;letter-spacing:.08em}
+.fact dd{color:var(--paper);text-align:right}
+
+/* ============================================================
+   4. SERVICES
+   ============================================================ */
+.services-list{display:flex;flex-direction:column;border-top:1px solid var(--ink-3)}
+.service{
+  display:grid;grid-template-columns:auto 1fr;gap:1rem 1.75rem;
+  padding:2rem 0;border-bottom:1px solid var(--ink-3);
+  transition:background .25s ease,padding .25s ease;
+}
+@media(min-width:960px){
+  .service{grid-template-columns:70px 200px 1fr 130px;align-items:baseline;column-gap:2rem}
+  .service:hover{padding-left:1.25rem}
+}
+.service-num{font-family:var(--mono);color:var(--lime);font-size:.9rem}
+.service-tag{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--grey);padding-top:.15rem}
+.service h3{font-size:clamp(1.3rem,2.4vw,1.7rem);margin:.1rem 0 .35rem}
+.service p{color:var(--grey);font-size:.98rem;max-width:480px}
+.service-price{font-family:var(--mono);font-size:.85rem;color:var(--lime-soft)}
+.service:hover .service-tag{color:var(--lime)}
+
+/* ============================================================
+   5. STATS
+   ============================================================ */
+.stats{background:var(--ink-2);border-bottom:1px solid var(--ink-3)}
+.stats-row{display:grid;grid-template-columns:1fr;gap:2.5rem;text-align:center}
+@media(min-width:768px){.stats-row{grid-template-columns:repeat(3,1fr)}}
+.stat-num{
+  font-size:clamp(2.8rem,6vw,4.4rem);font-weight:700;letter-spacing:-.03em;
+  color:var(--lime);line-height:1;margin-bottom:.5rem;
+}
+.stat-label{font-family:var(--mono);font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;color:var(--grey)}
+
+/* ============================================================
+   6. TECH MARQUEE
+   ============================================================ */
+.marquee{border-bottom:1px solid var(--ink-3);padding:2.25rem 0;overflow:hidden}
+.marquee-track{
+  display:flex;gap:3.5rem;width:max-content;
+  animation:marquee 34s linear infinite;
+}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee-track span{
+  font-family:var(--mono);font-size:.85rem;text-transform:uppercase;
+  letter-spacing:.12em;color:var(--grey);white-space:nowrap;
+}
+.marquee-track span::before{content:'✦';color:var(--olive);margin-right:3.5rem;font-size:.7rem}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ============================================================
+   7. VALUE PROPOSITIONS
+   ============================================================ */
+.values-grid{display:grid;grid-template-columns:1fr;gap:2.75rem}
+@media(min-width:768px){.values-grid{grid-template-columns:1fr 1fr;column-gap:5rem}}
+.value{border-top:1px solid var(--ink-3);padding-top:1.5rem;position:relative}
+.value::before{
+  content:'';position:absolute;top:-1px;left:0;height:3px;width:44px;background:var(--lime);
+}
+.value h3{font-size:1.3rem;margin-bottom:.6rem}
+.value p{color:var(--grey);font-size:.98rem;max-width:420px}
+.value:nth-child(even){margin-top:0}
+@media(min-width:768px){
+  .values-grid{grid-template-columns:1fr 1fr}
+  .value:nth-child(2n){transform:translateY(2rem)}
+}
+
+/* ============================================================
+   8. PRICING
+   ============================================================ */
+.pricing{background:var(--ink-2);border-top:1px solid var(--ink-3);border-bottom:1px solid var(--ink-3)}
+.pricing-grid{display:grid;grid-template-columns:1fr;gap:1.25rem}
+@media(min-width:768px){.pricing-grid{grid-template-columns:repeat(3,1fr)}}
+.tier{
+  background:var(--ink);border:1px solid var(--ink-3);border-radius:14px;
+  padding:2rem 1.75rem;position:relative;display:flex;flex-direction:column;gap:.35rem;
+  transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;
+}
+.tier:hover{transform:translateY(-4px);border-color:var(--olive);box-shadow:0 20px 50px rgba(0,0,0,.4)}
+.tier.featured{border-color:var(--olive);background:linear-gradient(180deg,rgba(198,255,61,.06),rgba(10,10,10,0) 40%)}
+.tier-badge{
+  position:absolute;top:-11px;left:1.75rem;
+  font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;
+  background:var(--lime);color:var(--ink);padding:.3rem .7rem;border-radius:5px;font-weight:600;
+}
+.tier-name{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--grey)}
+.tier-price{font-size:2rem;font-weight:700;letter-spacing:-.02em}
+.tier-price small{font-size:.85rem;color:var(--grey);font-weight:400}
+.tier-desc{color:var(--grey);font-size:.95rem;margin:.4rem 0 1.5rem;flex-grow:1}
+.tier .btn{width:100%}
+.pricing-note{
+  margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--ink-3);
+  font-family:var(--mono);font-size:.8rem;color:var(--grey);letter-spacing:.02em;
+}
+.pricing-note strong{color:var(--paper);font-weight:500}
+
+/* ============================================================
+   9. WORK GRID
+   ============================================================ */
+.work-grid{display:grid;grid-template-columns:1fr;gap:1.25rem}
+@media(min-width:640px){.work-grid{grid-template-columns:1fr 1fr}}
+@media(min-width:960px){.work-grid{grid-template-columns:1fr 1fr 1fr}}
+.work-card{
+  background:var(--ink-2);border:1px solid var(--ink-3);border-radius:14px;overflow:hidden;
+  transition:transform .25s ease,border-color .25s ease;
+}
+.work-card:hover{transform:translateY(-5px);border-color:var(--olive)}
+.work-media{height:200px;position:relative}
+.work-media::after{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 75% 25%,rgba(198,255,61,.12),transparent 55%);
+}
+.work-body{padding:1.5rem}
+.work-cat{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--lime)}
+.work-body h3{font-size:1.15rem;margin-top:.45rem}
+
+/* ============================================================
+   10. TESTIMONIAL
+   ============================================================ */
+.testimonial{background:var(--ink-2);border-top:1px solid var(--ink-3);border-bottom:1px solid var(--ink-3);text-align:center}
+.quote-mark{
+  font-family:var(--font);font-size:6rem;font-weight:700;line-height:1;
+  color:var(--lime);text-shadow:0 6px 0 var(--olive);margin-bottom:1rem;
+}
+.testimonial blockquote{
+  font-size:clamp(1.35rem,2.8vw,2rem);font-weight:500;letter-spacing:-.01em;
+  max-width:780px;margin:0 auto 2rem;line-height:1.4;
+}
+.testimonial blockquote span{color:var(--lime)}
+.testimonial cite{
+  font-style:normal;font-family:var(--mono);font-size:.78rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--grey);
+}
+.testimonial cite strong{color:var(--paper);font-weight:500}
+
+/* ============================================================
+   11. FINAL CTA
+   ============================================================ */
+.final-cta{
+  position:relative;overflow:hidden;text-align:center;
+  padding:130px 0;
+}
+.final-cta::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 70% 60% at 50% 100%,rgba(198,255,61,.10),transparent 70%);
+  pointer-events:none;
+}
+.final-cta h2{font-size:clamp(2.2rem,6vw,4.2rem);max-width:14ch;margin:0 auto 1.25rem}
+.final-cta h2 em{font-style:normal;color:var(--lime)}
+.final-cta p{color:var(--grey);max-width:480px;margin:0 auto 2.25rem;font-size:1.05rem}
+.cta-links{display:flex;flex-wrap:wrap;justify-content:center;gap:2.25rem;margin-top:3rem}
+.cta-link{font-family:var(--mono);font-size:.9rem;color:var(--lime-soft);position:relative;padding-bottom:.35rem}
+.cta-link::after{content:'';position:absolute;left:0;bottom:0;width:100%;height:1px;background:var(--olive)}
+.cta-link:hover{color:var(--lime)}
+
+/* ============================================================
+   12. FOOTER
+   ============================================================ */
+footer{border-top:1px solid var(--ink-3);padding:72px 0 40px;background:var(--ink)}
+.footer-top{display:grid;grid-template-columns:1fr;gap:3rem;margin-bottom:3rem}
+@media(min-width:768px){.footer-top{grid-template-columns:2fr 1fr 1fr 1.2fr}}
+.footer-tag{color:var(--grey);font-size:.95rem;max-width:280px;margin-top:1rem}
+.footer h4{font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:1.25rem;color:var(--paper)}
+.footer-col ul{display:flex;flex-direction:column;gap:.7rem}
+.footer-col a,.footer-col li{color:var(--grey);font-size:.95rem;transition:color .2s ease}
+.footer-col a:hover{color:var(--lime)}
+.socials{display:flex;gap:.85rem;margin-top:1.5rem}
+.socials a{
+  width:38px;height:38px;border:1px solid var(--ink-3);border-radius:8px;
+  display:flex;align-items:center;justify-content:center;color:var(--grey);
+  transition:color .2s ease,border-color .2s ease,transform .2s ease;
+}
+.socials a:hover{color:var(--lime);border-color:var(--olive);transform:translateY(-2px)}
+.footer-bottom{
+  border-top:1px solid var(--ink-3);padding-top:1.75rem;margin-top:2rem;
+  display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:center;
+  font-family:var(--mono);font-size:.75rem;color:var(--grey);
+}
+
+/* ============================================================
+   MOTION: reveal
+   ============================================================ */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;transition-delay:var(--d,0s)}
+.reveal.visible{opacity:1;transform:none}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media(max-width:900px){
+  .nav-links{display:none}
+  .nav-actions .btn-lime{display:none}
+  .hamburger{display:flex}
+  .hero{padding:120px 0 70px}
+}
+@media(max-width:480px){
+  .hero h1{font-size:clamp(2.1rem,9vw,2.8rem)}
+  .hero-cta .btn{width:100%}
+  .pricing-grid{grid-template-columns:1fr}
+  .cta-links{flex-direction:column;gap:1.25rem}
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation:none!important;
+    transition:none!important;
+    scroll-behavior:auto!important;
+  }
+  .reveal{opacity:1!important;transform:none!important}
+  .marquee-track{animation:none!important}
+  .cursor{animation:none!important}
+}
+</style>
 </head>
 <body>
-<nav class="nav-bar" style="position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 0;transition:all 0.3s ease;background:rgba(250,250,250,0.7);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--card-border);box-shadow:0 2px 8px rgba(0,0,0,0.03);">
-  <div class="container" style="display:flex;align-items:center;justify-content:space-between;">
-    <a href="index.html" style="display:flex;align-items:center;gap:8px;font-weight:700;font-size:18px;letter-spacing:-0.02em;">
-      <span style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:8px;background:var(--gold);color:#fff;font-size:13px;font-weight:700;">A</span>
-      AZERTYCORP
-    </a>
 
-    <div style="display:flex;align-items:center;gap:32px;" class="nav-desktop">
-      <a href="index.html" class="nav-link" style="font-size:13px;font-weight:500;opacity:0.5;transition:opacity 0.3s;">Home</a>
-      <a href="about.html" class="nav-link" style="font-size:13px;font-weight:500;opacity:0.5;transition:opacity 0.3s;">About</a>
-      <a href="services.html" class="nav-link" style="font-size:13px;font-weight:500;opacity:0.5;transition:opacity 0.3s;">Services</a>
-      <a href="pricing.html" class="nav-link" style="font-size:13px;font-weight:500;opacity:0.5;transition:opacity 0.3s;">Pricing</a>
-      <a href="gallery.html" class="nav-link" style="font-size:13px;font-weight:500;opacity:0.5;transition:opacity 0.3s;">Gallery</a>
-      <a href="portfolio.html" class="nav-link" style="font-size:13px;font-weight:500;opacity:0.5;transition:opacity 0.3s;">Portfolio</a>
-      <a href="blog.html" class="nav-link" style="font-size:13px;font-weight:500;opacity:0.5;transition:opacity 0.3s;">Blog</a>
-      <a href="contact.html" class="nav-link" style="font-size:13px;font-weight:500;opacity:0.5;transition:opacity 0.3s;">Contact</a>
-    </div>
-
-    <div style="display:flex;align-items:center;gap:12px;">
-      <button id="theme-toggle" style="width:36px;height:36px;border-radius:10px;border:1px solid var(--card-border);background:var(--card);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.3s;color:var(--foreground);" aria-label="Toggle theme"></button>
-      <a href="contact.html" class="btn btn-primary" style="padding:10px 20px;font-size:12px;" class="nav-desktop">Get Started</a>
-      <button id="mobile-menu-btn" style="display:none;width:36px;height:36px;border-radius:10px;border:1px solid var(--card-border);background:var(--card);align-items:center;justify-content:center;cursor:pointer;color:var(--foreground);" aria-label="Menu">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+<!-- ============ 1. NAV ============ -->
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="logo" href="#home">AZERTY<span>CORP</span></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn btn-lime" href="#contact">Talk to us</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
       </button>
     </div>
   </div>
+</header>
 
-  <div id="mobile-menu" style="display:none;">
-    <a href="index.html" style="padding:12px 16px;border-radius:10px;font-size:14px;font-weight:500;transition:background 0.3s;">Home</a>
-    <a href="about.html" style="padding:12px 16px;border-radius:10px;font-size:14px;font-weight:500;transition:background 0.3s;">About</a>
-    <a href="services.html" style="padding:12px 16px;border-radius:10px;font-size:14px;font-weight:500;transition:background 0.3s;">Services</a>
-    <a href="pricing.html" style="padding:12px 16px;border-radius:10px;font-size:14px;font-weight:500;transition:background 0.3s;">Pricing</a>
-    <a href="gallery.html" style="padding:12px 16px;border-radius:10px;font-size:14px;font-weight:500;transition:background 0.3s;">Gallery</a>
-    <a href="portfolio.html" style="padding:12px 16px;border-radius:10px;font-size:14px;font-weight:500;transition:background 0.3s;">Portfolio</a>
-    <a href="blog.html" style="padding:12px 16px;border-radius:10px;font-size:14px;font-weight:500;transition:background 0.3s;">Blog</a>
-    <a href="contact.html" style="padding:12px 16px;border-radius:10px;font-size:14px;font-weight:500;transition:background 0.3s;">Contact</a>
-    <a href="redi.html" style="padding:12px 16px;border-radius:10px;font-size:14px;font-weight:500;transition:background 0.3s;">REDI</a>
-    <a href="elite-biz.html" style="padding:12px 16px;border-radius:10px;font-size:14px;font-weight:500;transition:background 0.3s;">Elite Biz</a>
-    <a href="cv.html" style="padding:12px 16px;border-radius:10px;font-size:14px;font-weight:500;transition:background 0.3s;">CV</a>
-  </div>
-</nav>
+<div class="overlay" id="overlay"></div>
 
-<style>
-  .nav-link.nav-active, .nav-link:hover { opacity: 1 !important; color: var(--gold) !important; }
-  .nav-scrolled { padding: 10px 0 !important; box-shadow: 0 4px 20px rgba(0,0,0,0.06) !important; }
-  @media (max-width: 1023px) {
-    .nav-desktop { display: none !important; }
-    #mobile-menu-btn { display: flex !important; }
-    a.btn.nav-desktop { display: none !important; }
-  }
-</style>
+<aside class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
+  <nav class="mm-links">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#work">Work</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <a class="btn btn-lime" href="#contact">Talk to us</a>
+</aside>
 
-<!-- ===== HERO ===== -->
-<section class="hero">
-  <div class="hero-bg">
-    <div class="slideshow slideshow-hero" style="height:100%;">
-      <div class="slideshow-track">
-        <div class="slideshow-slide active"><img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1400&q=80" alt="" loading="eager"></div>
-        <div class="slideshow-slide"><img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1400&q=80" alt="" loading="lazy"></div>
-        <div class="slideshow-slide"><img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1400&q=80" alt="" loading="lazy"></div>
-        <div class="slideshow-slide"><img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=1400&q=80" alt="" loading="lazy"></div>
-      </div>
-      <div class="slideshow-progress" style="width:0%;"></div>
+<main>
+
+<!-- ============ 2. HERO ============ -->
+<section class="hero" id="home">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="container hero-inner">
+    <span class="key">[ DESIGN ENGINEERING STUDIO ]</span>
+    <h1 class="reveal">Design &amp; engineering, in one studio, built to <em>perform.</em></h1>
+    <p class="hero-sub reveal" style="--d:.1s">AZERTYCORP is a design-engineering studio based in Douala, Cameroon. We design and build websites, custom management systems, AI features, and brand identities — for clients around the world.</p>
+    <div class="hero-cta reveal" style="--d:.2s">
+      <a class="btn btn-lime" href="#contact">Start a project</a>
+      <a class="btn btn-ghost" href="#work">See the work</a>
     </div>
-  </div>
-  <div class="hero-glow"></div>
-  <div class="container" style="position:relative;">
-    <div class="reveal" style="max-width:800px;">
-      <span class="section-label">Engineering Digital Excellence</span>
-      <h1 class="heading-xl" style="margin-bottom:32px;">
-        We Build the Future<br>of Technology<br>in <span class="text-gradient">Africa</span>
-      </h1>
-      <p class="card-text" style="max-width:560px;margin-bottom:40px;font-size:16px;">
-        From artificial intelligence to stunning design, we engineer premium digital experiences that transform businesses across the continent.
-      </p>
-      <div style="display:flex;flex-wrap:wrap;gap:12px;">
-        <a href="contact.html" class="btn btn-primary">Start Your Project</a>
-        <a href="portfolio.html" class="btn btn-outline">View Our Work</a>
-      </div>
-    </div>
-
-    <!-- Hero Image Grid -->
-    <div class="reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:64px;max-width:700px;">
-      <div style="position:relative;height:160px;border-radius:16px;overflow:hidden;">
-        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80" alt="Development" style="width:100%;height:100%;object-fit:cover;">
-        <div style="position:absolute;bottom:12px;left:12px;background:var(--card);padding:6px 12px;border-radius:8px;font-size:11px;font-weight:600;">Development</div>
-      </div>
-      <div style="position:relative;height:160px;border-radius:16px;overflow:hidden;">
-        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80" alt="AI & ML" style="width:100%;height:100%;object-fit:cover;">
-        <div style="position:absolute;bottom:12px;left:12px;background:var(--card);padding:6px 12px;border-radius:8px;font-size:11px;font-weight:600;">AI & ML</div>
-      </div>
-      <div style="position:relative;height:160px;border-radius:16px;overflow:hidden;">
-        <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80" alt="Design" style="width:100%;height:100%;object-fit:cover;">
-        <div style="position:absolute;bottom:12px;left:12px;background:var(--card);padding:6px 12px;border-radius:8px;font-size:11px;font-weight:600;">Design</div>
-      </div>
-      <div style="position:relative;height:160px;border-radius:16px;overflow:hidden;">
-        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80" alt="Team" style="width:100%;height:100%;object-fit:cover;">
-        <div style="position:absolute;bottom:12px;left:12px;background:var(--card);padding:6px 12px;border-radius:8px;font-size:11px;font-weight:600;">Team</div>
-      </div>
+    <div class="ticker reveal" style="--d:.3s">
+      <span class="ticker-dot" aria-hidden="true"></span>
+      <span>Now building:</span>
+      <span id="ticker-word">Websites</span>
+      <span class="cursor" aria-hidden="true">▌</span>
     </div>
   </div>
 </section>
 
-<!-- ===== STATS ===== -->
-<section class="stats-section">
-  <div class="container">
-    <div class="grid-4" style="gap:40px;">
-      <div class="stat-item reveal">
-        <div class="stat-value" data-count="150">0+</div>
-        <div class="stat-label">Projects Completed</div>
-      </div>
-      <div class="stat-item reveal reveal-delay-1">
-        <div class="stat-value" data-count="80">0+</div>
-        <div class="stat-label">Happy Clients</div>
-      </div>
-      <div class="stat-item reveal reveal-delay-2">
-        <div class="stat-value" data-count="12">0+</div>
-        <div class="stat-label">Countries Served</div>
-      </div>
-      <div class="stat-item reveal reveal-delay-3">
-        <div class="stat-value" data-count="2000">0+</div>
-        <div class="stat-label">Students Trained</div>
-      </div>
+<!-- ============ 3. ABOUT ============ -->
+<section class="about section" id="about">
+  <div class="container about-grid">
+    <div>
+      <span class="key">[ ABOUT ]</span>
+      <p class="about-statement reveal">We believe great products are designed and engineered in the same room — <strong>so that's how we work.</strong> One senior team takes your project from first sketch to production and stays accountable for the result.</p>
     </div>
+    <dl class="about-facts reveal" style="--d:.15s">
+      <div class="fact"><dt>Based</dt><dd>Douala, Cameroon</dd></div>
+      <div class="fact"><dt>Focus</dt><dd>Web · Systems · AI</dd></div>
+      <div class="fact"><dt>Founded</dt><dd>2023</dd></div>
+      <div class="fact"><dt>Team</dt><dd>100% in-house</dd></div>
+    </dl>
   </div>
 </section>
 
-<!-- ===== WHAT WE DO ===== -->
-<section class="section">
+<!-- ============ 4. SERVICES ============ -->
+<section class="section" id="services">
   <div class="container">
-    <div class="reveal" style="margin-bottom:80px;">
-      <span class="section-label">What We Do</span>
-      <h2 class="heading-lg">Solutions That Drive Impact</h2>
+    <div class="section-head reveal">
+      <span class="key">[ SERVICES ]</span>
+      <h2 class="section-title">Four services. No fluff.</h2>
+      <p>If a project doesn't fit one of these, we'll tell you straight — and point you to someone who can help.</p>
     </div>
-    <div class="grid-3">
-      <!-- Software Engineering -->
-      <div class="bento-card reveal" style="padding:32px;">
-        <div class="card-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-        </div>
-        <div class="card-tag" style="margin-bottom:8px;">React · Next.js · Node.js</div>
-        <h3 class="card-title">Software Engineering</h3>
-        <p class="card-text">Custom web, mobile, and cloud solutions built with modern architectures.</p>
-        <a href="services.html" style="display:inline-flex;align-items:center;gap:6px;margin-top:20px;font-size:13px;font-weight:500;color:var(--gold);transition:gap 0.3s;">Learn more <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      </div>
-      <!-- AI & ML -->
-      <div class="bento-card reveal reveal-delay-1" style="padding:32px;">
-        <div class="card-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 0-4 4v2H6a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h1v4a4 4 0 0 0 8 0v-4h1a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2h-2V6a4 4 0 0 0-4-4z"/></svg>
-        </div>
-        <div class="card-tag" style="margin-bottom:8px;">ML · NLP · Vision</div>
-        <h3 class="card-title">Artificial Intelligence</h3>
-        <p class="card-text">ML, automation, and data science that drive intelligent decisions.</p>
-        <a href="services.html" style="display:inline-flex;align-items:center;gap:6px;margin-top:20px;font-size:13px;font-weight:500;color:var(--gold);transition:gap 0.3s;">Learn more <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      </div>
-      <!-- UI/UX Design -->
-      <div class="bento-card reveal reveal-delay-2" style="padding:32px;">
-        <div class="card-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-        </div>
-        <div class="card-tag" style="margin-bottom:8px;">Figma · Systems</div>
-        <h3 class="card-title">UI/UX Design</h3>
-        <p class="card-text">Interfaces that captivate and convert.</p>
-        <a href="services.html" style="display:inline-flex;align-items:center;gap:6px;margin-top:20px;font-size:13px;font-weight:500;color:var(--gold);transition:gap 0.3s;">Learn more <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      </div>
-      <!-- Consulting -->
-      <div class="bento-card reveal reveal-delay-1" style="padding:32px;">
-        <div class="card-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-        </div>
-        <div class="card-tag" style="margin-bottom:8px;">Strategy · Growth</div>
-        <h3 class="card-title">Consulting</h3>
-        <p class="card-text">Strategic digital transformation for startups and enterprises.</p>
-        <a href="services.html" style="display:inline-flex;align-items:center;gap:6px;margin-top:20px;font-size:13px;font-weight:500;color:var(--gold);transition:gap 0.3s;">Learn more <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      </div>
-      <!-- Training -->
-      <div class="bento-card reveal reveal-delay-2" style="padding:32px;">
-        <div class="card-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-        </div>
-        <div class="card-tag" style="margin-bottom:8px;">Workshops · Mentoring</div>
-        <h3 class="card-title">Training</h3>
-        <p class="card-text">Empowering teams with cutting-edge technical skills.</p>
-        <a href="services.html" style="display:inline-flex;align-items:center;gap:6px;margin-top:20px;font-size:13px;font-weight:500;color:var(--gold);transition:gap 0.3s;">Learn more <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== WHY CHOOSE US ===== -->
-<section class="section-muted">
-  <div class="container">
-    <div class="reveal" style="margin-bottom:80px;">
-      <span class="section-label">Why Us</span>
-      <h2 class="heading-lg">Why Choose AZERTYCORP</h2>
-    </div>
-    <div class="grid-3">
-      <div class="bento-card reveal" style="padding:32px;">
-        <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-        <h3 class="card-title">Innovation</h3>
-        <p class="card-text">Cutting-edge tech and creative approaches that keep you ahead.</p>
-      </div>
-      <div class="bento-card reveal reveal-delay-1" style="padding:32px;">
-        <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-        <h3 class="card-title">Reliability</h3>
-        <p class="card-text">On time, on budget, to the highest standards.</p>
-      </div>
-      <div class="bento-card reveal reveal-delay-2" style="padding:32px;">
-        <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a4 4 0 0 0-4 4v2H6a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h1v4a4 4 0 0 0 8 0v-4h1a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2h-2V6a4 4 0 0 0-4-4z"/></svg></div>
-        <h3 class="card-title">AI Expertise</h3>
-        <p class="card-text">Deep knowledge in machine learning and intelligent systems.</p>
-      </div>
-      <div class="bento-card reveal" style="padding:32px;">
-        <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
-        <h3 class="card-title">Design Excellence</h3>
-        <p class="card-text">Every pixel crafted for beauty and accessibility.</p>
-      </div>
-      <div class="bento-card reveal reveal-delay-1" style="padding:32px;">
-        <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
-        <h3 class="card-title">Business Vision</h3>
-        <p class="card-text">Tech solutions that drive measurable business value.</p>
-      </div>
-      <div class="bento-card reveal reveal-delay-2" style="padding:32px;">
-        <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
-        <h3 class="card-title">African Focus</h3>
-        <p class="card-text">Built in Africa, for Africa and the world.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== FEATURED PROJECTS ===== -->
-<section class="section">
-  <div class="container">
-    <div class="reveal" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:80px;flex-wrap:wrap;gap:16px;">
-      <div>
-        <span class="section-label">Our Work</span>
-        <h2 class="heading-lg">Featured Projects</h2>
-      </div>
-      <a href="portfolio.html" class="btn btn-outline" style="font-size:13px;">View all</a>
-    </div>
-    <div class="grid-2">
-      <div class="bento-card reveal" style="overflow:hidden;">
-        <div class="img-hover" style="height:220px;">
-          <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&q=80" alt="REDI" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
-        </div>
-        <div style="padding:28px;">
-          <div style="display:flex;gap:8px;margin-bottom:12px;">
-            <span style="display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:600;color:var(--gold);background:rgba(184,134,11,0.08);padding:4px 10px;border-radius:6px;">
-              <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              ai
-            </span>
-          </div>
-          <h3 class="card-title" style="font-size:18px;margin-bottom:8px;">REDI</h3>
-          <p class="card-text" style="margin-bottom:16px;">Revolutionary Educational Intelligence platform powered by AI. REDI transforms how students learn by providing personalized learning paths, intelligent tutoring, and predictive analytics.</p>
-          <div style="display:flex;flex-wrap:wrap;gap:6px;">
-            <span class="skill-tag">AI</span>
-            <span class="skill-tag">Education</span>
-            <span class="skill-tag">Machine Learning</span>
-          </div>
-        </div>
-      </div>
-      <div class="bento-card reveal reveal-delay-1" style="overflow:hidden;">
-        <div class="img-hover" style="height:220px;">
-          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" alt="Elite Biz" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
-        </div>
-        <div style="padding:28px;">
-          <div style="display:flex;gap:8px;margin-bottom:12px;">
-            <span style="display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:600;color:var(--gold);background:rgba(184,134,11,0.08);padding:4px 10px;border-radius:6px;">
-              <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              software
-            </span>
-          </div>
-          <h3 class="card-title" style="font-size:18px;margin-bottom:8px;">Elite Biz</h3>
-          <p class="card-text" style="margin-bottom:16px;">A premium business consulting platform that connects entrepreneurs with expert advisors. Features real-time scheduling, video consultations, and progress tracking.</p>
-          <div style="display:flex;flex-wrap:wrap;gap:6px;">
-            <span class="skill-tag">Web Platform</span>
-            <span class="skill-tag">Consulting</span>
-            <span class="skill-tag">SaaS</span>
-          </div>
-        </div>
-      </div>
-      <div class="bento-card reveal" style="overflow:hidden;">
-        <div class="img-hover" style="height:220px;">
-          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&q=80" alt="Enterprise Digital Platform" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
-        </div>
-        <div style="padding:28px;">
-          <div style="display:flex;gap:8px;margin-bottom:12px;">
-            <span style="display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:600;color:var(--gold);background:rgba(184,134,11,0.08);padding:4px 10px;border-radius:6px;">
-              <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              software
-            </span>
-          </div>
-          <h3 class="card-title" style="font-size:18px;margin-bottom:8px;">Enterprise Digital Platform</h3>
-          <p class="card-text" style="margin-bottom:16px;">A comprehensive digital transformation suite for a major African corporation, replacing legacy systems with modern cloud-native solutions.</p>
-          <div style="display:flex;flex-wrap:wrap;gap:6px;">
-            <span class="skill-tag">Enterprise</span>
-            <span class="skill-tag">Cloud</span>
-            <span class="skill-tag">Microservices</span>
-          </div>
-        </div>
-      </div>
-      <div class="bento-card reveal reveal-delay-1" style="overflow:hidden;">
-        <div class="img-hover" style="height:220px;">
-          <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80" alt="AfriMarket E-Commerce" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
-        </div>
-        <div style="padding:28px;">
-          <div style="display:flex;gap:8px;margin-bottom:12px;">
-            <span style="display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:600;color:var(--gold);background:rgba(184,134,11,0.08);padding:4px 10px;border-radius:6px;">
-              <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              websites
-            </span>
-          </div>
-          <h3 class="card-title" style="font-size:18px;margin-bottom:8px;">AfriMarket E-Commerce</h3>
-          <p class="card-text" style="margin-bottom:16px;">A next-generation e-commerce platform connecting African artisans with global buyers, featuring AI-powered recommendations.</p>
-          <div style="display:flex;flex-wrap:wrap;gap:6px;">
-            <span class="skill-tag">E-Commerce</span>
-            <span class="skill-tag">Marketplace</span>
-            <span class="skill-tag">AI</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== TESTIMONIALS ===== -->
-<section class="section-muted">
-  <div class="container">
-    <div class="reveal" style="text-align:center;margin-bottom:64px;">
-      <span class="section-label" style="justify-content:center;">Testimonials</span>
-      <h2 class="heading-lg">What Our Clients Say</h2>
-    </div>
-    <div id="testimonial-carousel" class="reveal" style="max-width:700px;margin:0 auto;">
-      <div class="testimonial-slide">
-        <div class="testimonial-card bento-card">
-          <div class="testimonial-quote">"</div>
-          <p class="testimonial-text">The cloud migration project was executed flawlessly. Zero downtime, improved performance, and significant cost savings. AZERTYCORP's technical expertise is unmatched in the African tech space.</p>
-          <div class="testimonial-author">
-            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80" alt="David Okonkwo" class="testimonial-avatar" loading="lazy">
-            <div>
-              <div class="testimonial-name">David Okonkwo</div>
-              <div class="testimonial-role">CTO, FinanceHub Nigeria</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-slide" style="display:none;">
-        <div class="testimonial-card bento-card">
-          <div class="testimonial-quote">"</div>
-          <p class="testimonial-text">AZERTYCORP transformed our entire digital infrastructure. Their AI solutions reduced our operational costs by 40% while improving customer satisfaction.</p>
-          <div class="testimonial-author">
-            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=200&q=80" alt="Amara Diallo" class="testimonial-avatar" loading="lazy">
-            <div>
-              <div class="testimonial-name">Amara Diallo</div>
-              <div class="testimonial-role">CEO, TechVentures Africa</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-slide" style="display:none;">
-        <div class="testimonial-card bento-card">
-          <div class="testimonial-quote">"</div>
-          <p class="testimonial-text">The REDI platform has revolutionized how our students engage with learning material. The personalized AI tutoring system has improved student performance by 35%.</p>
-          <div class="testimonial-author">
-            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&q=80" alt="Jean-Pierre Mukendi" class="testimonial-avatar" loading="lazy">
-            <div>
-              <div class="testimonial-name">Jean-Pierre Mukendi</div>
-              <div class="testimonial-role">Director of Innovation, Pan-African University</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-slide" style="display:none;">
-        <div class="testimonial-card bento-card">
-          <div class="testimonial-quote">"</div>
-          <p class="testimonial-text">Working with AZERTYCORP on our brand identity was transformative. They captured our vision perfectly and created a brand that resonates across markets.</p>
-          <div class="testimonial-author">
-            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&q=80" alt="Fatima Al-Rashid" class="testimonial-avatar" loading="lazy">
-            <div>
-              <div class="testimonial-name">Fatima Al-Rashid</div>
-              <div class="testimonial-role">Founder, GreenTech Solutions</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-slide" style="display:none;">
-        <div class="testimonial-card bento-card">
-          <div class="testimonial-quote">"</div>
-          <p class="testimonial-text">The training programs delivered by AZERTYCORP have upskilled over 200 of our team members. Their ability to simplify complex concepts is remarkable.</p>
-          <div class="testimonial-author">
-            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=200&q=80" alt="Sophie Laurent" class="testimonial-avatar" loading="lazy">
-            <div>
-              <div class="testimonial-name">Sophie Laurent</div>
-              <div class="testimonial-role">Program Director, Digital Skills Initiative</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-dots">
-        <button class="testimonial-dot active" aria-label="Testimonial 1"></button>
-        <button class="testimonial-dot" aria-label="Testimonial 2"></button>
-        <button class="testimonial-dot" aria-label="Testimonial 3"></button>
-        <button class="testimonial-dot" aria-label="Testimonial 4"></button>
-        <button class="testimonial-dot" aria-label="Testimonial 5"></button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== LATEST ARTICLES ===== -->
-<section class="section">
-  <div class="container">
-    <div class="reveal" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:80px;flex-wrap:wrap;gap:16px;">
-      <div>
-        <span class="section-label">Blog</span>
-        <h2 class="heading-lg">Latest Articles</h2>
-      </div>
-      <a href="blog.html" class="btn btn-outline" style="font-size:13px;">View all</a>
-    </div>
-    <div class="grid-4">
-      <div class="bento-card img-hover reveal">
-        <div style="height:140px;overflow:hidden;">
-          <img src="https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?w=800&q=80" alt="The Future of AI in African Education" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
-        </div>
-        <div style="padding:20px;">
-          <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
-            <span class="skill-tag" style="opacity:0.7;margin:0;">AI</span>
-            <span style="font-size:11px;opacity:0.55;">8 min read</span>
-          </div>
-          <h3 style="font-size:14px;font-weight:600;line-height:1.4;">The Future of AI in African Education</h3>
-          <p style="font-size:11px;opacity:0.55;margin-top:8px;">Jan 15, 2025</p>
-        </div>
-      </div>
-      <div class="bento-card img-hover reveal reveal-delay-1">
-        <div style="height:140px;overflow:hidden;">
-          <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80" alt="Building Scalable Systems: Lessons from the Trenches" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
-        </div>
-        <div style="padding:20px;">
-          <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
-            <span class="skill-tag" style="opacity:0.7;margin:0;">Technology</span>
-            <span style="font-size:11px;opacity:0.55;">12 min read</span>
-          </div>
-          <h3 style="font-size:14px;font-weight:600;line-height:1.4;">Building Scalable Systems: Lessons from the Trenches</h3>
-          <p style="font-size:11px;opacity:0.55;margin-top:8px;">Jan 8, 2025</p>
-        </div>
-      </div>
-      <div class="bento-card img-hover reveal reveal-delay-2">
-        <div style="height:140px;overflow:hidden;">
-          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80" alt="Digital Transformation in Emerging Markets" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
-        </div>
-        <div style="padding:20px;">
-          <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
-            <span class="skill-tag" style="opacity:0.7;margin:0;">Entrepreneurship</span>
-            <span style="font-size:11px;opacity:0.55;">10 min read</span>
-          </div>
-          <h3 style="font-size:14px;font-weight:600;line-height:1.4;">Digital Transformation in Emerging Markets</h3>
-          <p style="font-size:11px;opacity:0.55;margin-top:8px;">Dec 20, 2024</p>
-        </div>
-      </div>
-      <div class="bento-card img-hover reveal reveal-delay-3">
-        <div style="height:140px;overflow:hidden;">
-          <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=800&q=80" alt="Design Systems That Scale" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
-        </div>
-        <div style="padding:20px;">
-          <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
-            <span class="skill-tag" style="opacity:0.7;margin:0;">Design</span>
-            <span style="font-size:11px;opacity:0.55;">7 min read</span>
-          </div>
-          <h3 style="font-size:14px;font-weight:600;line-height:1.4;">Design Systems That Scale</h3>
-          <p style="font-size:11px;opacity:0.55;margin-top:8px;">Dec 12, 2024</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== SHOWCASE SLIDESHOW ===== -->
-<section class="section">
-  <div class="container">
-    <div class="reveal" style="text-align:center;margin-bottom:64px;">
-      <span class="section-label" style="justify-content:center;">Showcase</span>
-      <h2 class="heading-lg">Our Work in Action</h2>
-    </div>
-    <div class="reveal" style="max-width:900px;margin:0 auto;">
-      <div class="slideshow" style="height:420px;" tabindex="0">
-        <div class="slideshow-track">
-          <div class="slideshow-slide active">
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80" alt="REDI Dashboard">
-            <div class="slideshow-caption"><h3>REDI Dashboard</h3><p>AI-powered educational analytics platform</p></div>
-          </div>
-          <div class="slideshow-slide">
-            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80" alt="Elite Biz Platform">
-            <div class="slideshow-caption"><h3>Elite Biz Platform</h3><p>Premium business consulting dashboard</p></div>
-          </div>
-          <div class="slideshow-slide">
-            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&q=80" alt="AfriMarket E-Commerce">
-            <div class="slideshow-caption"><h3>AfriMarket</h3><p>Next-gen African marketplace platform</p></div>
-          </div>
-          <div class="slideshow-slide">
-            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200&q=80" alt="MedScan AI">
-            <div class="slideshow-caption"><h3>MedScan AI</h3><p>Medical imaging analysis with deep learning</p></div>
-          </div>
-          <div class="slideshow-slide">
-            <img src="https://images.unsplash.com/photo-1562774053-701939374585?w=1200&q=80" alt="Smart Campus IoT">
-            <div class="slideshow-caption"><h3>Smart Campus</h3><p>IoT-driven university management system</p></div>
-          </div>
-        </div>
-        <button class="slideshow-arrow prev" aria-label="Previous">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
-        </button>
-        <button class="slideshow-arrow next" aria-label="Next">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-        </button>
-        <div class="slideshow-dots">
-          <button class="slideshow-dot active" aria-label="Slide 1"></button>
-          <button class="slideshow-dot" aria-label="Slide 2"></button>
-          <button class="slideshow-dot" aria-label="Slide 3"></button>
-          <button class="slideshow-dot" aria-label="Slide 4"></button>
-          <button class="slideshow-dot" aria-label="Slide 5"></button>
-        </div>
-        <div class="slideshow-progress"></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== PARTNERS ===== -->
-<section class="section-muted">
-  <div class="container">
-    <div class="reveal" style="text-align:center;margin-bottom:48px;">
-      <p class="card-text" style="font-size:14px;">Trusted by leading organizations</p>
-    </div>
-    <div class="partners-row reveal">
-      <span class="partner-name">TechVentures Africa</span>
-      <span class="partner-name">Pan-African University</span>
-      <span class="partner-name">GreenTech Solutions</span>
-      <span class="partner-name">FinanceHub</span>
-      <span class="partner-name">Digital Skills Initiative</span>
-      <span class="partner-name">AfriMarket</span>
-      <span class="partner-name">Health Innovation Lab</span>
-      <span class="partner-name">Innovate Africa</span>
-    </div>
-  </div>
-</section>
-
-<footer style="padding:64px 0 32px;border-top:1px solid var(--card-border);">
-  <div class="container">
-    <div style="display:grid;grid-template-columns:1fr;gap:48px;margin-bottom:48px;" class="footer-grid">
-      <div>
-        <a href="index.html" style="display:flex;align-items:center;gap:8px;font-weight:700;font-size:18px;letter-spacing:-0.02em;margin-bottom:16px;">
-          <span style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:8px;background:var(--gold);color:#fff;font-size:13px;font-weight:700;">A</span>
-          AZERTYCORP
-        </a>
-        <p class="card-text" style="max-width:280px;">Engineering Digital Excellence. Premium African technology company.</p>
-      </div>
-      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:32px;">
+    <div class="services-list">
+      <div class="service reveal">
+        <span class="service-num">01</span>
+        <span class="service-tag">Web</span>
         <div>
-          <h4 style="font-size:12px;font-weight:700;margin-bottom:16px;text-transform:uppercase;letter-spacing:0.1em;">Company</h4>
-          <ul style="display:flex;flex-direction:column;gap:10px;">
-            <li><a href="about.html" class="card-text" style="font-size:13px;">About</a></li>
-            <li><a href="services.html" class="card-text" style="font-size:13px;">Services</a></li>
-            <li><a href="pricing.html" class="card-text" style="font-size:13px;">Pricing</a></li>
-            <li><a href="gallery.html" class="card-text" style="font-size:13px;">Gallery</a></li>
-            <li><a href="portfolio.html" class="card-text" style="font-size:13px;">Portfolio</a></li>
-            <li><a href="blog.html" class="card-text" style="font-size:13px;">Blog</a></li>
-            <li><a href="redi.html" class="card-text" style="font-size:13px;">REDI</a></li>
-            <li><a href="elite-biz.html" class="card-text" style="font-size:13px;">Elite Biz</a></li>
-          </ul>
+          <h3>Website development</h3>
+          <p>Fast, conversion-focused sites — from marketing pages to full e-commerce builds. Designed, coded, and deployed by the same team.</p>
         </div>
+        <span class="service-price">From $1,200</span>
+      </div>
+      <div class="service reveal" style="--d:.08s">
+        <span class="service-num">02</span>
+        <span class="service-tag">Systems</span>
         <div>
-          <h4 style="font-size:12px;font-weight:700;margin-bottom:16px;text-transform:uppercase;letter-spacing:0.1em;">Resources</h4>
-          <ul style="display:flex;flex-direction:column;gap:10px;">
-            <li><a href="cv.html" class="card-text" style="font-size:13px;">CV</a></li>
-            <li><a href="contact.html" class="card-text" style="font-size:13px;">Contact</a></li>
-            <li><a href="#" class="card-text" style="font-size:13px;">Privacy</a></li>
-            <li><a href="#" class="card-text" style="font-size:13px;">Terms</a></li>
-          </ul>
+          <h3>Management systems</h3>
+          <p>Custom dashboards and back-office tools that replace spreadsheets, cut busywork, and put your data in one place.</p>
         </div>
+        <span class="service-price">From $3,500</span>
+      </div>
+      <div class="service reveal" style="--d:.16s">
+        <span class="service-num">03</span>
+        <span class="service-tag">AI</span>
+        <div>
+          <h3>AI-powered features</h3>
+          <p>Search, recommendations, document processing, prediction — intelligence added only where it measurably pays for itself.</p>
+        </div>
+        <span class="service-price">Custom quote</span>
+      </div>
+      <div class="service reveal" style="--d:.24s">
+        <span class="service-num">04</span>
+        <span class="service-tag">Brand</span>
+        <div>
+          <h3>Brand identity</h3>
+          <p>Logos, typography, color, and tone — a visual system your team can actually use without a designer in the room.</p>
+        </div>
+        <span class="service-price">From $800</span>
+      </div>
+      <div class="service reveal" style="--d:.32s">
+        <span class="service-num">05</span>
+        <span class="service-tag">Product</span>
+        <div>
+          <h3>Product design</h3>
+          <p>Interface design and prototyping for teams building their own software, so you ship a product people want to use.</p>
+        </div>
+        <span class="service-price">From $2,000</span>
       </div>
     </div>
-    <div style="border-top:1px solid var(--card-border);padding-top:24px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;">
-      <p class="card-text" style="font-size:12px;">&copy; 2026 AZERTYCORP. All rights reserved.</p>
-      <p class="card-text" style="font-size:12px;">Built with care from Africa</p>
+  </div>
+</section>
+
+<!-- ============ 5. STATS ============ -->
+<section class="stats section">
+  <div class="container stats-row">
+    <div class="reveal">
+      <div class="stat-num" data-count="50">0</div>
+      <div class="stat-label">Projects delivered</div>
+    </div>
+    <div class="reveal" style="--d:.1s">
+      <div class="stat-num" data-count="8">0</div>
+      <div class="stat-label">Industries served</div>
+    </div>
+    <div class="reveal" style="--d:.2s">
+      <div class="stat-num" data-count="100" data-suffix="%">0</div>
+      <div class="stat-label">In-house team</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. TECH MARQUEE ============ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>React</span><span>Next.js</span><span>TypeScript</span><span>Node.js</span>
+    <span>Python</span><span>Django</span><span>PostgreSQL</span><span>Tailwind</span>
+    <span>Figma</span><span>Docker</span><span>OpenAI</span><span>Redis</span>
+    <span>React</span><span>Next.js</span><span>TypeScript</span><span>Node.js</span>
+    <span>Python</span><span>Django</span><span>PostgreSQL</span><span>Tailwind</span>
+    <span>Figma</span><span>Docker</span><span>OpenAI</span><span>Redis</span>
+  </div>
+</div>
+
+<!-- ============ 7. VALUES ============ -->
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="key">[ WHY IT MATTERS ]</span>
+      <h2 class="section-title">How we work matters as much as what we ship.</h2>
+    </div>
+    <div class="values-grid">
+      <div class="value reveal">
+        <h3>Design and code, together</h3>
+        <p>The same people who design your interface also ship it. No handoffs, no lost context, no surprises at launch.</p>
+      </div>
+      <div class="value reveal" style="--d:.1s">
+        <h3>Built as systems, not templates</h3>
+        <p>Every project gets an architecture that grows with you. When your business changes, your product changes with it.</p>
+      </div>
+      <div class="value reveal" style="--d:.2s">
+        <h3>AI that earns its keep</h3>
+        <p>We add intelligence only where it measurably saves time or money — not because it's trendy.</p>
+      </div>
+      <div class="value reveal" style="--d:.3s">
+        <h3>Honest scoping, honest pricing</h3>
+        <p>You know what a project costs before we start. If it'll cost more, you hear it early — not at the invoice.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 8. PRICING ============ -->
+<section class="pricing section" id="pricing">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="key">[ PRICING ]</span>
+      <h2 class="section-title">Transparent by default.</h2>
+      <p>Pick the tier that matches where you are. Every project starts with a free scoping call.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="tier reveal">
+        <span class="tier-name">Essential</span>
+        <div class="tier-price">$1,200 <small>from</small></div>
+        <p class="tier-desc">A focused website or landing page — designed, built, and deployed in weeks, not months.</p>
+        <a class="btn btn-ghost" href="#contact">Get started</a>
+      </div>
+      <div class="tier featured reveal" style="--d:.1s">
+        <span class="tier-badge">Most chosen</span>
+        <span class="tier-name">Studio</span>
+        <div class="tier-price">$4,500 <small>from</small></div>
+        <p class="tier-desc">A complete product: custom site or management system, brand work, and a foundation that scales.</p>
+        <a class="btn btn-lime" href="#contact">Get started</a>
+      </div>
+      <div class="tier reveal" style="--d:.2s">
+        <span class="tier-name">Partner</span>
+        <div class="tier-price">Custom</div>
+        <p class="tier-desc">An embedded team for ongoing work — dashboards, AI features, and long-term care.</p>
+        <a class="btn btn-ghost" href="#contact">Talk to us</a>
+      </div>
+    </div>
+    <p class="pricing-note reveal"><strong>Every engagement includes:</strong> source-code ownership · hosting setup · 30 days of launch support.</p>
+  </div>
+</section>
+
+<!-- ============ 9. WORK ============ -->
+<section class="section" id="work">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="key">[ SELECTED WORK ]</span>
+      <h2 class="section-title">A slice of what we've shipped.</h2>
+    </div>
+    <div class="work-grid">
+      <a class="work-card reveal" href="#contact">
+        <div class="work-media" style="background:linear-gradient(160deg,#16220a,#101010)"></div>
+        <div class="work-body"><span class="work-cat">Systems</span><h3>Fintech Dashboard</h3></div>
+      </a>
+      <a class="work-card reveal" href="#contact" style="--d:.05s">
+        <div class="work-media" style="background:linear-gradient(135deg,#0c1c1c,#0f0f0f)"></div>
+        <div class="work-body"><span class="work-cat">Web</span><h3>Health Booking Platform</h3></div>
+      </a>
+      <a class="work-card reveal" href="#contact" style="--d:.1s">
+        <div class="work-media" style="background:linear-gradient(150deg,#1c1608,#101010)"></div>
+        <div class="work-body"><span class="work-cat">AI</span><h3>Retail Demand Forecast</h3></div>
+      </a>
+      <a class="work-card reveal" href="#contact">
+        <div class="work-media" style="background:linear-gradient(160deg,#101d10,#0e0e0e)"></div>
+        <div class="work-body"><span class="work-cat">Systems</span><h3>Logistics Control Tower</h3></div>
+      </a>
+      <a class="work-card reveal" href="#contact" style="--d:.05s">
+        <div class="work-media" style="background:linear-gradient(135deg,#141410,#101010)"></div>
+        <div class="work-body"><span class="work-cat">AI</span><h3>EdTech Learning App</h3></div>
+      </a>
+      <a class="work-card reveal" href="#contact" style="--d:.1s">
+        <div class="work-media" style="background:linear-gradient(150deg,#1a160a,#0f0f0f)"></div>
+        <div class="work-body"><span class="work-cat">Brand</span><h3>Studio Brand System</h3></div>
+      </a>
+      <a class="work-card reveal" href="#contact">
+        <div class="work-media" style="background:linear-gradient(160deg,#0d1c14,#101010)"></div>
+        <div class="work-body"><span class="work-cat">Web</span><h3>Market Link</h3></div>
+      </a>
+      <a class="work-card reveal" href="#contact" style="--d:.05s">
+        <div class="work-media" style="background:linear-gradient(135deg,#191909,#0f0f0f)"></div>
+        <div class="work-body"><span class="work-cat">Systems</span><h3>AgriMetrics Platform</h3></div>
+      </a>
+      <a class="work-card reveal" href="#contact" style="--d:.1s">
+        <div class="work-media" style="background:linear-gradient(150deg,#0f161c,#0e0e0e)"></div>
+        <div class="work-body"><span class="work-cat">Web</span><h3>Event Platform</h3></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 10. TESTIMONIAL ============ -->
+<section class="testimonial section">
+  <div class="container">
+    <div class="reveal">
+      <div class="quote-mark" aria-hidden="true">"</div>
+      <blockquote>AZERTYCORP rebuilt our booking platform and cut our support volume in half. They think like <span>product owners, not vendors.</span></blockquote>
+      <cite><strong>Ndeh Awah</strong> — COO, Douala Logistics</cite>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 11. FINAL CTA ============ -->
+<section class="final-cta" id="contact">
+  <div class="container">
+    <span class="key">[ CONTACT ]</span>
+    <h2 class="reveal">Have a project in mind? <em>Let's make it real.</em></h2>
+    <p class="reveal" style="--d:.1s">Tell us what you're building. We'll tell you honestly whether we're the right team for it.</p>
+    <a class="btn btn-lime reveal" style="--d:.2s" href="mailto:hello@azertycorp.com">Start a conversation</a>
+    <div class="cta-links reveal" style="--d:.3s">
+      <a class="cta-link" href="mailto:hello@azertycorp.com">hello@azertycorp.com</a>
+      <a class="cta-link" href="tel:+237687391985">+237 687 391 985</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ 12. FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <a class="logo" href="#home">AZERTY<span>CORP</span></a>
+        <p class="footer-tag">A design-engineering studio in Douala, Cameroon. We make software that works as hard as you do.</p>
+        <div class="socials">
+          <a href="#" aria-label="GitHub"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.27-.01-1.17-.02-2.13-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.7 1.25 3.35.96.1-.75.4-1.25.73-1.54-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.18-1.49 3.14-1.18 3.14-1.18.63 1.59.24 2.76.12 3.05.74.81 1.18 1.83 1.18 3.09 0 4.42-2.69 5.39-5.25 5.67.41.36.78 1.06.78 2.14 0 1.54-.01 2.78-.01 3.16 0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg></a>
+          <a href="#" aria-label="X"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.41l-5.8-7.58-6.64 7.58H.47l8.6-9.83L0 1.15h7.59l5.24 6.93 6.07-6.93zm-1.29 19.5h2.04L6.49 3.24H4.3l13.31 17.41z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick links</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Websites</a></li>
+          <li><a href="#services">Management systems</a></li>
+          <li><a href="#services">AI features</a></li>
+          <li><a href="#services">Brand identity</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li>Douala, Cameroon</li>
+          <li><a href="tel:+237687391985">+237 687 391 985</a></li>
+          <li><a href="mailto:hello@azertycorp.com">hello@azertycorp.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 AZERTYCORP. All rights reserved.</span>
+      <span>Douala, Cameroon</span>
     </div>
   </div>
 </footer>
 
-<style>
-  @media (min-width: 640px) {
-    .footer-grid { grid-template-columns: 1fr 2fr !important; }
-  }
-</style>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
 
-<script src="assets/js/main.js"></script>
+  // ===== MOBILE MENU =====
+  var burger = document.getElementById('hamburger');
+  var menu = document.getElementById('mobileMenu');
+  var overlay = document.getElementById('overlay');
+
+  function openMenu() {
+    menu.classList.add('open');
+    overlay.classList.add('show');
+    burger.classList.add('open');
+    burger.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu() {
+    menu.classList.remove('open');
+    overlay.classList.remove('show');
+    burger.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  if (burger && menu) {
+    burger.addEventListener('click', function () {
+      menu.classList.contains('open') ? closeMenu() : openMenu();
+    });
+    overlay.addEventListener('click', closeMenu);
+    menu.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', closeMenu);
+    });
+  }
+
+  // ===== TICKER ROTATION =====
+  var ticker = document.getElementById('ticker-word');
+  if (ticker) {
+    var words = ['Websites', 'Management systems', 'AI features', 'Brand identities', 'Dashboards', 'E-commerce'];
+    var i = 0;
+    setInterval(function () {
+      ticker.classList.add('fade');
+      setTimeout(function () {
+        i = (i + 1) % words.length;
+        ticker.textContent = words[i];
+        ticker.classList.remove('fade');
+      }, 350);
+    }, 2400);
+  }
+
+  // ===== SCROLL REVEAL + COUNTERS =====
+  var revealEls = document.querySelectorAll('.reveal');
+  var counters = document.querySelectorAll('[data-count]');
+  var counted = new Set();
+
+  function animateCounter(el) {
+    var target = parseInt(el.getAttribute('data-count'), 10);
+    var suffix = el.getAttribute('data-suffix') || '';
+    var duration = 1400;
+    var start = performance.now();
+    function tick(now) {
+      var p = Math.min((now - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(target * eased) + suffix;
+      if (p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('visible');
+      if (entry.target.classList.contains('stat-num') && !counted.has(entry.target)) {
+        counted.add(entry.target);
+        animateCounter(entry.target);
+      }
+      io.unobserve(entry.target);
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  revealEls.forEach(function (el) { io.observe(el); });
+
+});
+</script>
 </body>
 </html>
