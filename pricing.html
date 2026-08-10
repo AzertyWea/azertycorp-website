@@ -1,16 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pricing | AZERTYCORP</title>
-  <meta name="description" content="Transparent pricing for software development, AI, design, consulting, and training services. Every project starts with a free consultation.">
+  <title>Tarifs — Pricing | AZERTYCORP</title>
+  <meta name="description" content="Tarifs transparents pour sites web, systèmes de gestion et solutions IA au Cameroun. Transparent pricing for websites, management systems and AI solutions in Cameroon.">
   <meta name="theme-color" content="#F92C53">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23F92C53'/%3E%3Cstop offset='1' stop-color='%23EEAB21'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Ctext x='32' y='44' font-family='Arial' font-weight='800' font-size='34' text-anchor='middle' fill='white'%3EA%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=DM+Sans:opsz,wght@9..40,100..1000&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/site.css">
+  <style>
+    .price-controls{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:flex-end;margin-bottom:2.5rem}
+    .tc{display:inline-flex;background:#fff;border:1px solid var(--border);border-radius:999px;padding:.25rem;gap:.25rem;box-shadow:var(--shadow-sm)}
+    .tc button{border:0;background:transparent;padding:.45rem 1.05rem;border-radius:999px;font-size:.76rem;font-weight:700;cursor:pointer;font-family:var(--font-label);letter-spacing:.07em;text-transform:uppercase;color:hsl(30 12% 20%/.55);transition:background .25s,color .25s}
+    .tc button.tc-on{background:var(--primary);color:#fff}
+    .axis-num{font-family:var(--font-label);font-size:.68rem;font-weight:700;letter-spacing:.14em;color:var(--primary);text-transform:uppercase;margin-bottom:1rem;display:block}
+    .price-note{max-width:44rem;margin:2.5rem auto 0;text-align:center;font-size:.85rem;color:hsl(30 12% 20%/.6)}
+    .price-card .pc-price{min-height:3rem}
+  </style>
 </head>
 <body>
 
@@ -94,283 +103,129 @@
     <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1600&q=80" alt="" loading="eager">
   </div>
   <div class="page-hero-content">
-    <p class="eyebrow">Pricing</p>
-    <h1>Simple, <span class="grad">transparent pricing.</span></h1>
-    <p>Choose the service that fits your needs. Every project starts with a free consultation.</p>
+    <p class="eyebrow" data-fr="Tarifs" data-en="Pricing">Tarifs</p>
+    <h1 data-fr-html='Des prix simples, <span class="grad">transparents.</span>' data-en-html='Simple, <span class="grad">transparent pricing.</span>'>Des prix simples, <span class="grad">transparents.</span></h1>
+    <p data-fr="Choisissez le forfait qui correspond à votre besoin. Chaque projet démarre par une consultation gratuite." data-en="Choose the package that fits your needs. Every project starts with a free consultation.">Choisissez le forfait qui correspond à votre besoin. Chaque projet démarre par une consultation gratuite.</p>
     <div class="page-hero-actions">
-      <a href="contact.html" class="btn-pill btn-light">Start a project</a>
-      <a href="services.html" class="btn-pill btn-white-ghost">Explore services</a>
+      <a href="contact.html" class="btn-pill btn-light" data-fr="Démarrer un projet" data-en="Start a project">Démarrer un projet</a>
+      <a href="services.html" class="btn-pill btn-white-ghost" data-fr="Voir nos services" data-en="Explore services">Voir nos services</a>
     </div>
   </div>
 </section>
 
-<!-- ============ PRICING BANDS ============ -->
+<!-- ============ PRICING ============ -->
 <section class="section">
   <div class="container">
 
-    <!-- Web & Mobile Development -->
-    <div class="price-band reveal">
-      <h3>Web &amp; Mobile Development</h3>
-      <p>From a single landing page to a full-scale platform.</p>
-      <div class="grid-3">
-        <div class="price-card reveal">
-          <p class="pc-name">Starter</p>
-          <div class="pc-price">$2,500<small>/project</small></div>
-          <p class="pc-desc">Perfect for small businesses and startups.</p>
-          <ul>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Landing page or simple website</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Responsive design</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Contact form integration</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Basic SEO setup</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>1 month support</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>1 revision round</span></li>
-          </ul>
-          <button type="button" class="btn-pill btn-ghost" data-open-quote>Get Started</button>
-        </div>
-        <div class="price-card featured reveal" style="--d:.08s">
-          <span class="pc-badge">Most Popular</span>
-          <p class="pc-name">Professional</p>
-          <div class="pc-price">$7,500<small>/project</small></div>
-          <p class="pc-desc">For growing businesses needing custom solutions.</p>
-          <ul>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Custom web application</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>User authentication &amp; dashboards</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Database design &amp; API</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Admin panel</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Payment integration</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>3 months support</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>3 revision rounds</span></li>
-          </ul>
-          <button type="button" class="btn-pill" data-open-quote>Get Started</button>
-        </div>
-        <div class="price-card reveal" style="--d:.16s">
-          <p class="pc-name">Enterprise</p>
-          <div class="pc-price">$20,000<small>+</small></div>
-          <p class="pc-desc">Full-scale platforms and mobile apps.</p>
-          <ul>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Full-stack web + mobile app</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Cloud infrastructure &amp; DevOps</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Real-time features &amp; notifications</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Third-party integrations</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Performance optimization</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>6 months support</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Unlimited revisions</span></li>
-          </ul>
-          <button type="button" class="btn-pill btn-ghost" data-open-quote>Get Started</button>
-        </div>
+    <div class="price-controls">
+      <div class="tc" role="group" aria-label="Language">
+        <button type="button" data-lang-btn="fr" class="tc-on">Français</button>
+        <button type="button" data-lang-btn="en">English</button>
+      </div>
+      <div class="tc" role="group" aria-label="Currency">
+        <button type="button" data-cur-btn="fcfa" class="tc-on">FCFA</button>
+        <button type="button" data-cur-btn="usd">USD</button>
       </div>
     </div>
 
-    <!-- AI & Machine Learning -->
-    <div class="price-band reveal">
-      <h3>Intelligent Solutions</h3>
-      <p>AI strategy, custom models, and enterprise integration.</p>
-      <div class="grid-3">
-        <div class="price-card reveal">
-          <p class="pc-name">AI Consultation</p>
-          <div class="pc-price">$1,500<small>/session</small></div>
-          <p class="pc-desc">Expert guidance on AI adoption for your business.</p>
-          <ul>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>2-hour deep-dive session</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>AI feasibility assessment</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Technology roadmap</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>ROI projections</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Follow-up report</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Email support for 2 weeks</span></li>
-          </ul>
-          <button type="button" class="btn-pill btn-ghost" data-open-quote>Get Started</button>
-        </div>
-        <div class="price-card featured reveal" style="--d:.08s">
-          <span class="pc-badge">Most Popular</span>
-          <p class="pc-name">Custom ML Model</p>
-          <div class="pc-price">$12,000<small>/project</small></div>
-          <p class="pc-desc">Custom machine learning models built for your data.</p>
-          <ul>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Data analysis &amp; strategy</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Custom model development</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Training &amp; validation</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>API deployment</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Performance monitoring</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>3 months maintenance</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Documentation</span></li>
-          </ul>
-          <button type="button" class="btn-pill" data-open-quote>Get Started</button>
-        </div>
-        <div class="price-card reveal" style="--d:.16s">
-          <p class="pc-name">AI Integration</p>
-          <div class="pc-price">$25,000<small>+</small></div>
-          <p class="pc-desc">End-to-end AI transformation for enterprises.</p>
-          <ul>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Full AI strategy &amp; roadmap</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Multiple model deployment</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Data pipeline engineering</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Real-time inference system</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Dashboard &amp; analytics</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Team training</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>12 months support</span></li>
-          </ul>
-          <button type="button" class="btn-pill btn-ghost" data-open-quote>Get Started</button>
-        </div>
+    <div class="section-head">
+      <p class="eyebrow" data-fr="Nos forfaits" data-en="Our packages">Nos forfaits</p>
+      <h2 class="h2-display" data-fr-html='Quatre forfaits, <span class="grad">zéro surprise</span>' data-en-html='Four packages, <span class="grad">zero surprises</span>'>Quatre forfaits, <span class="grad">zéro surprise</span></h2>
+      <p class="lead" data-fr="Des prix ancrés dans le marché camerounais, vérifiés et défendables — jamais de surprise en cours de projet." data-en="Prices grounded in the Cameroonian market — verified and defensible, with no surprises mid-project.">Des prix ancrés dans le marché camerounais, vérifiés et défendables — jamais de surprise en cours de projet.</p>
+    </div>
+
+    <!-- Axes -->
+    <div class="grid-3 mt-12">
+      <div class="bento-card reveal">
+        <span class="axis-num">01 — Web</span>
+        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+        <h3 data-fr="Web &amp; Systèmes de gestion" data-en="Web &amp; Management Systems">Web &amp; Systèmes de gestion</h3>
+        <p data-fr="Sites vitrines, e-commerce et systèmes de gestion sur mesure — notre cœur de métier, prouvé par REDI et des dizaines de projets livrés." data-en="Showcase sites, e-commerce and custom management systems — our core business, proven by REDI and dozens of delivered projects.">Sites vitrines, e-commerce et systèmes de gestion sur mesure — notre cœur de métier, prouvé par REDI et des dizaines de projets livrés.</p>
+      </div>
+      <div class="bento-card reveal" style="--d:.08s">
+        <span class="axis-num">02 — IA</span>
+        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l1.9 5.7L19.6 10l-5.7 1.9L12 17.6l-1.9-5.7L4.4 10l5.7-1.9L12 3z"/><line x1="19" y1="15" x2="19" y2="21"/><line x1="16" y1="18" x2="22" y2="18"/></svg></div>
+        <h3 data-fr="Solutions IA appliquées" data-en="Applied AI Solutions">Solutions IA appliquées</h3>
+        <p data-fr="Chatbots, automatisations (n8n, API) et intégration de l'IA dans vos outils existants pour gagner un temps réel." data-en="Chatbots, automations (n8n, APIs) and AI integration into your existing tools — real time savings.">Chatbots, automatisations (n8n, API) et intégration de l'IA dans vos outils existants pour gagner un temps réel.</p>
+      </div>
+      <div class="bento-card reveal" style="--d:.16s">
+        <span class="axis-num">03 — Design</span>
+        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.9 0 2-.7 2-1.7 0-.5-.2-.9-.5-1.2-.3-.3-.5-.7-.5-1.1 0-.9.7-1.6 1.6-1.6h2.6c2.5 0 4.8-2 4.8-4.4C21.9 6 17.5 2 12 2z"/></svg></div>
+        <h3 data-fr="Design &amp; Branding" data-en="Design &amp; Branding">Design &amp; Branding</h3>
+        <p data-fr="Logos, identité visuelle et UI/UX pour que votre produit soit aussi beau qu'il est performant." data-en="Logos, brand identity and UI/UX so your product looks as good as it performs.">Logos, identité visuelle et UI/UX pour que votre produit soit aussi beau qu'il est performant.</p>
       </div>
     </div>
 
-    <!-- Design -->
-    <div class="price-band reveal">
-      <h3>Brand &amp; UI/UX Design</h3>
-      <p>Identity, brand systems, and user-centered product design.</p>
-      <div class="grid-3">
-        <div class="price-card reveal">
-          <p class="pc-name">Logo &amp; Identity</p>
-          <div class="pc-price">$1,200<small>/package</small></div>
-          <p class="pc-desc">Professional brand identity for startups.</p>
-          <ul>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>3 logo concepts</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Final logo files (SVG, PNG, PDF)</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Brand color palette</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Basic brand guidelines</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Business card design</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>2 revision rounds</span></li>
-          </ul>
-          <button type="button" class="btn-pill btn-ghost" data-open-quote>Get Started</button>
-        </div>
-        <div class="price-card featured reveal" style="--d:.08s">
-          <span class="pc-badge">Most Popular</span>
-          <p class="pc-name">Brand System</p>
-          <div class="pc-price">$4,500<small>/project</small></div>
-          <p class="pc-desc">Complete brand identity system.</p>
-          <ul>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Full brand strategy</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Logo suite &amp; variations</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Comprehensive brand guidelines</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Marketing collateral</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Social media templates</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Stationery design</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Brand assets folder</span></li>
-          </ul>
-          <button type="button" class="btn-pill" data-open-quote>Get Started</button>
-        </div>
-        <div class="price-card reveal" style="--d:.16s">
-          <p class="pc-name">UI/UX Design</p>
-          <div class="pc-price">$8,000<small>/project</small></div>
-          <p class="pc-desc">User-centered digital product design.</p>
-          <ul>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>User research &amp; personas</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Information architecture</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Wireframing &amp; prototyping</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>High-fidelity mockups</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Interactive prototype</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Design system handoff</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Developer collaboration</span></li>
-          </ul>
-          <button type="button" class="btn-pill btn-ghost" data-open-quote>Get Started</button>
-        </div>
+    <!-- Packages -->
+    <div class="grid-4 mt-10">
+
+      <div class="price-card reveal">
+        <span class="pc-badge">START</span>
+        <h3 class="pc-name" data-fr="Lancement" data-en="Launch">Lancement</h3>
+        <div class="pc-price"><strong data-fcfa="150 000 – 350 000 FCFA" data-usd="$400 – $700">150 000 – 350 000 FCFA</strong><small data-fr="par projet" data-en="per project">par projet</small></div>
+        <p class="pc-desc" data-fr="Pour lancer rapidement une présence en ligne propre et efficace." data-en="Launch a clean, effective online presence quickly.">Pour lancer rapidement une présence en ligne propre et efficace.</p>
+        <ul>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="Site vitrine ou landing page (1–5 pages)" data-en="Showcase site or landing page (1–5 pages)">Site vitrine ou landing page (1–5 pages)</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="Design responsive" data-en="Responsive design">Design responsive</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="Formulaire de contact + WhatsApp" data-en="Contact form + WhatsApp">Formulaire de contact + WhatsApp</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="SEO de base" data-en="Basic SEO">SEO de base</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="Livraison en 2–4 semaines" data-en="Delivery in 2–4 weeks">Livraison en 2–4 semaines</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="1 mois de support inclus" data-en="1 month of support included">1 mois de support inclus</span></li>
+        </ul>
+        <a href="contact.html" class="btn-pill" data-fr="Choisir START" data-en="Choose START">Choisir START</a>
       </div>
+
+      <div class="price-card featured reveal" style="--d:.08s">
+        <span class="pc-badge" data-fr="Le plus choisi" data-en="Most popular">Le plus choisi</span>
+        <h3 class="pc-name" data-fr="Business" data-en="Business">Business</h3>
+        <div class="pc-price"><strong data-fcfa="400 000 – 900 000 FCFA" data-usd="$1,000 – $1,500">400 000 – 900 000 FCFA</strong><small data-fr="par projet" data-en="per project">par projet</small></div>
+        <p class="pc-desc" data-fr="Le choix des entreprises qui veulent grandir en ligne." data-en="The choice for businesses ready to grow online.">Le choix des entreprises qui veulent grandir en ligne.</p>
+        <ul>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="Site professionnel multilingue (jusqu'à 10 pages)" data-en="Professional multilingual site (up to 10 pages)">Site professionnel multilingue (jusqu'à 10 pages)</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="Panneau d'administration (CMS)" data-en="Admin panel (CMS)">Panneau d'administration (CMS)</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="Blog &amp; actualités" data-en="Blog &amp; news">Blog &amp; actualités</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="SEO avancé + analytics" data-en="Advanced SEO + analytics">SEO avancé + analytics</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="E-mail professionnel" data-en="Professional email">E-mail professionnel</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="Livraison en 4–8 semaines" data-en="Delivery in 4–8 weeks">Livraison en 4–8 semaines</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="3 mois de support inclus" data-en="3 months of support included">3 mois de support inclus</span></li>
+        </ul>
+        <a href="contact.html" class="btn-pill" data-fr="Choisir Business" data-en="Choose Business">Choisir Business</a>
+      </div>
+
+      <div class="price-card reveal" style="--d:.16s">
+        <span class="pc-badge">DIGITAL+AI</span>
+        <h3 class="pc-name" data-fr="Digital &amp; IA" data-en="Digital &amp; AI">Digital &amp; IA</h3>
+        <div class="pc-price"><strong data-fcfa="900 000 – 2 500 000 FCFA" data-usd="$2,500 – $4,000">900 000 – 2 500 000 FCFA</strong><small data-fr="par projet" data-en="per project">par projet</small></div>
+        <p class="pc-desc" data-fr="Le combo parfait : e-commerce et intelligence artificielle pour passer à l'échelle." data-en="The perfect combo: e-commerce and AI to scale your business.">Le combo parfait : e-commerce et intelligence artificielle pour passer à l'échelle.</p>
+        <ul>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="E-commerce ou plateforme avancée" data-en="E-commerce or advanced platform">E-commerce ou plateforme avancée</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="Paiements mobiles (OM / MTN)" data-en="Mobile payments (OM / MTN)">Paiements mobiles (OM / MTN)</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="Assistant IA / chatbot intégré" data-en="Built-in AI assistant / chatbot">Assistant IA / chatbot intégré</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="Automatisations (n8n, API)" data-en="Automations (n8n, APIs)">Automatisations (n8n, API)</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="Formation de votre équipe" data-en="Team training">Formation de votre équipe</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="6 mois de support inclus" data-en="6 months of support included">6 mois de support inclus</span></li>
+        </ul>
+        <a href="contact.html" class="btn-pill" data-fr="Choisir Digital+AI" data-en="Choose Digital+AI">Choisir Digital+AI</a>
+      </div>
+
+      <div class="price-card reveal" style="--d:.24s">
+        <span class="pc-badge">SUR DEVIS</span>
+        <h3 class="pc-name" data-fr="Sur mesure" data-en="Custom">Sur mesure</h3>
+        <div class="pc-price"><strong data-fcfa="Sur devis" data-usd="Custom">Sur devis</strong><small data-fr="à partir de 2 500 000 FCFA" data-en="from $2,500">à partir de 2 500 000 FCFA</small></div>
+        <p class="pc-desc" data-fr="Des plateformes à fort impact, pensées sur mesure du premier au dernier jour." data-en="High-impact platforms, tailored end to end.">Des plateformes à fort impact, pensées sur mesure du premier au dernier jour.</p>
+        <ul>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="REDI &amp; grandes plateformes" data-en="REDI &amp; large platforms">REDI &amp; grandes plateformes</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="SaaS &amp; systèmes métier sur mesure" data-en="SaaS &amp; custom business systems">SaaS &amp; systèmes métier sur mesure</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="Intégrations avancées" data-en="Advanced integrations">Intégrations avancées</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="IA à l'échelle" data-en="AI at scale">IA à l'échelle</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="Chef de projet dédié + SLA" data-en="Dedicated PM + SLA">Chef de projet dédié + SLA</span></li>
+        </ul>
+        <a href="contact.html" class="btn-pill" data-fr="Demander un devis" data-en="Request a quote">Demander un devis</a>
+      </div>
+
     </div>
 
-    <!-- Training -->
-    <div class="price-band reveal">
-      <h3>Workshops &amp; Courses</h3>
-      <p>Hands-on training for individuals and teams.</p>
-      <div class="grid-3">
-        <div class="price-card reveal">
-          <p class="pc-name">Half-Day Workshop</p>
-          <div class="pc-price">$800<small>/session</small></div>
-          <p class="pc-desc">Intensive 4-hour focused training.</p>
-          <ul>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Up to 20 participants</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Hands-on exercises</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Course materials included</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Certificate of completion</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Q&amp;A session</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Follow-up resources</span></li>
-          </ul>
-          <button type="button" class="btn-pill btn-ghost" data-open-quote>Get Started</button>
-        </div>
-        <div class="price-card featured reveal" style="--d:.08s">
-          <span class="pc-badge">Most Popular</span>
-          <p class="pc-name">Full Bootcamp</p>
-          <div class="pc-price">$3,500<small>/week</small></div>
-          <p class="pc-desc">5-day intensive training program.</p>
-          <ul>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Up to 30 participants</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Daily hands-on projects</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Real-world case studies</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Completion certificates</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Job-ready portfolio project</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>1 month mentoring</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Career guidance</span></li>
-          </ul>
-          <button type="button" class="btn-pill" data-open-quote>Get Started</button>
-        </div>
-        <div class="price-card reveal" style="--d:.16s">
-          <p class="pc-name">Corporate Program</p>
-          <div class="pc-price">$6,000<small>/month</small></div>
-          <p class="pc-desc">Ongoing team upskilling program.</p>
-          <ul>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Unlimited participants</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Custom curriculum</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Weekly sessions</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Progress tracking dashboard</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Skills assessment</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Dedicated trainer</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Quarterly reporting</span></li>
-          </ul>
-          <button type="button" class="btn-pill btn-ghost" data-open-quote>Get Started</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Consulting -->
-    <div class="price-band reveal">
-      <h3>Digital Strategy &amp; Transformation</h3>
-      <p>Expert guidance to move your business forward.</p>
-      <div class="grid-3">
-        <div class="price-card reveal">
-          <p class="pc-name">Strategy Session</p>
-          <div class="pc-price">$500<small>/session</small></div>
-          <p class="pc-desc">Focused strategic consultation.</p>
-          <ul>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>3-hour strategy session</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Business analysis</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Digital roadmap</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Action plan document</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Email support for 1 week</span></li>
-          </ul>
-          <button type="button" class="btn-pill btn-ghost" data-open-quote>Get Started</button>
-        </div>
-        <div class="price-card featured reveal" style="--d:.08s">
-          <span class="pc-badge">Most Popular</span>
-          <p class="pc-name">Transformation Sprint</p>
-          <div class="pc-price">$5,000<small>/project</small></div>
-          <p class="pc-desc">2-week intensive transformation program.</p>
-          <ul>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Full business audit</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Technology stack assessment</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Process optimization plan</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Vendor evaluation</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Implementation roadmap</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Team workshops</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>30-day follow-up</span></li>
-          </ul>
-          <button type="button" class="btn-pill" data-open-quote>Get Started</button>
-        </div>
-        <div class="price-card reveal" style="--d:.16s">
-          <p class="pc-name">Fractional CTO</p>
-          <div class="pc-price">$4,000<small>/month</small></div>
-          <p class="pc-desc">Part-time CTO for your organization.</p>
-          <ul>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Technical leadership</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Architecture decisions</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Team mentoring</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Sprint planning</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Vendor management</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Budget optimization</span></li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Board reporting</span></li>
-          </ul>
-          <button type="button" class="btn-pill btn-ghost" data-open-quote>Get Started</button>
-        </div>
-      </div>
-    </div>
+    <p class="price-note" data-fr="Montants indicatifs, confirmés ensemble lors de la consultation gratuite. Les grandes plateformes (REDI, SaaS) font l'objet d'un devis au cas par cas." data-en="Indicative amounts, confirmed together during the free consultation. Large platforms (REDI, SaaS) are quoted case by case.">Montants indicatifs, confirmés ensemble lors de la consultation gratuite. Les grandes plateformes (REDI, SaaS) font l'objet d'un devis au cas par cas.</p>
 
   </div>
 </section>
@@ -379,11 +234,11 @@
 <section class="section bg-muted">
   <div class="container">
     <div class="cta-center reveal">
-      <h2 class="cta-title"><span class="word">Need</span> <span class="word">a</span> <span class="word">custom</span> <span class="word">quote?</span></h2>
-      <p class="cta-sub">Every project is unique. Let's discuss your needs and build a tailored plan together.</p>
+      <h2 class="cta-title" data-fr-html='<span class="word">Besoin</span> <span class="word">d&rsquo;un</span> <span class="word">devis</span> <span class="word">sur</span> <span class="word">mesure?</span>' data-en-html='<span class="word">Need</span> <span class="word">a</span> <span class="word">custom</span> <span class="word">quote?</span>'><span class="word">Besoin</span> <span class="word">d&rsquo;un</span> <span class="word">devis</span> <span class="word">sur</span> <span class="word">mesure?</span></h2>
+      <p class="cta-sub" data-fr="Chaque projet est unique. Parlons-en et construisons une offre adaptée ensemble." data-en="Every project is unique. Let's discuss your needs and build a tailored plan together.">Chaque projet est unique. Parlons-en et construisons une offre adaptée ensemble.</p>
       <div class="cta-actions">
-        <span class="btn-ring"><button type="button" class="btn-pill" data-open-quote>Get a free consultation</button></span>
-        <a href="contact.html" class="btn-pill btn-ghost">Contact us</a>
+        <span class="btn-ring"><button type="button" class="btn-pill" data-open-quote data-fr="Obtenir une consultation gratuite" data-en="Get a free consultation">Obtenir une consultation gratuite</button></span>
+        <a href="contact.html" class="btn-pill btn-ghost" data-fr="Contactez-nous" data-en="Contact us">Contactez-nous</a>
       </div>
     </div>
   </div>
@@ -478,6 +333,47 @@
   </div>
 </div>
 
+<script>
+(function () {
+  function store(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+  function load(k, d) { try { return localStorage.getItem(k) || d; } catch (e) { return d; } }
+  var lang = load('azerty-lang', 'fr');
+  var cur = load('azerty-cur', 'fcfa');
+  function applyLang(l) {
+    document.documentElement.lang = l;
+    document.querySelectorAll('[data-fr],[data-fr-html]').forEach(function (el) {
+      var isFr = (l === 'fr');
+      if (el.hasAttribute(isFr ? 'data-fr-html' : 'data-en-html')) {
+        el.innerHTML = el.getAttribute(isFr ? 'data-fr-html' : 'data-en-html');
+      } else {
+        el.textContent = el.getAttribute(isFr ? 'data-fr' : 'data-en');
+      }
+    });
+    document.querySelectorAll('[data-lang-btn]').forEach(function (b) {
+      b.classList.toggle('tc-on', b.getAttribute('data-lang-btn') === l);
+    });
+  }
+  function applyCur(c) {
+    document.querySelectorAll('[data-fcfa]').forEach(function (el) {
+      el.textContent = el.getAttribute(c === 'fcfa' ? 'data-fcfa' : 'data-usd');
+    });
+    document.querySelectorAll('[data-cur-btn]').forEach(function (b) {
+      b.classList.toggle('tc-on', b.getAttribute('data-cur-btn') === c);
+    });
+  }
+  document.querySelectorAll('[data-lang-btn]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      lang = b.getAttribute('data-lang-btn'); store('azerty-lang', lang); applyLang(lang);
+    });
+  });
+  document.querySelectorAll('[data-cur-btn]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      cur = b.getAttribute('data-cur-btn'); store('azerty-cur', cur); applyCur(cur);
+    });
+  });
+  applyLang(lang); applyCur(cur);
+})();
+</script>
 <script src="assets/js/site.js" defer></script>
 </body>
 </html>
