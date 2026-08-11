@@ -1,41 +1,43 @@
-/* ============================================================
-   AZERTYCORP — Design System (Loro-style: coral/gold/teal)
+﻿/* ============================================================
+   AZERTYCORP â€” Design System (Loro-style: coral/gold/teal)
    Static, Vercel-ready. No build step required.
    ============================================================ */
 
 :root{
   --background:#ffffff;
-  --foreground:hsl(30 12% 20%);
+  --foreground:#242428;
   --card:#ffffff;
-  --card-foreground:hsl(30 12% 20%);
+  --card-foreground:#242428;
   --popover:#ffffff;
-  --popover-foreground:hsl(30 12% 20%);
+  --popover-foreground:#242428;
   --secondary:#e6e6e6;
-  --secondary-foreground:hsl(30 12% 20%);
+  --secondary-foreground:#242428;
   --muted:#f7f7f8;
   --muted-2:#fafafa;
-  --muted-foreground:hsl(30 8% 45%);
-  --border:hsl(30 8% 88%);
-  --input:hsl(30 8% 88%);
-  --ring:hsl(349 95% 57%);
-  --primary:hsl(349 95% 57%);        /* coral #F92C53 */
-  --primary-dark:hsl(349 78% 48%);
+  --muted-foreground:hsl(0 0% 45%);
+  --border:#E8E8EA;
+  --input:#E8E8EA;
+  --ring:#E51B23;
+  --primary:#E51B23;             /* AZERTY Red */
+  --primary-dark:#B8131A;
   --primary-foreground:#ffffff;
-  --accent:hsl(168 96% 33%);         /* teal #00C9A7 */
+  --accent:#E51B23;              /* red only for emphasis */
   --accent-foreground:#ffffff;
-  --accent-blue:#2563EB;
-  --teal:#00C9A7;
-  --teal-soft:hsl(168 80% 94%);
-  --gold:#EEAB21;
-  --gold-soft:hsl(38 85% 94%);
-  --coral-soft:hsl(349 100% 97%);
+  --accent-blue:#242428;
+  --teal:#E51B23;
+  --teal-soft:hsl(358 81% 96%);
+  --gold:#E51B23;
+  --gold-soft:hsl(358 81% 96%);
+  --coral-soft:hsl(358 81% 96%);
   --destructive:hsl(0 84% 60%);
-  --ink:#030303;
+  --ink:#0B0B0D;                 /* AZERTY Black */
+  --graphite:#242428;
+  --light-gray:#E8E8EA;
   --radius:1.25rem;
 
-  --font-body:'DM Sans',system-ui,-apple-system,sans-serif;
-  --font-display:'Comfortaa','DM Sans',system-ui,sans-serif;
-  --font-label:'Space Grotesk','DM Sans',system-ui,sans-serif;
+  --font-body:'Inter',system-ui,-apple-system,sans-serif;
+  --font-display:'Montserrat',system-ui,-apple-system,sans-serif;
+  --font-label:'Montserrat',system-ui,-apple-system,sans-serif;
   --font-mono:ui-monospace,SFMono-Regular,Menlo,monospace;
 
   --shadow-sm:0 1px 2px rgba(0,0,0,.04);
@@ -137,7 +139,7 @@ section[id]{scroll-margin-top:110px}
 .btn-ring .btn-pill.btn-dark-inner:hover{background:hsl(30 12% 12%)}
 
 /* ============================================================
-   NAV — desktop floating pill
+   NAV â€” desktop floating pill
    ============================================================ */
 .nav-pill-wrap{
   position:fixed;top:22px;left:50%;z-index:900;
@@ -189,7 +191,7 @@ section[id]{scroll-margin-top:110px}
 .nav-hamburger span{display:block;width:15px;height:1.5px;border-radius:99px;background:currentColor}
 
 /* ============================================================
-   NAV — mobile pill
+   NAV â€” mobile pill
    ============================================================ */
 .mobile-nav-shell{
   position:fixed;top:1.25rem;left:1rem;right:1rem;z-index:900;
@@ -473,7 +475,7 @@ section[id]{scroll-margin-top:110px}
 }
 
 /* ============================================================
-   WHY CHOOSE US — dark cards
+   WHY CHOOSE US â€” dark cards
    ============================================================ */
 .why-grid{display:grid;grid-template-columns:1fr;gap:1rem;margin-top:4rem}
 .why-card{
@@ -712,7 +714,7 @@ section[id]{scroll-margin-top:110px}
   background:var(--card);transition:border-color .2s ease,box-shadow .2s ease;width:100%;
 }
 .qm-field input:focus,.qm-field select:focus,.qm-field textarea:focus{
-  outline:none;border-color:var(--primary);box-shadow:0 0 0 3px hsl(349 95% 57% / .15);
+  outline:none;border-color:var(--primary);box-shadow:0 0 0 3px hsl(358 81% 50% / .15);
 }
 .qm-row{display:grid;grid-template-columns:1fr;gap:1rem}
 @media(min-width:480px){.qm-row{grid-template-columns:1fr 1fr}}
@@ -893,7 +895,7 @@ section[id]{scroll-margin-top:110px}
   background:var(--card);transition:border-color .2s ease,box-shadow .2s ease;width:100%;
 }
 .form-field input:focus,.form-field select:focus,.form-field textarea:focus{
-  outline:none;border-color:var(--primary);box-shadow:0 0 0 3px hsl(349 95% 57% / .15);
+  outline:none;border-color:var(--primary);box-shadow:0 0 0 3px hsl(358 81% 50% / .15);
 }
 .form-row{display:grid;grid-template-columns:1fr;gap:1rem}
 @media(min-width:640px){.form-row{grid-template-columns:1fr 1fr}}
