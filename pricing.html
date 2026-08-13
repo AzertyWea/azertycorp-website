@@ -11,15 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300..900&family=Inter:wght@100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/site.css">
-  <style>
-    .price-controls{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:flex-end;margin-bottom:2.5rem}
-    .tc{display:inline-flex;background:#fff;border:1px solid var(--border);border-radius:999px;padding:.25rem;gap:.25rem;box-shadow:var(--shadow-sm)}
-    .tc button{border:0;background:transparent;padding:.45rem 1.05rem;border-radius:999px;font-size:.76rem;font-weight:700;cursor:pointer;font-family:var(--font-label);letter-spacing:.07em;text-transform:uppercase;color:hsl(30 12% 20%/.55);transition:background .25s,color .25s}
-    .tc button.tc-on{background:var(--primary);color:#fff}
-    .axis-num{font-family:var(--font-label);font-size:.68rem;font-weight:700;letter-spacing:.14em;color:var(--primary);text-transform:uppercase;margin-bottom:1rem;display:block}
-    .price-note{max-width:44rem;margin:2.5rem auto 0;text-align:center;font-size:.85rem;color:hsl(30 12% 20%/.6)}
-    .price-card .pc-price{min-height:3rem}
-  </style>
+
 </head>
 <body>
 
@@ -130,12 +122,12 @@
 
     <div class="section-head">
       <p class="eyebrow" data-fr="Nos forfaits" data-en="Our packages">Nos forfaits</p>
-      <h2 class="h2-display" data-fr-html='Quatre forfaits, <span class="grad">zéro surprise</span>' data-en-html='Four packages, <span class="grad">zero surprises</span>'>Quatre forfaits, <span class="grad">zéro surprise</span></h2>
-      <p class="lead" data-fr="Des prix ancrés dans le marché camerounais, vérifiés et défendables — jamais de surprise en cours de projet." data-en="Prices grounded in the Cameroonian market — verified and defensible, with no surprises mid-project.">Des prix ancrés dans le marché camerounais, vérifiés et défendables — jamais de surprise en cours de projet.</p>
+      <h2 class="h2-display" data-fr-html='Huit offres, <span class="grad">zéro surprise</span>' data-en-html='Eight offers, <span class="grad">zero surprises</span>'>Huit offres, <span class="grad">zéro surprise</span></h2>
+      <p class="lead" data-fr="Une seule grille en USD, avec équivalent FCFA informatif. Chaque projet démarre par une consultation gratuite." data-en="One USD price grid, with an indicative FCFA equivalent. Every project starts with a free consultation.">Une seule grille en USD, avec équivalent FCFA informatif. Chaque projet démarre par une consultation gratuite.</p>
     </div>
 
     <!-- Axes -->
-    <div class="grid-3 mt-12">
+    <div class="grid-4 mt-12">
       <div class="bento-card reveal">
         <span class="axis-num">01 — Web</span>
         <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
@@ -154,64 +146,88 @@
         <h3 data-fr="Design &amp; Branding" data-en="Design &amp; Branding">Design &amp; Branding</h3>
         <p data-fr="Logos, identité visuelle et UI/UX pour que votre produit soit aussi beau qu'il est performant." data-en="Logos, brand identity and UI/UX so your product looks as good as it performs.">Logos, identité visuelle et UI/UX pour que votre produit soit aussi beau qu'il est performant.</p>
       </div>
+      <div class="bento-card reveal" style="--d:.24s">
+        <span class="axis-num">04 — Academy</span>
+        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 9L12 4 2 9l10 5 10-5z"/><path d="M6 11v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5"/><line x1="22" y1="9" x2="22" y2="15"/></svg></div>
+        <h3 data-fr="Formation &amp; Academy" data-en="Training &amp; Academy">Formation &amp; Academy</h3>
+        <p data-fr="Nous montons vos équipes en compétences digitales : outils, IA et bonnes pratiques, sur site ou à distance." data-en="We level up your teams' digital skills: tools, AI and best practices, on-site or remote.">Nous montons vos équipes en compétences digitales : outils, IA et bonnes pratiques, sur site ou à distance.</p>
+      </div>
     </div>
 
     <!-- Packages -->
     <div class="grid-4 mt-10">
 
       <div class="price-card reveal">
-        <span class="pc-badge">START</span>
-        <h3 class="pc-name" data-fr="Lancement" data-en="Launch">Lancement</h3>
-        <div class="pc-price"><strong data-fcfa="150 000 – 350 000 FCFA" data-usd="$400 – $700">150 000 – 350 000 FCFA</strong><small data-fr="par projet" data-en="per project">par projet</small></div>
-        <p class="pc-desc" data-fr="Pour lancer rapidement une présence en ligne propre et efficace." data-en="Launch a clean, effective online presence quickly.">Pour lancer rapidement une présence en ligne propre et efficace.</p>
+        <span class="pc-badge">LANDING</span>
+        <h3 class="pc-name" data-fr="Landing Page" data-en="Landing Page">Landing Page</h3>
+        <div class="pc-price"><strong data-fcfa="360 000 FCFA" data-usd="$600">360 000 FCFA</strong><small data-fr="par projet" data-en="per project">par projet</small></div>
+        <p class="pc-desc" data-fr="Une page unique à haute conversion pour lancer votre offre rapidement." data-en="A single high-converting page to launch your offer fast.">Une page unique à haute conversion pour lancer votre offre rapidement.</p>
         <ul>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="Site vitrine ou landing page (1–5 pages)" data-en="Showcase site or landing page (1–5 pages)">Site vitrine ou landing page (1–5 pages)</span></li>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="Design responsive" data-en="Responsive design">Design responsive</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="Copywriting orienté conversion" data-en="Conversion-focused copywriting">Copywriting orienté conversion</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="Design responsive &amp; rapide" data-en="Responsive, fast design">Design responsive &amp; rapide</span></li>
           <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="Formulaire de contact + WhatsApp" data-en="Contact form + WhatsApp">Formulaire de contact + WhatsApp</span></li>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="SEO de base" data-en="Basic SEO">SEO de base</span></li>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="Livraison en 2–4 semaines" data-en="Delivery in 2–4 weeks">Livraison en 2–4 semaines</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="SEO de base + analytics" data-en="Basic SEO + analytics">SEO de base + analytics</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="Livraison en 1–2 semaines" data-en="Delivery in 1–2 weeks">Livraison en 1–2 semaines</span></li>
           <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="1 mois de support inclus" data-en="1 month of support included">1 mois de support inclus</span></li>
         </ul>
-        <a href="contact.html" class="btn-pill" data-fr="Choisir START" data-en="Choose START">Choisir START</a>
+        <a href="contact.html" class="btn-pill" data-fr="Choisir Landing" data-en="Choose Landing">Choisir Landing</a>
       </div>
 
-      <div class="price-card featured reveal" style="--d:.08s">
-        <span class="pc-badge" data-fr="Le plus choisi" data-en="Most popular">Le plus choisi</span>
-        <h3 class="pc-name" data-fr="Business" data-en="Business">Business</h3>
-        <div class="pc-price"><strong data-fcfa="400 000 – 900 000 FCFA" data-usd="$1,000 – $1,500">400 000 – 900 000 FCFA</strong><small data-fr="par projet" data-en="per project">par projet</small></div>
-        <p class="pc-desc" data-fr="Le choix des entreprises qui veulent grandir en ligne." data-en="The choice for businesses ready to grow online.">Le choix des entreprises qui veulent grandir en ligne.</p>
+      <div class="price-card reveal" style="--d:.08s">
+        <span class="pc-badge">VITRINE</span>
+        <h3 class="pc-name" data-fr="Site Vitrine" data-en="Showcase Site">Site Vitrine</h3>
+        <div class="pc-price"><strong data-fcfa="1 080 000 FCFA" data-usd="$1,800">1 080 000 FCFA</strong><small data-fr="par projet" data-en="per project">par projet</small></div>
+        <p class="pc-desc" data-fr="Le site professionnel qui donne confiance et présente votre activité." data-en="A professional site that builds trust and showcases your business.">Le site professionnel qui donne confiance et présente votre activité.</p>
         <ul>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="Site professionnel multilingue (jusqu'à 10 pages)" data-en="Professional multilingual site (up to 10 pages)">Site professionnel multilingue (jusqu'à 10 pages)</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="Site multilingue (jusqu'à 10 pages)" data-en="Multilingual site (up to 10 pages)">Site multilingue (jusqu'à 10 pages)</span></li>
           <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="Panneau d'administration (CMS)" data-en="Admin panel (CMS)">Panneau d'administration (CMS)</span></li>
           <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="Blog &amp; actualités" data-en="Blog &amp; news">Blog &amp; actualités</span></li>
           <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="SEO avancé + analytics" data-en="Advanced SEO + analytics">SEO avancé + analytics</span></li>
           <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="E-mail professionnel" data-en="Professional email">E-mail professionnel</span></li>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="Livraison en 4–8 semaines" data-en="Delivery in 4–8 weeks">Livraison en 4–8 semaines</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="Livraison en 3–5 semaines" data-en="Delivery in 3–5 weeks">Livraison en 3–5 semaines</span></li>
           <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="3 mois de support inclus" data-en="3 months of support included">3 mois de support inclus</span></li>
         </ul>
-        <a href="contact.html" class="btn-pill" data-fr="Choisir Business" data-en="Choose Business">Choisir Business</a>
+        <a href="contact.html" class="btn-pill" data-fr="Choisir Vitrine" data-en="Choose Showcase">Choisir Vitrine</a>
       </div>
 
       <div class="price-card reveal" style="--d:.16s">
-        <span class="pc-badge">DIGITAL+AI</span>
-        <h3 class="pc-name" data-fr="Digital &amp; IA" data-en="Digital &amp; AI">Digital &amp; IA</h3>
-        <div class="pc-price"><strong data-fcfa="900 000 – 2 500 000 FCFA" data-usd="$2,500 – $4,000">900 000 – 2 500 000 FCFA</strong><small data-fr="par projet" data-en="per project">par projet</small></div>
-        <p class="pc-desc" data-fr="Le combo parfait : e-commerce et intelligence artificielle pour passer à l'échelle." data-en="The perfect combo: e-commerce and AI to scale your business.">Le combo parfait : e-commerce et intelligence artificielle pour passer à l'échelle.</p>
+        <span class="pc-badge">MVP</span>
+        <h3 class="pc-name" data-fr="MVP Web" data-en="Web MVP">MVP Web</h3>
+        <div class="pc-price"><strong data-fcfa="2 400 000 FCFA" data-usd="$4,000">2 400 000 FCFA</strong><small data-fr="par projet" data-en="per project">par projet</small></div>
+        <p class="pc-desc" data-fr="Une plateforme fonctionnelle pour valider votre idée sur le marché." data-en="A working platform to validate your idea on the market.">Une plateforme fonctionnelle pour valider votre idée sur le marché.</p>
         <ul>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="E-commerce ou plateforme avancée" data-en="E-commerce or advanced platform">E-commerce ou plateforme avancée</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="Application web sur mesure" data-en="Custom web application">Application web sur mesure</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="Dashboard d'administration" data-en="Admin dashboard">Dashboard d'administration</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="Base de données &amp; authentification" data-en="Database &amp; authentication">Base de données &amp; authentification</span></li>
           <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="Paiements mobiles (OM / MTN)" data-en="Mobile payments (OM / MTN)">Paiements mobiles (OM / MTN)</span></li>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="Assistant IA / chatbot intégré" data-en="Built-in AI assistant / chatbot">Assistant IA / chatbot intégré</span></li>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="Automatisations (n8n, API)" data-en="Automations (n8n, APIs)">Automatisations (n8n, API)</span></li>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="Formation de votre équipe" data-en="Team training">Formation de votre équipe</span></li>
-          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="6 mois de support inclus" data-en="6 months of support included">6 mois de support inclus</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="Intégrations API" data-en="API integrations">Intégrations API</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="Livraison en 6–10 semaines" data-en="Delivery in 6–10 weeks">Livraison en 6–10 semaines</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="3 mois de support inclus" data-en="3 months of support included">3 mois de support inclus</span></li>
         </ul>
-        <a href="contact.html" class="btn-pill" data-fr="Choisir Digital+AI" data-en="Choose Digital+AI">Choisir Digital+AI</a>
+        <a href="contact.html" class="btn-pill" data-fr="Choisir MVP" data-en="Choose MVP">Choisir MVP</a>
       </div>
 
-      <div class="price-card reveal" style="--d:.24s">
+      <div class="price-card featured reveal" style="--d:.24s">
+        <span class="pc-badge" data-fr="Le plus choisi" data-en="Most popular">Le plus choisi</span>
+        <h3 class="pc-name" data-fr="Plateforme + Mobile" data-en="Platform + Mobile">Plateforme + Mobile</h3>
+        <div class="pc-price"><strong data-fcfa="4 200 000 FCFA" data-usd="$7,000">4 200 000 FCFA</strong><small data-fr="par projet" data-en="per project">par projet</small></div>
+        <p class="pc-desc" data-fr="La solution complète : plateforme robuste, app mobile et IA intégrées." data-en="The complete solution: robust platform, mobile app and built-in AI.">La solution complète : plateforme robuste, app mobile et IA intégrées.</p>
+        <ul>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="Plateforme complète + application mobile" data-en="Full platform + mobile app">Plateforme complète + application mobile</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="Systèmes métier avancés" data-en="Advanced business systems">Systèmes métier avancés</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="Assistant IA / chatbot intégré" data-en="Built-in AI assistant / chatbot">Assistant IA / chatbot intégré</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="Automatisations (n8n, API)" data-en="Automations (n8n, APIs)">Automatisations (n8n, API)</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="Chef de projet dédié + SLA" data-en="Dedicated PM + SLA">Chef de projet dédié + SLA</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="Livraison en 3–5 mois" data-en="Delivery in 3–5 months">Livraison en 3–5 mois</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="6 mois de support inclus" data-en="6 months of support included">6 mois de support inclus</span></li>
+        </ul>
+        <a href="contact.html" class="btn-pill" data-fr="Choisir Plateforme" data-en="Choose Platform">Choisir Plateforme</a>
+      </div>
+
+      <div class="price-card reveal">
         <span class="pc-badge">SUR DEVIS</span>
         <h3 class="pc-name" data-fr="Sur mesure" data-en="Custom">Sur mesure</h3>
-        <div class="pc-price"><strong data-fcfa="Sur devis" data-usd="Custom">Sur devis</strong><small data-fr="à partir de 2 500 000 FCFA" data-en="from $2,500">à partir de 2 500 000 FCFA</small></div>
+        <div class="pc-price"><strong data-fcfa="Sur devis" data-usd="Custom">Sur devis</strong><small data-fr="réponse sous 48 h" data-en="reply within 48h">réponse sous 48 h</small></div>
         <p class="pc-desc" data-fr="Des plateformes à fort impact, pensées sur mesure du premier au dernier jour." data-en="High-impact platforms, tailored end to end.">Des plateformes à fort impact, pensées sur mesure du premier au dernier jour.</p>
         <ul>
           <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="REDI &amp; grandes plateformes" data-en="REDI &amp; large platforms">REDI &amp; grandes plateformes</span></li>
@@ -221,6 +237,51 @@
           <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="Chef de projet dédié + SLA" data-en="Dedicated PM + SLA">Chef de projet dédié + SLA</span></li>
         </ul>
         <a href="contact.html" class="btn-pill" data-fr="Demander un devis" data-en="Request a quote">Demander un devis</a>
+      </div>
+
+      <div class="price-card reveal" style="--d:.08s">
+        <span class="pc-badge">OPERATE</span>
+        <h3 class="pc-name" data-fr="Maintenance &amp; Operate" data-en="Maintenance &amp; Operate">Maintenance &amp; Operate</h3>
+        <div class="pc-price"><strong data-fcfa="210 000 FCFA" data-usd="$350">210 000 FCFA</strong><small data-fr="par mois" data-en="per month">par mois</small></div>
+        <p class="pc-desc" data-fr="On garde votre plateforme vivante, sécurisée et à jour — pendant que vous gérez." data-en="We keep your platform alive, secure and updated — while you run your business.">On garde votre plateforme vivante, sécurisée et à jour — pendant que vous gérez.</p>
+        <ul>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="Mises à jour &amp; sauvegardes" data-en="Updates &amp; backups">Mises à jour &amp; sauvegardes</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="Surveillance &amp; sécurité" data-en="Monitoring &amp; security">Surveillance &amp; sécurité</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="Modifications mineures incluses" data-en="Minor edits included">Modifications mineures incluses</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="Support prioritaire" data-en="Priority support">Support prioritaire</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="Rapport mensuel d'activité" data-en="Monthly activity report">Rapport mensuel d'activité</span></li>
+        </ul>
+        <a href="contact.html" class="btn-pill" data-fr="Choisir Operate" data-en="Choose Operate">Choisir Operate</a>
+      </div>
+
+      <div class="price-card reveal" style="--d:.16s">
+        <span class="pc-badge">BRAND</span>
+        <h3 class="pc-name" data-fr="Identité de marque" data-en="Brand Identity">Identité de marque</h3>
+        <div class="pc-price"><strong data-fcfa="360 000 FCFA" data-usd="$600">360 000 FCFA</strong><small data-fr="par projet" data-en="per project">par projet</small></div>
+        <p class="pc-desc" data-fr="Un logo et une identité visuelle que les gens retiennent." data-en="A logo and visual identity people remember.">Un logo et une identité visuelle que les gens retiennent.</p>
+        <ul>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="Logo + déclinaisons" data-en="Logo + variations">Logo + déclinaisons</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="Palette &amp; typographie" data-en="Palette &amp; typography">Palette &amp; typographie</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="Charte graphique" data-en="Brand guidelines">Charte graphique</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="Kit réseaux sociaux" data-en="Social media kit">Kit réseaux sociaux</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="Fichiers sources inclus" data-en="Source files included">Fichiers sources inclus</span></li>
+        </ul>
+        <a href="contact.html" class="btn-pill" data-fr="Choisir Brand" data-en="Choose Brand">Choisir Brand</a>
+      </div>
+
+      <div class="price-card reveal" style="--d:.24s">
+        <span class="pc-badge">ACADEMY</span>
+        <h3 class="pc-name" data-fr="Formation Academy" data-en="Academy Training">Formation Academy</h3>
+        <div class="pc-price"><strong data-fcfa="90 000 FCFA" data-usd="$150">90 000 FCFA</strong><small data-fr="par participant" data-en="per participant">par participant</small></div>
+        <p class="pc-desc" data-fr="Nous montons vos équipes en compétences digitales et IA, sur site ou à distance." data-en="We level up your teams' digital and AI skills, on-site or remote.">Nous montons vos équipes en compétences digitales et IA, sur site ou à distance.</p>
+        <ul>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="Sessions sur site ou à distance" data-en="On-site or remote sessions">Sessions sur site ou à distance</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="Outils digitaux &amp; IA appliquée" data-en="Digital tools &amp; applied AI">Outils digitaux &amp; IA appliquée</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="Ateliers pratiques" data-en="Hands-on workshops">Ateliers pratiques</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="Supports &amp; accès post-formation" data-en="Materials &amp; post-training access">Supports &amp; accès post-formation</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span data-fr="Certificat de participation" data-en="Certificate of completion">Certificat de participation</span></li>
+        </ul>
+        <a href="contact.html" class="btn-pill" data-fr="Réserver une formation" data-en="Book a training">Réserver une formation</a>
       </div>
 
     </div>
@@ -252,7 +313,8 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <a class="f-logo" href="index.html"><img src="assets/images/logo.png" alt="AZERTYCORP" style="height:3.4rem;width:auto;display:block"> AZERTYCORP</a>
-        <p class="f-tag">AZERTYCORP | BUILD. DESIGN. TRANSFORM. A design-engineering studio in Douala, Cameroon, building websites, software, AI systems and brand identities people remember.</p>
+        <p class="f-tag">AZERTYCORP | BUILD. <b>DESIGN.</b> TRANSFORM. A design-engineering studio in Douala, Cameroon, building websites, software, AI systems and brand identities people remember.</p>
+        <p class="footer-pillars">Technology · Creative · Data · Business · <b>Academy</b></p>
         <div class="footer-social">
           <a href="#" aria-label="GitHub"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.27-.01-1.17-.02-2.13-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.7 1.25 3.35.96.1-.75.4-1.25.73-1.54-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.18-1.49 3.14-1.18 3.14-1.18.63 1.59.24 2.76.12 3.05.74.81 1.18 1.83 1.18 3.09 0 4.42-2.69 5.39-5.25 5.67.41.36.78 1.06.78 2.14 0 1.54-.01 2.78-.01 3.16 0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg></a>
           <a href="#" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg></a>
