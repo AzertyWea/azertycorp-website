@@ -303,7 +303,7 @@ section[id]{scroll-margin-top:110px}
   font-size:.9rem;color:rgba(255,255,255,.6);
 }
 .full-menu-foot a{color:#fff;text-decoration:underline;text-underline-offset:3px}
-@media(min-width:768px){.full-menu{display:none}}
+@media(min-width:1024px){.full-menu{display:none}}
 
 /* ============================================================
    HERO
@@ -714,7 +714,10 @@ section[id]{scroll-margin-top:110px}
 }
 .footer-bottom a{text-decoration:underline;text-underline-offset:3px;transition:color .2s ease}
 .footer-bottom a:hover{color:#fff}
-@media(min-width:768px){
+@media(min-width:640px){
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(min-width:1024px){
   .footer-grid{grid-template-columns:1.4fr 1fr 1fr 1.6fr}
 }
 
@@ -834,9 +837,12 @@ section[id]{scroll-margin-top:110px}
 .grid-4{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
 .grid-2{display:grid;grid-template-columns:1fr;gap:1.25rem}
 @media(min-width:768px){
+  .grid-3{grid-template-columns:repeat(2,1fr)}
+  .grid-2{grid-template-columns:1fr 1fr}
+}
+@media(min-width:1024px){
   .grid-3{grid-template-columns:repeat(3,1fr)}
   .grid-4{grid-template-columns:repeat(4,1fr)}
-  .grid-2{grid-template-columns:1fr 1fr}
 }
 
 /* skill tags */
@@ -1046,16 +1052,18 @@ section[id]{scroll-margin-top:110px}
 }
 
 /* responsive */
-@media(max-width:767px){
+@media(max-width:1023px){
   .nav-pill-wrap{display:none}
   .hero-content{padding:2.5rem 1.5rem 3rem}
   .hero-panel{margin:0 .75rem}
   .services-scroll{padding-left:1.25rem;padding-right:1.25rem}
   .footer-panel{padding:2.25rem 1.5rem 1.5rem}
 }
-@media(min-width:768px){
+@media(min-width:1024px){
   .mobile-nav-shell{display:none}
   .nav-pill-wrap{display:block}
+}
+@media(min-width:768px){
   .carousel-controls{display:flex}
   .accent-banner{height:100vh}
 }
@@ -1111,3 +1119,85 @@ html[data-theme="dark"] .mobile-nav-logo .logo-black{display:none}
 /* dark theme form status legibility */
 html[data-theme="dark"] .form-status.ok{color:hsl(168 60% 70%)}
 html[data-theme="dark"] .form-status.err{color:hsl(0 84% 72%)}
+
+/* ============================================================
+   MOBILE + TABLET POLISH — safe areas, dynamic height, grids
+   ============================================================ */
+html{-webkit-tap-highlight-color:transparent}
+
+/* dynamic viewport height (mobile URL bar jump) */
+.hero{min-height:100vh;min-height:100svh}
+.hero-panel{min-height:calc(100vh - 1.5rem);min-height:calc(100svh - 1.5rem)}
+.page-hero{min-height:70vh;min-height:70svh}
+.accent-banner{height:60vh;height:60svh}
+@media(min-width:768px){.accent-banner{height:100vh;height:100svh}}
+
+/* notch / home-indicator safe areas (viewport-fit=cover) */
+.mobile-nav-shell{
+  top:calc(.75rem + env(safe-area-inset-top));
+  left:calc(.75rem + env(safe-area-inset-left));
+  right:calc(.75rem + env(safe-area-inset-right));
+}
+.full-menu{
+  padding:calc(1.5rem + env(safe-area-inset-top))
+          calc(1.25rem + env(safe-area-inset-right))
+          calc(1.5rem + env(safe-area-inset-bottom))
+          calc(1.25rem + env(safe-area-inset-left));
+  overflow-y:auto;
+}
+.hero-content{padding-bottom:calc(4rem + env(safe-area-inset-bottom))}
+#cookie-consent-banner{bottom:calc(1.5rem + env(safe-area-inset-bottom))}
+.footer-panel{padding-bottom:calc(1.75rem + env(safe-area-inset-bottom))}
+
+/* pricing card grid — 1 / 2 / 3 / 4 columns */
+.price-grid{display:grid;grid-template-columns:1fr;gap:1.25rem}
+@media(min-width:640px){.price-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.price-grid{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:1280px){.price-grid{grid-template-columns:repeat(4,1fr)}}
+
+/* why-cards: 2-up from small tablet, 4-up from desktop */
+@media(min-width:640px) and (max-width:1023px){.why-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* compact desktop pill on laptops / landscape tablets */
+@media(min-width:1024px) and (max-width:1199px){
+  .nav-links{gap:1rem}
+  .nav-links a{font-size:.82rem}
+  .nav-pill{gap:.45rem}
+}
+
+/* no hamburger in the desktop pill (full menu is mobile-only) */
+.nav-pill-wrap .nav-hamburger{display:none}
+
+/* pricing band rows wrap cleanly on narrow screens */
+@media(max-width:639px){
+  .band-row-inner{flex-wrap:wrap;gap:.5rem;padding:.9rem .75rem}
+  .band-row-inner h3{white-space:normal}
+  .band-price{font-size:.9rem}
+}
+
+/* pricing controls centered on mobile */
+@media(max-width:639px){.price-controls{justify-content:center}}
+
+/* tablet hero: keep content roomy between mobile and desktop nav */
+@media(min-width:768px) and (max-width:1023px){
+  .hero-content{padding:4rem 3rem 5rem;padding-bottom:calc(5rem + env(safe-area-inset-bottom))}
+  .page-hero-content{padding:7rem 3rem 4rem}
+}
+
+/* comfortable touch targets on touch screens */
+@media(pointer:coarse){
+  .mobile-nav-action{width:2.8rem;height:2.8rem}
+  .nav-icon-btn{width:2.75rem;height:2.75rem}
+}
+
+/* tactile feedback */
+.btn-pill:active{transform:translateY(0) scale(.97)}
+.nav-icon-btn:active{transform:scale(.95)}
+.mobile-nav-action:active{transform:scale(.95)}
+.full-menu-close:active{transform:scale(.95)}
+.service-card:active{transform:scale(.99)}
+.work-card:active{transform:translateY(0) scale(.99)}
+.blog-card:active{transform:translateY(0) scale(.99)}
+
+/* balanced headings — cleaner line breaks on small screens */
+h2,h3,h4,.h2-display,.cta-title{text-wrap:balance}

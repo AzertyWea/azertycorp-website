@@ -188,7 +188,7 @@
     if (!el) return;
     var texts = ['Talk to the studio', 'View pricing', 'Book a call'];
     var i = 0;
-    if (window.matchMedia && window.matchMedia('(max-width: 767px)').matches &&
+    if (window.matchMedia && window.matchMedia('(max-width: 1023px)').matches &&
         !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       setInterval(function () {
         el.classList.add('is-leaving');
