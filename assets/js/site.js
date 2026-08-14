@@ -462,6 +462,29 @@
   }
 
   /* ----------------------------------------------------------
+     THEME TOGGLE — light / dark (persisted)
+     ---------------------------------------------------------- */
+  function initTheme() {
+    var KEY = 'azerty-theme';
+    var current = 'light';
+    try { current = localStorage.getItem(KEY) || 'light'; } catch (e) {}
+    function apply(t) {
+      document.documentElement.setAttribute('data-theme', t);
+      document.querySelectorAll('[data-theme-toggle]').forEach(function (b) {
+        b.setAttribute('aria-label', t === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
+      });
+    }
+    document.querySelectorAll('[data-theme-toggle]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        apply(next);
+        try { localStorage.setItem(KEY, next); } catch (e) {}
+      });
+    });
+    apply(current);
+  }
+
+  /* ----------------------------------------------------------
      NAV SCROLL SHADOW (desktop pill shadow on scroll)
      ---------------------------------------------------------- */
   function initNavScroll() {
@@ -488,6 +511,7 @@
     initQuoteModal();
     initContactForm();
     initNavScroll();
+    initTheme();
   }
 
   if (document.readyState === 'loading') {

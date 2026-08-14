@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <script>try{if(localStorage.getItem('azerty-theme')==='dark')document.documentElement.setAttribute('data-theme','dark')}catch(e){}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blog | AZERTYCORP</title>
   <meta name="description" content="Insights, tutorials, and thoughts on technology, AI, and digital transformation.">
@@ -17,7 +18,7 @@
 <!-- ============ MOBILE PILL NAV ============ -->
 <div class="mobile-nav-shell">
   <div class="mobile-nav-pill">
-    <a class="mobile-nav-logo" href="index.html" aria-label="AZERTYCORP home"><img src="assets/images/logo.png" alt="AZERTYCORP"></a>
+    <a class="mobile-nav-logo" href="index.html" aria-label="AZERTYCORP home"><img class="logo-black" src="assets/images/logo-black.png" alt="AZERTYCORP"><img class="logo-white" src="assets/images/logo-white.png" alt="AZERTYCORP"></a>
     <a href="contact.html" class="mobile-nav-label"><span class="mobile-nav-label-text" data-mobile-nav-text>Talk to the studio</span></a>
     <a href="contact.html" class="mobile-nav-action coral" aria-label="Get a quote">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
@@ -34,7 +35,7 @@
 <!-- ============ DESKTOP FLOATING PILL NAV ============ -->
 <div class="nav-pill-wrap">
   <div class="nav-pill">
-    <a href="index.html" class="nav-logo" aria-label="AZERTYCORP home"><img src="assets/images/logo.png" alt="AZERTYCORP"></a>
+    <a href="index.html" class="nav-logo" aria-label="AZERTYCORP home"><img class="logo-black" src="assets/images/logo-black.png" alt="AZERTYCORP"><img class="logo-white" src="assets/images/logo-white.png" alt="AZERTYCORP"></a>
     <nav class="nav-links" aria-label="Primary">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
@@ -51,6 +52,10 @@
       <a href="tel:+237687391985" class="nav-icon-btn" aria-label="Call us">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
       </a>
+      <button type="button" class="nav-icon-btn theme-toggle" data-theme-toggle aria-label="Switch to dark theme">
+        <svg class="ico-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="ico-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
       <button type="button" class="nav-icon-btn nav-hamburger" data-menu-open aria-label="Open menu">
         <span></span><span></span><span></span>
       </button>
@@ -61,10 +66,16 @@
 <!-- ============ FULLSCREEN MOBILE MENU ============ -->
 <div class="full-menu" id="fullMenu" aria-hidden="true">
   <div class="full-menu-top">
-    <a class="mobile-nav-logo" href="index.html" aria-label="AZERTYCORP home"><img src="assets/images/logo.png" alt="AZERTYCORP"></a>
-    <button type="button" class="full-menu-close" id="fullMenuClose" aria-label="Close menu">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-    </button>
+    <a class="mobile-nav-logo" href="index.html" aria-label="AZERTYCORP home"><img class="logo-black" src="assets/images/logo-black.png" alt="AZERTYCORP"><img class="logo-white" src="assets/images/logo-white.png" alt="AZERTYCORP"></a>
+    <div class="full-menu-actions">
+      <button type="button" class="full-menu-close theme-toggle" data-theme-toggle aria-label="Switch to dark theme">
+        <svg class="ico-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="ico-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <button type="button" class="full-menu-close" id="fullMenuClose" aria-label="Close menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
   </div>
   <nav class="full-menu-links" aria-label="Mobile">
     <a href="index.html"><span class="idx">01</span>Home</a>
@@ -123,7 +134,7 @@
           <p class="bc-meta"><span class="cat">AI</span><span>8 min read</span></p>
           <h3>The Future of AI in African Education</h3>
           <p>How artificial intelligence is poised to transform learning across the continent, from personalized tutoring to predictive analytics for student success.</p>
-          <p class="bc-meta" style="margin-top:.9rem;color:rgba(36,36,40,.5)"><span>Jan 15, 2025</span></p>
+          <p class="bc-meta" style="margin-top:.9rem;color:rgba(var(--text-rgb),.5)"><span>Jan 15, 2025</span></p>
         </div>
       </a>
 
@@ -133,7 +144,7 @@
           <p class="bc-meta"><span class="cat">Technology</span><span>12 min read</span></p>
           <h3>Building Scalable Systems: Lessons from the Trenches</h3>
           <p>Key architectural decisions and patterns we have learned building systems that serve millions of users across diverse African markets.</p>
-          <p class="bc-meta" style="margin-top:.9rem;color:rgba(36,36,40,.5)"><span>Jan 8, 2025</span></p>
+          <p class="bc-meta" style="margin-top:.9rem;color:rgba(var(--text-rgb),.5)"><span>Jan 8, 2025</span></p>
         </div>
       </a>
 
@@ -143,7 +154,7 @@
           <p class="bc-meta"><span class="cat">Entrepreneurship</span><span>10 min read</span></p>
           <h3>Digital Transformation in Emerging Markets</h3>
           <p>Why African businesses need a different approach to digital transformation and how to navigate the unique challenges of emerging markets.</p>
-          <p class="bc-meta" style="margin-top:.9rem;color:rgba(36,36,40,.5)"><span>Dec 20, 2024</span></p>
+          <p class="bc-meta" style="margin-top:.9rem;color:rgba(var(--text-rgb),.5)"><span>Dec 20, 2024</span></p>
         </div>
       </a>
 
@@ -153,7 +164,7 @@
           <p class="bc-meta"><span class="cat">Design</span><span>7 min read</span></p>
           <h3>Design Systems That Scale</h3>
           <p>How we build and maintain design systems that serve multiple products while keeping a cohesive brand identity across all touchpoints.</p>
-          <p class="bc-meta" style="margin-top:.9rem;color:rgba(36,36,40,.5)"><span>Dec 12, 2024</span></p>
+          <p class="bc-meta" style="margin-top:.9rem;color:rgba(var(--text-rgb),.5)"><span>Dec 12, 2024</span></p>
         </div>
       </a>
 
@@ -167,10 +178,10 @@
     <div class="reveal">
       <p class="eyebrow" style="justify-content:center">Newsletter</p>
       <h2 class="h2-display">Stay updated</h2>
-      <p style="margin-top:.75rem;color:rgba(36,36,40,.65)">Get the latest insights on AI, tech, and innovation delivered to your inbox.</p>
+      <p style="margin-top:.75rem;color:rgba(var(--text-rgb),.65)">Get the latest insights on AI, tech, and innovation delivered to your inbox.</p>
       <form id="nlForm" style="display:flex;flex-wrap:wrap;gap:.6rem;max-width:26rem;margin:1.5rem auto 0" novalidate>
         <input type="email" id="nlEmail" required placeholder="you@company.com"
-               style="flex:1;min-width:13rem;border:1px solid var(--input);border-radius:99px;padding:.8rem 1.25rem;background:#fff">
+               style="flex:1;min-width:13rem;border:1px solid var(--input);border-radius:99px;padding:.8rem 1.25rem;background:var(--card);color:var(--foreground)">
         <button type="submit" class="btn-pill btn-coral">Subscribe</button>
       </form>
       <p id="nlStatus" style="margin-top:1rem;font-size:.9rem;display:none"></p>
@@ -185,7 +196,7 @@
   <div class="footer-panel">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a class="f-logo" href="index.html"><img src="assets/images/logo.png" alt="AZERTYCORP" style="height:3.4rem;width:auto;display:block"> AZERTYCORP</a>
+        <a class="f-logo" href="index.html"><img src="assets/images/logo-white.png" alt="AZERTYCORP" style="height:3.4rem;width:auto;display:block"> AZERTYCORP</a>
         <p class="f-tag">AZERTYCORP | BUILD. <b>DESIGN.</b> TRANSFORM. A design-engineering studio in Douala, Cameroon, building websites, software, AI systems and brand identities people remember.</p>
         <p class="footer-pillars">Technology · Creative · Data · Business · <b>Academy</b></p>
         <div class="footer-social">
