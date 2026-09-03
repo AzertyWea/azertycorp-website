@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AZERTYCORP · CONTENT ENGINE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            azerty: {
+              black: '#0A0A0A', card: '#121212', border: '#27272A',
+              graphite: '#3F3F46', lightGray: '#F4F4F5', red: '#E51823',
+              redHover: '#CC141E', redSubtle: 'rgba(229, 24, 35, 0.12)'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            heading: ['Montserrat', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background-color: #0A0A0A; color: #F4F4F5; font-family: 'Inter', sans-serif; }
+    h1, h2, h3, h4, h5, h6, .font-heading { font-family: 'Montserrat', sans-serif; }
+    .scrollbar-thin::-webkit-scrollbar { width: 6px; height: 6px; }
+    .scrollbar-thin::-webkit-scrollbar-track { background: #121212; }
+    .scrollbar-thin::-webkit-scrollbar-thumb { background: #27272A; border-radius: 3px; }
+    .scrollbar-thin::-webkit-scrollbar-thumb:hover { background: #E51823; }
+    .badge-missing { background: rgba(229, 24, 35, 0.15); border: 1px dashed #E51823; color: #FFA4A8; }
+    .workflow-step.active { border-color: #E51823; color: #FFFFFF; background: #18181B; }
+    .workflow-step.completed { border-color: #52525B; color: #A1A1AA; }
+  </style>
+</head>
+<body class="h-screen flex flex-col overflow-hidden bg-azerty-black text-azerty-lightGray selection:bg-azerty-red selection:text-white">
+  <header class="h-16 border-b border-azerty-border bg-azerty-black px-6 flex items-center justify-between shrink-0 z-30">
+    <div class="flex items-center space-x-4">
+      <div class="flex items-center space-x-2">
+        <span class="w-3.5 h-3.5 bg-azerty-red rounded-none inline-block"></span>
+        <span class="font-heading font-extrabold tracking-wider text-white text-lg">AZERTYCORP</span>
+        <span class="text-xs text-zinc-500 font-mono tracking-widest pl-1 border-l border-zinc-700">CONTENT ENGINE v1.0</span>
+      </div>
+      <div class="hidden lg:flex items-center space-x-2 text-xs text-zinc-400 bg-zinc-900/80 px-2.5 py-1 border border-azerty-border rounded">
+        <span class="text-zinc-500 font-mono">TAGLINE:</span>
+        <span class="font-semibold text-zinc-300 tracking-wide">BUILD. DESIGN. TRANSFORM.</span>
+      </div>
+    </div>
+    <div class="flex items-center space-x-4">
+      <div class="hidden md:flex items-center space-x-3 text-xs bg-zinc-900 px-3 py-1.5 border border-azerty-border rounded">
+        <span class="text-zinc-400">Pillar Target:</span>
+        <span class="text-white font-mono font-medium">Tech 25% · Biz 25% · Creative 20% · Data 15% · Acad 15%</span>
+      </div>
+      <button onclick="Workflow.startNew()" class="bg-azerty-red hover:bg-azerty-redHover text-white px-4 py-2 text-xs font-heading font-bold uppercase tracking-wider transition-all flex items-center space-x-2 shadow-lg shadow-azerty-red/20">
+        <span id="createContentBtn">+</span> <span id="createContentText">Create Content</span>
+      </button>
+      <div class="lang-switch" role="group" aria-label="Langue">
+        <button type="button" data-lang-btn="en" class="tc-on w-8 h-8 text-xs font-heading font-bold uppercase">EN</button>
+        <button type="button" data-lang-btn="fr" class="w-8 h-8 text-xs font-heading font-bold uppercase">FR</button>
+      </div>
+    </div>
+  </header>
+  <div class="flex-1 flex overflow-hidden">
+    <aside class="w-64 border-r border-azerty-border bg-azerty-card flex flex-col justify-between shrink-0 overflow-y-auto scrollbar-thin">
+      <div class="py-4">
+        <div class="px-4 pb-2 text-[10px] font-mono tracking-wider text-zinc-500 uppercase">Core OS Modules</div>
+        <nav class="space-y-0.5 px-2" id="mainNav">
+          <button onclick="Router.navigate('dashboard')" data-tab="dashboard" class="nav-btn w-full flex items-center space-x-3 px-3 py-2.5 text-xs font-medium text-white bg-zinc-800/80 border-l-2 border-azerty-red text-left">
+            <svg class="w-4 h-4 text-azerty-red" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+            <span>Dashboard</span>
+          </button>
+          <button onclick="Router.navigate('workflow')" data-tab="workflow" class="nav-btn w-full flex items-center space-x-3 px-3 py-2.5 text-xs font-medium text-zinc-400 hover:text-white hover:bg-zinc-900 border-l-2 border-transparent text-left">
+            <svg class="w-4 h-4 text-zinc-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+            <span>Pipeline / Creator</span>
+          </button>
+          <button onclick="Router.navigate('ideas')" data-tab="ideas" class="nav-btn w-full flex items-center space-x-3 px-3 py-2.5 text-xs font-medium text-zinc-400 hover:text-white hover:bg-zinc-900 border-l-2 border-transparent text-left">
+            <svg class="w-4 h-4 text-zinc-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+            <span>Idea Generator</span>
+          </button>
+          <button onclick="Router.navigate('factory')" data-tab="factory" class="nav-btn w-full flex items-center space-x-3 px-3 py-2.5 text-xs font-medium text-zinc-400 hover:text-white hover:bg-zinc-900 border-l-2 border-transparent text-left">
+            <svg class="w-4 h-4 text-zinc-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+            <span>Content Factory (Batch)</span>
+          </button>
+          <button onclick="Router.navigate('repurpose')" data-tab="repurpose" class="nav-btn w-full flex items-center space-x-3 px-3 py-2.5 text-xs font-medium text-zinc-400 hover:text-white hover:bg-zinc-900 border-l-2 border-transparent text-left">
+            <svg class="w-4 h-4 text-zinc-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+            <span>Repurposing Engine</span>
+          </button>
+          <button onclick="Router.navigate('calendar')" data-tab="calendar" class="nav-btn w-full flex items-center space-x-3 px-3 py-2.5 text-xs font-medium text-zinc-400 hover:text-white hover:bg-zinc-900 border-l-2 border-transparent text-left">
+            <svg class="w-4 h-4 text-zinc-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0v-6a2 2 0 01-2-2V5a2 2 0 00-2-2m0 13.667V17c0-.552-.448-1-1-1h-2c-.552 0-1 .448-1 1v.667"/></svg>
+            <span>Content Calendar</span>
+          </button>
+          <div class="pt-4 px-4 pb-2 text-[10px] font-mono tracking-wider text-zinc-500 uppercase">Governance & Library</div>
+          <button onclick="Router.navigate('library')" data-tab="library" class="nav-btn w-full flex items-center space-x-3 px-3 py-2.5 text-xs font-medium text-zinc-400 hover:text-white hover:bg-zinc-900 border-l-2 border-transparent text-left">
+            <svg class="w-4 h-4 text-zinc-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+            <span>Content Library</span>
+          </button>
+          <button onclick="Router.navigate('approval')" data-tab="approval" class="nav-btn w-full flex items-center space-x-3 px-3 py-2.5 text-xs font-medium text-zinc-400 hover:text-white hover:bg-zinc-900 border-l-2 border-transparent text-left">
+            <svg class="w-4 h-4 text-zinc-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <span class="flex-1">Human Approval</span>
+            <span id="pendingApprovalCount" class="bg-azerty-red text-white text-[10px] font-mono px-1.5 py-0.5 rounded font-bold">0</span>
+          </button>
+          <button onclick="Router.navigate('published')" data-tab="published" class="nav-btn w-full flex items-center space-x-3 px-3 py-2.5 text-xs font-medium text-zinc-400 hover:text-white hover:bg-zinc-900 border-l-2 border-transparent text-left">
+            <svg class="w-4 h-4 text-zinc-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            <span>Published Packages</span>
+          </button>
+          <button onclick="Router.navigate('analytics')" data-tab="analytics" class="nav-btn w-full flex items-center space-x-3 px-3 py-2.5 text-xs font-medium text-zinc-400 hover:text-white hover:bg-zinc-900 border-l-2 border-transparent text-left">
+            <svg class="w-4 h-4 text-zinc-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+            <span>Analytics & Feedback</span>
+          </button>
+          <button onclick="Router.navigate('brand')" data-tab="brand" class="nav-btn w-full flex items-center space-x-3 px-3 py-2.5 text-xs font-medium text-zinc-400 hover:text-white hover:bg-zinc-900 border-l-2 border-transparent text-left">
+            <svg class="w-4 h-4 text-zinc-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m9 0h5a2 2 0 012 2v3a1 1 0 01-1 1H4a1 1 0 01-1-1v-3a2 2 0 012-2h5m2 0V9a1 1 0 011-1h2a1 1 0 011 1v12m-6 0V7a1 1 0 011-1h2a1 1 0 011 1v12"/></svg>
+            <span>Brand Memory</span>
+          </button>
+          <button onclick="Router.navigate('settings')" data-tab="settings" class="nav-btn w-full flex items-center space-x-3 px-3 py-2.5 text-xs font-medium text-zinc-400 hover:text-white hover:bg-zinc-900 border-l-2 border-transparent text-left">
+            <svg class="w-4 h-4 text-zinc-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            <span>Settings & Stubs</span>
+          </button>
+        </nav>
+      </div>
+      <div class="p-4 border-t border-azerty-border bg-zinc-950">
+        <div class="flex items-center space-x-2"><div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div><span class="text-[11px] font-heading font-semibold tracking-wider text-zinc-300">HUMAN GATE: ACTIVE</span></div>
+        <p class="text-[10px] text-zinc-500 mt-1">Autonomous posting disabled by core policy §3.</p>
+      </div>
+    </aside>
+    <main id="appContainer" class="flex-1 overflow-y-auto scrollbar-thin bg-azerty-black p-6 lg:p-8 relative"></main>
+  </div>
+  <div id="modalBackdrop" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div id="modalContent" class="bg-azerty-card border border-azerty-border w-full max-w-3xl max-h-[90vh] flex flex-col shadow-2xl"></div>
+  </div>
+
+  <script src="content-engine.js"></script>
+</body>
+</html>
