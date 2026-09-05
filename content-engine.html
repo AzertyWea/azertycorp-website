@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -37,6 +37,11 @@
     .badge-missing { background: rgba(229, 24, 35, 0.15); border: 1px dashed #E51823; color: #FFA4A8; }
     .workflow-step.active { border-color: #E51823; color: #FFFFFF; background: #18181B; }
     .workflow-step.completed { border-color: #52525B; color: #A1A1AA; }
+    .goog-te-banner-frame { display: none !important; }
+    body { top: 0 !important; }
+    .goog-te-gadget { font-size: 11px; color: #A1A1AA; }
+    .goog-te-gadget-simple { background: #18181B; border: 1px solid #27272A !important; color: #F4F4F5; padding: 4px 8px; font-family: 'Inter', sans-serif !important; }
+    .goog-te-gadget-simple img { display: none; }
   </style>
 </head>
 <body class="h-screen flex flex-col overflow-hidden bg-azerty-black text-azerty-lightGray selection:bg-azerty-red selection:text-white">
@@ -61,8 +66,8 @@
         <span id="createContentBtn">+</span> <span id="createContentText">Create Content</span>
       </button>
       <div class="lang-switch" role="group" aria-label="Langue">
-        <button type="button" data-lang-btn="en" class="tc-on w-8 h-8 text-xs font-heading font-bold uppercase">EN</button>
-        <button type="button" data-lang-btn="fr" class="w-8 h-8 text-xs font-heading font-bold uppercase">FR</button>
+        <button type="button" data-lang-btn="en" class="w-8 h-8 text-xs font-heading font-bold uppercase">EN</button>
+        <button type="button" data-lang-btn="fr" class="tc-on w-8 h-8 text-xs font-heading font-bold uppercase">FR</button>
       </div>
     </div>
   </header>
@@ -126,6 +131,10 @@
       <div class="p-4 border-t border-azerty-border bg-zinc-950">
         <div class="flex items-center space-x-2"><div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div><span class="text-[11px] font-heading font-semibold tracking-wider text-zinc-300">HUMAN GATE: ACTIVE</span></div>
         <p class="text-[10px] text-zinc-500 mt-1">Autonomous posting disabled by core policy §3.</p>
+        <div class="mt-3 pt-3 border-t border-azerty-border">
+          <div class="text-[10px] font-mono tracking-wider text-zinc-500 uppercase mb-1">Translate</div>
+          <div id="google_translate_element"></div>
+        </div>
       </div>
     </aside>
     <main id="appContainer" class="flex-1 overflow-y-auto scrollbar-thin bg-azerty-black p-6 lg:p-8 relative"></main>
@@ -135,5 +144,12 @@
   </div>
 
   <script src="content-engine.js"></script>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      if (typeof google === "undefined" || !google.translate) return;
+      new google.translate.TranslateElement({ pageLanguage: "fr", includedLanguages: "en,fr,es,de,pt,ar,zh-CN,ja", layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, "google_translate_element");
+    }
+  </script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async></script>
 </body>
 </html>

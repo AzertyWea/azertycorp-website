@@ -305,7 +305,7 @@ const LANG = {
 };
 
 function t(key) {
-  const currentLang = localStorage.getItem('azerty-lang') || 'en';
+  const currentLang = localStorage.getItem('azerty-lang') || 'fr';
   return LANG[currentLang] ? LANG[currentLang][key] || LANG.en[key] : LANG.en[key];
 }
 
@@ -338,7 +338,7 @@ Router.navigate = (view) => {
 window.switchLanguage = switchLanguage;
 
 function updateLanguageButtons() {
-  const currentLang = localStorage.getItem('azerty-lang') || 'en';
+  const currentLang = localStorage.getItem('azerty-lang') || 'fr';
   const btns = document.querySelectorAll('[data-lang-btn]');
   btns.forEach(btn => {
     btn.classList.toggle('tc-on', btn.getAttribute('data-lang-btn') === currentLang);
