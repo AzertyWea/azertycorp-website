@@ -131,6 +131,12 @@
       <div class="p-4 border-t border-azerty-border bg-zinc-950">
         <div class="flex items-center space-x-2"><div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div><span class="text-[11px] font-heading font-semibold tracking-wider text-zinc-300">HUMAN GATE: ACTIVE</span></div>
         <p class="text-[10px] text-zinc-500 mt-1">Autonomous posting disabled by core policy §3.</p>
+        <div class="mt-3 pt-3 border-t border-azerty-border" id="cloudSyncBox">
+          <div class="flex items-center justify-between">
+            <span id="cloudStatus" class="text-[10px] font-mono tracking-wider text-zinc-400 uppercase">CLOUD: LOCAL</span>
+            <button onclick="App.cloudLogin()" class="text-[10px] font-mono text-azerty-red hover:underline uppercase">Sync</button>
+          </div>
+        </div>
         <div class="mt-3 pt-3 border-t border-azerty-border">
           <div class="text-[10px] font-mono tracking-wider text-zinc-500 uppercase mb-1">Translate</div>
           <div id="google_translate_element"></div>
@@ -143,6 +149,7 @@
     <div id="modalContent" class="bg-azerty-card border border-azerty-border w-full max-w-3xl max-h-[90vh] flex flex-col shadow-2xl"></div>
   </div>
 
+  <script src="assets/js/api.js?v=20260911" defer></script>
   <script src="content-engine.js"></script>
   <script type="text/javascript">
     function googleTranslateElementInit() {

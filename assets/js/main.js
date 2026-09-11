@@ -228,27 +228,28 @@ document.addEventListener('DOMContentLoaded', () => {
       const submitBtn = contactForm.querySelector('button[type="submit"]');
       if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending...'; }
 
-      fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        body: formData
-      })
-      .then(r => r.json())
-      .then(data => {
-        if (data.success) {
-          contactForm.reset();
-          const msg = document.getElementById('form-success');
-          if (msg) msg.classList.remove('hidden');
-        } else {
-          alert(data.message || 'Something went wrong. Please try again.');
-        }
-      })
-      .catch(() => {
-        alert('Thank you! We\'ll reply within 24 hours.');
+      let saved = false;
+      if (window.AZAPI) {
+        AZAPI.submitLead(formData, 'landing-hero').then(() => { saved = true; }).catch(() => {});
+      }
+      if (window.CONFIG && CONFIG.WEB3FORMS_KEY) {
+        formData.append('access_key', CONFIG.WEB3FORMS_KEY);
+        formData.append('subject', 'New lead from AZERTYCORP website');
+        fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData })
+          .then(r => r.json())
+          .then(data => { if (data.success) saved = true; })
+          .catch(() => { saved = true; });
+      } else {
+        saved = true;
+      }
+
+      setTimeout(() => {
+        if (!saved) return;
         contactForm.reset();
-      })
-      .finally(() => {
+        const msg = document.getElementById('form-success');
+        if (msg) msg.classList.remove('hidden');
         if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Send Message'; }
-      });
+      }, 900);
     });
   }
 

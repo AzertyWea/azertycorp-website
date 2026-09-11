@@ -353,6 +353,66 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+// 2. DATA LAYER (localStorage + optional Supabase cloud sync)
+const KEYS = { items: 'az_engine_items', draft: 'az_engine_draft', brand: 'az_engine_brand' };
+
+const DB = {
+  getItems: () => {
+    try {
+      const raw = localStorage.getItem(KEYS.items);
+      const arr = raw ? JSON.parse(raw) : [];
+      return Array.isArray(arr) ? arr : [];
+    } catch (e) { return []; }
+  },
+  saveItems: (items) => {
+    try { localStorage.setItem(KEYS.items, JSON.stringify(items)); } catch (e) {}
+    DB.syncToCloud(items);
+  },
+  getActiveDraft: () => {
+    try {
+      const raw = localStorage.getItem(KEYS.draft);
+      return raw ? JSON.parse(raw) : null;
+    } catch (e) { return null; }
+  },
+  saveActiveDraft: (d) => {
+    try { localStorage.setItem(KEYS.draft, JSON.stringify(d)); } catch (e) {}
+    if (d) DB.syncToCloud([d]);
+  },
+  getBrand: () => {
+    try {
+      const raw = localStorage.getItem(KEYS.brand);
+      if (raw) return JSON.parse(raw);
+    } catch (e) {}
+    return { company: "AZERTYCORP", tagline: "BUILD. DESIGN. TRANSFORM.", pillars: ["Technology", "Business", "Creative", "Data", "Academy"] };
+  },
+  saveBrand: (b) => {
+    try { localStorage.setItem(KEYS.brand, JSON.stringify(b)); } catch (e) {}
+    DB.syncToCloud([{ id: 'brand', topic: 'BRAND', pillar: 'Brand', status: 'BRAND', currentStep: 1, data: b }]);
+  },
+  syncToCloud: (items) => {
+    if (!window.AZAPI || !items || !items.length) return;
+    AZAPI.engineSaveItem(items[0]).then(() => {
+      for (let i = 1; i < items.length; i++) AZAPI.engineSaveItem(items[i]).catch(() => {});
+    }).catch(() => {});
+  },
+  tryLoadFromCloud: () => {
+    if (!window.AZAPI) return Promise.resolve();
+    return AZAPI.engineGetItems().then(res => {
+      if (!res) return;
+      if (res.error) throw res.error;
+      const rows = res.data || [];
+      const arr = rows.map(r => (r && r.data && typeof r.data === 'object') ? r.data : null).filter(Boolean);
+      if (arr.length) { try { localStorage.setItem(KEYS.items, JSON.stringify(arr)); } catch (e) {} }
+      document.dispatchEvent(new CustomEvent('az-engine-synced'));
+    }).catch(() => {});
+  }
+};
+
+window.AZ_DB = DB;
+
+// 4. ROUTER (defined above) — see updateContentLanguage()
+
+
 // 5. VIEW DEFINITIONS
 const Views = {
   // 5.1 DASHBOARD VIEW
@@ -928,7 +988,45 @@ const App = {
     App.updateHeaderText();
     App.attachLanguageButtons();
     App.updateBadgeCounts();
+    App.updateCloudStatus();
+    DB.tryLoadFromCloud();
     Router.navigate('dashboard');
+    document.addEventListener('az-engine-synced', () => {
+      App.updateBadgeCounts();
+      const container = document.getElementById('appContainer');
+      const view = container ? container.getAttribute('data-current-view') : 'dashboard';
+      Router.navigate(view);
+    });
+  },
+  updateCloudStatus: () => {
+    const el = document.getElementById('cloudStatus');
+    if (!el) return;
+    if (!window.AZAPI) { el.textContent = 'CLOUD: OFFLINE'; return; }
+    AZAPI.getSession().then(s => {
+      el.textContent = (s && s.data && s.data.user) ? 'CLOUD: SYNCED' : 'CLOUD: LOCAL';
+    }).catch(() => { el.textContent = 'CLOUD: LOCAL'; });
+  },
+  cloudLogin: () => {
+    const email = window.prompt("Enter your email to sync the Content Engine:");
+    if (!email) return;
+    const password = window.prompt("Enter your password:");
+    if (!password) return;
+    if (!window.AZAPI) { App.showNotification("Backend unavailable."); return; }
+    AZAPI.signIn(email, password).then(res => {
+      if (res.error) {
+        return AZAPI.signUp(email, password).then(r => {
+          if (r.error) App.showNotification("Sign-in failed: " + (r.error.message || 'unknown'));
+          else { App.showNotification("Account created. Check email to confirm, then sign in again."); }
+        });
+      }
+      App.showNotification("Cloud sync enabled.");
+      App.updateCloudStatus();
+      DB.tryLoadFromCloud();
+    }).catch(() => { App.showNotification("Cloud error."); });
+  },
+  cloudSignOut: () => {
+    if (!window.AZAPI) return;
+    AZAPI.signOut().then(() => { App.updateCloudStatus(); App.showNotification("Signed out — local mode."); });
   },
   updateHeaderText: () => {
     const btnText = document.getElementById('createContentText');

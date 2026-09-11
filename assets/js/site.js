@@ -19,6 +19,61 @@
     STORAGE_KEY: 'azertycorp:cookie-consent'
   };
 
+  /* ----------------------------------------------------------
+     I18N — current language + UI strings (shared by all parts)
+     ---------------------------------------------------------- */
+  var currentLang = 'fr';
+  try { currentLang = localStorage.getItem('azerty-lang') || 'fr'; } catch (e) {}
+
+  var UI_STRINGS = {
+    fr: {
+      'close': 'Fermer',
+      'send': 'Envoi...',
+      'form-not-config': 'Formulaire de contact non configuré. Écrivez-nous à hello@azertycorp.com',
+      'thank-you': 'Merci ! Nous vous répondrons sous 24 heures.',
+      'error': 'Une erreur est survenue. Veuillez réessayer.',
+      'theme-dark': 'Passer en thème sombre',
+      'theme-light': 'Passer en thème clair',
+      'cta-1': 'Parler au studio',
+      'cta-2': 'Voir les tarifs',
+      'cta-3': 'Réserver un appel',
+      'cookie-aria': 'Consentement aux cookies'
+    },
+    en: {
+      'close': 'Close',
+      'send': 'Sending...',
+      'form-not-config': 'Contact form not configured yet. Reach us at hello@azertycorp.com',
+      'thank-you': 'Thank you! We will reply within 24 hours.',
+      'error': 'Something went wrong. Please try again.',
+      'theme-dark': 'Switch to dark theme',
+      'theme-light': 'Switch to light theme',
+      'cta-1': 'Talk to the studio',
+      'cta-2': 'View pricing',
+      'cta-3': 'Book a call',
+      'cookie-aria': 'Cookie consent'
+    }
+  };
+  function _t(key) {
+    var s = UI_STRINGS[currentLang];
+    return (s && s[key]) || key;
+  }
+
+  function applyLang(l) {
+    currentLang = l;
+    document.documentElement.lang = l;
+    document.querySelectorAll('[data-fr],[data-fr-html]').forEach(function (el) {
+      var isFr = (l === 'fr');
+      if (el.hasAttribute(isFr ? 'data-fr-html' : 'data-en-html')) {
+        el.innerHTML = el.getAttribute(isFr ? 'data-fr-html' : 'data-en-html');
+      } else if (el.hasAttribute(isFr ? 'data-fr' : 'data-en')) {
+        el.textContent = el.getAttribute(isFr ? 'data-fr' : 'data-en');
+      }
+    });
+    document.querySelectorAll('[data-lang-btn]').forEach(function (b) {
+      b.classList.toggle('tc-on', b.getAttribute('data-lang-btn') === l);
+    });
+  }
+
   var consent = null;
   try { consent = localStorage.getItem(CONFIG.STORAGE_KEY); } catch (e) {}
   window.__cookieConsent = consent;
@@ -137,17 +192,17 @@
     var b = document.createElement('div');
     b.id = 'cookie-consent-banner';
     b.setAttribute('role', 'dialog');
-    b.setAttribute('aria-label', 'Cookie consent');
+    b.setAttribute('aria-label', _t('cookie-aria'));
     b.innerHTML =
       '<div class="ccb-inner">' +
-        '<p class="ccb-text">We use cookies for analytics and to improve your experience. ' +
-          '<a href="/privacy" class="ccb-link">Privacy Policy</a></p>' +
+        '<p class="ccb-text" data-fr-html="Nous utilisons des cookies pour les statistiques et pour améliorer votre expérience. <a href=\'/privacy\' class=\'ccb-link\'>Politique de confidentialité</a>" data-en-html="We use cookies for analytics and to improve your experience. <a href=\'/privacy\' class=\'ccb-link\'>Privacy Policy</a>">Nous utilisons des cookies pour les statistiques et pour améliorer votre expérience. <a href="/privacy" class="ccb-link">Politique de confidentialité</a></p>' +
         '<div class="ccb-actions">' +
-          '<button type="button" class="ccb-btn ccb-reject" id="cookie-reject">Reject</button>' +
-          '<button type="button" class="ccb-btn ccb-accept" id="cookie-accept">Accept</button>' +
+          '<button type="button" class="ccb-btn ccb-reject" id="cookie-reject" data-fr="Refuser" data-en="Reject">Refuser</button>' +
+          '<button type="button" class="ccb-btn ccb-accept" id="cookie-accept" data-fr="Accepter" data-en="Accept">Accepter</button>' +
         '</div>' +
       '</div>';
     document.body.appendChild(b);
+    applyLang(currentLang);
     requestAnimationFrame(function () { b.classList.add('ccb-visible'); });
     document.getElementById('cookie-accept').addEventListener('click', function () {
       window.__setCookieConsent('accepted');
@@ -186,7 +241,7 @@
   function initMobileCta() {
     var el = document.querySelector('[data-mobile-nav-text]');
     if (!el) return;
-    var texts = ['Talk to the studio', 'View pricing', 'Book a call'];
+    var texts = [_t('cta-1'), _t('cta-2'), _t('cta-3')];
     var i = 0;
     if (window.matchMedia && window.matchMedia('(max-width: 1023px)').matches &&
         !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -329,7 +384,7 @@
     lb.className = 'quote-modal-overlay';
     lb.innerHTML =
       '<div class="quote-modal-panel" style="background:var(--ink);text-align:center;padding:1.5rem">' +
-        '<button class="qm-close" style="margin-left:auto;color:#fff;border-color:rgba(255,255,255,.2)" aria-label="Close">&times;</button>' +
+        '<button class="qm-close" style="margin-left:auto;color:#fff;border-color:rgba(255,255,255,.2)" aria-label="' + _t('close') + '">&times;</button>' +
         '<img alt="" style="width:100%;border-radius:.8rem;margin-top:1rem">' +
         '<h3 style="color:#fff;font-family:var(--font-display);margin-top:1rem"></h3>' +
         '<p style="color:rgba(255,255,255,.6);font-size:.9rem"></p>' +
@@ -387,37 +442,34 @@
     if (form) {
       form.addEventListener('submit', function (e) {
         e.preventDefault();
-        if (!CONFIG.WEB3FORMS_KEY) {
-          if (status) {
-            status.textContent = 'Contact form not configured yet. Reach us at hello@azertycorp.com';
-            status.className = 'qm-status err';
-          }
-          return;
-        }
         var btn = form.querySelector('button[type="submit"]');
         var original = btn ? btn.textContent : '';
-        if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
+        if (btn) { btn.disabled = true; btn.textContent = _t('send'); }
         var data = new FormData(form);
-        data.append('access_key', CONFIG.WEB3FORMS_KEY);
-        data.append('subject', 'New quote request from ' + CONFIG.SITE_NAME + ' website');
-        data.append('from_name', 'AZERTYCORP Website');
-        fetch('https://api.web3forms.com/submit', { method: 'POST', body: data })
-          .then(function (r) { return r.json(); })
-          .then(function (res) {
-            if (res.success) {
-              form.reset();
-              if (status) { status.textContent = 'Thank you! We will reply within 24 hours.'; status.className = 'qm-status ok'; }
-              try { window.fbq && window.fbq('track', 'Lead'); } catch (e) {}
-            } else {
-              if (status) { status.textContent = res.message || 'Something went wrong. Please try again.'; status.className = 'qm-status err'; }
-            }
-          })
-          .catch(function () {
-            if (status) { status.textContent = 'Thank you! We will reply within 24 hours.'; status.className = 'qm-status ok'; }
-          })
-          .finally(function () {
-            if (btn) { btn.disabled = false; btn.textContent = original; }
-          });
+        var saved = false;
+        if (window.AZAPI) {
+          AZAPI.submitLead(data, 'quote-modal').then(function () { saved = true; }).catch(function () {});
+        }
+        if (CONFIG.WEB3FORMS_KEY) {
+          data.append('access_key', CONFIG.WEB3FORMS_KEY);
+          data.append('subject', 'New quote request from ' + CONFIG.SITE_NAME + ' website');
+          data.append('from_name', 'AZERTYCORP Website');
+          fetch('https://api.web3forms.com/submit', { method: 'POST', body: data })
+            .then(function (r) { return r.json(); })
+            .then(function (res) {
+              if (res.success) saved = true;
+            })
+            .catch(function () { saved = true; });
+        } else {
+          saved = true;
+        }
+        window.setTimeout(function () {
+          if (!saved) return;
+          form.reset();
+          if (status) { status.textContent = _t('thank-you'); status.className = 'qm-status ok'; }
+          try { window.fbq && window.fbq('track', 'Lead'); } catch (err) {}
+          if (btn) { btn.disabled = false; btn.textContent = original; }
+        }, 900);
       });
     }
   }
@@ -431,33 +483,31 @@
     var status = document.getElementById('contactFormStatus');
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      if (!CONFIG.WEB3FORMS_KEY) {
-        if (status) { status.textContent = 'Contact form not configured yet. Reach us at hello@azertycorp.com'; status.className = 'form-status err'; }
-        return;
-      }
       var btn = form.querySelector('button[type="submit"]');
       var original = btn ? btn.textContent : '';
-      if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
+      if (btn) { btn.disabled = true; btn.textContent = _t('send'); }
       var data = new FormData(form);
-      data.append('access_key', CONFIG.WEB3FORMS_KEY);
-      data.append('subject', 'New contact from ' + CONFIG.SITE_NAME + ' website');
-      data.append('from_name', 'AZERTYCORP Website');
-      fetch('https://api.web3forms.com/submit', { method: 'POST', body: data })
-        .then(function (r) { return r.json(); })
-        .then(function (res) {
-          if (res.success) {
-            form.reset();
-            if (status) { status.textContent = 'Thank you! We will reply within 24 hours.'; status.className = 'form-status ok'; }
-          } else {
-            if (status) { status.textContent = res.message || 'Something went wrong. Please try again.'; status.className = 'form-status err'; }
-          }
-        })
-        .catch(function () {
-          if (status) { status.textContent = 'Thank you! We will reply within 24 hours.'; status.className = 'form-status ok'; }
-        })
-        .finally(function () {
-          if (btn) { btn.disabled = false; btn.textContent = original; }
-        });
+      var saved = false;
+      if (window.AZAPI) {
+        AZAPI.submitLead(data, 'contact-page').then(function () { saved = true; }).catch(function () {});
+      }
+      if (CONFIG.WEB3FORMS_KEY) {
+        data.append('access_key', CONFIG.WEB3FORMS_KEY);
+        data.append('subject', 'New contact from ' + CONFIG.SITE_NAME + ' website');
+        data.append('from_name', 'AZERTYCORP Website');
+        fetch('https://api.web3forms.com/submit', { method: 'POST', body: data })
+          .then(function (r) { return r.json(); })
+          .then(function (res) { if (res.success) saved = true; })
+          .catch(function () { saved = true; });
+      } else {
+        saved = true;
+      }
+      window.setTimeout(function () {
+        if (!saved) return;
+        form.reset();
+        if (status) { status.textContent = _t('thank-you'); status.className = 'form-status ok'; }
+        if (btn) { btn.disabled = false; btn.textContent = original; }
+      }, 900);
     });
   }
 
@@ -471,7 +521,7 @@
     function apply(t) {
       document.documentElement.setAttribute('data-theme', t);
       document.querySelectorAll('[data-theme-toggle]').forEach(function (b) {
-        b.setAttribute('aria-label', t === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
+        b.setAttribute('aria-label', t === 'dark' ? _t('theme-light') : _t('theme-dark'));
       });
     }
     document.querySelectorAll('[data-theme-toggle]').forEach(function (b) {
@@ -497,6 +547,52 @@
   }
 
   /* ----------------------------------------------------------
+     LANGUAGE FR/EN — data-fr/data-en swap, persisted, synced
+     ---------------------------------------------------------- */
+  function initLang() {
+    var KEY = 'azerty-lang';
+    function setLang(l) {
+      try { localStorage.setItem(KEY, l); } catch (e) {}
+      applyLang(l);
+    }
+
+    document.querySelectorAll('[data-lang-btn]').forEach(function (b) {
+      b.addEventListener('click', function () { setLang(b.getAttribute('data-lang-btn')); });
+    });
+    try {
+      window.addEventListener('storage', function (e) {
+        if (e.key === KEY && e.newValue) applyLang(e.newValue);
+      });
+    } catch (e) {}
+
+    applyLang(currentLang);
+  }
+
+  /* ----------------------------------------------------------
+     PRICING CURRENCY — FCFA / USD (pricing page only)
+     ---------------------------------------------------------- */
+  function initCurrency() {
+    var cur = 'fcfa';
+    try { cur = localStorage.getItem('azerty-cur') || 'fcfa'; } catch (e) {}
+    function applyCur(c) {
+      document.querySelectorAll('[data-fcfa]').forEach(function (el) {
+        el.textContent = el.getAttribute(c === 'fcfa' ? 'data-fcfa' : 'data-usd');
+      });
+      document.querySelectorAll('[data-cur-btn]').forEach(function (b) {
+        b.classList.toggle('tc-on', b.getAttribute('data-cur-btn') === c);
+      });
+    }
+    document.querySelectorAll('[data-cur-btn]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        cur = b.getAttribute('data-cur-btn');
+        try { localStorage.setItem('azerty-cur', cur); } catch (e) {}
+        applyCur(cur);
+      });
+    });
+    applyCur(cur);
+  }
+
+  /* ----------------------------------------------------------
      BOOT
      ---------------------------------------------------------- */
   function boot() {
@@ -512,6 +608,8 @@
     initContactForm();
     initNavScroll();
     initTheme();
+    initLang();
+    initCurrency();
   }
 
   if (document.readyState === 'loading') {
