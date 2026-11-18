@@ -29,6 +29,9 @@
   <link rel="stylesheet" href="assets/css/motion.css?v=20261118">
 </head>
 <body>
+<a class="skip-link" href="#main-content" data-fr="Aller au contenu principal" data-en="Skip to main content">Aller au contenu principal</a>
+
+<header class="site-header">
 
 <!-- ============ MOBILE PILL NAV ============ -->
 <div class="mobile-nav-shell">
@@ -61,7 +64,7 @@
       <a href="services.html" data-fr="Services" data-en="Services">Services</a>
       <a href="pricing.html" data-fr="Tarifs" data-en="Pricing">Tarifs</a>
       <a href="portfolio.html" data-fr="Portfolio" data-en="Portfolio">Portfolio</a>
-      <a href="blog.html" class="nav-active" data-fr="Blog" data-en="Blog">Blog</a>
+      <a href="blog.html" class="nav-active" data-fr="Blog" data-en="Blog" aria-current="page">Blog</a>
       <a href="contact.html" data-fr="Contact" data-en="Contact">Contact</a>
     </nav>
     <div class="nav-actions">
@@ -87,7 +90,7 @@
 </div>
 
 <!-- ============ FULLSCREEN MOBILE MENU ============ -->
-<div class="full-menu" id="fullMenu" aria-hidden="true">
+<div class="full-menu" id="fullMenu" role="dialog" aria-modal="true" aria-label="Menu" aria-hidden="true" inert>
   <div class="full-menu-top">
     <a class="mobile-nav-logo" href="index.html" aria-label="AZERTYCORP accueil"><img class="logo-black" src="assets/images/logo-black.png" alt="AZERTYCORP"><img class="logo-white" src="assets/images/logo-white.png" alt="AZERTYCORP"></a>
     <div class="full-menu-actions">
@@ -111,7 +114,7 @@
     <a href="pricing.html"><span class="idx">04</span><span data-fr="Tarifs" data-en="Pricing">Tarifs</span></a>
     <a href="portfolio.html"><span class="idx">05</span><span data-fr="Portfolio" data-en="Portfolio">Portfolio</span></a>
     <a href="gallery.html"><span class="idx">06</span><span data-fr="Galerie" data-en="Gallery">Galerie</span></a>
-    <a href="blog.html" class="nav-active"><span class="idx">07</span><span data-fr="Blog" data-en="Blog">Blog</span></a>
+    <a href="blog.html" class="nav-active" aria-current="page"><span class="idx">07</span><span data-fr="Blog" data-en="Blog">Blog</span></a>
     <a href="redi.html"><span class="idx">08</span>REDI</a>
     <a href="elite-biz.html"><span class="idx">09</span>Elite Biz</a>
     <a href="cv.html"><span class="idx">10</span>CV</a>
@@ -124,7 +127,9 @@
   </div>
 </div>
 
-<main>
+</header>
+
+<main id="main-content" tabindex="-1">
 
 <!-- ============ PAGE HERO ============ -->
 <section class="page-hero">
@@ -161,7 +166,7 @@
           <p class="bc-meta"><span class="cat" data-fr="IA" data-en="AI">IA</span><span data-fr="8 min de lecture" data-en="8 min read">8 min de lecture</span></p>
           <h3 data-fr="L'avenir de l'IA dans l'éducation en Afrique" data-en="The Future of AI in African Education">L'avenir de l'IA dans l'éducation en Afrique</h3>
           <p data-fr="Comment l'intelligence artificielle est sur le point de transformer l'apprentissage sur le continent, du tutorat personnalisé aux analyses prédictives de la réussite des étudiants." data-en="How artificial intelligence is poised to transform learning across the continent, from personalized tutoring to predictive analytics for student success.">Comment l'intelligence artificielle est sur le point de transformer l'apprentissage sur le continent, du tutorat personnalisé aux analyses prédictives de la réussite des étudiants.</p>
-          <p class="bc-meta" style="margin-top:.9rem;color:rgba(var(--text-rgb),.5)"><span>Jan 15, 2025</span></p>
+          <p class="bc-meta" style="margin-top:.9rem;color:rgba(var(--text-rgb),.7)"><span>Jan 15, 2025</span></p>
         </div>
       </article>
 
@@ -171,7 +176,7 @@
           <p class="bc-meta"><span class="cat" data-fr="Technologie" data-en="Technology">Technologie</span><span data-fr="12 min de lecture" data-en="12 min read">12 min de lecture</span></p>
           <h3 data-fr="Construire des systèmes évolutifs : leçons du terrain" data-en="Building Scalable Systems: Lessons from the Trenches">Construire des systèmes évolutifs : leçons du terrain</h3>
           <p data-fr="Décisions et modèles d'architecture clés appris en construisant des systèmes qui servent des millions d'utilisateurs sur des marchés africains diversifiés." data-en="Key architectural decisions and patterns we have learned building systems that serve millions of users across diverse African markets.">Décisions et modèles d'architecture clés appris en construisant des systèmes qui servent des millions d'utilisateurs sur des marchés africains diversifiés.</p>
-          <p class="bc-meta" style="margin-top:.9rem;color:rgba(var(--text-rgb),.5)"><span>Jan 8, 2025</span></p>
+          <p class="bc-meta" style="margin-top:.9rem;color:rgba(var(--text-rgb),.7)"><span>Jan 8, 2025</span></p>
         </div>
       </article>
 
@@ -181,7 +186,7 @@
           <p class="bc-meta"><span class="cat" data-fr="Entrepreneuriat" data-en="Entrepreneurship">Entrepreneuriat</span><span data-fr="10 min de lecture" data-en="10 min read">10 min de lecture</span></p>
           <h3 data-fr="Transformation numérique dans les marchés émergents" data-en="Digital Transformation in Emerging Markets">Transformation numérique dans les marchés émergents</h3>
           <p data-fr="Pourquoi les entreprises africaines ont besoin d'une approche différente de la transformation numérique et comment surmonter les défis uniques des marchés émergents." data-en="Why African businesses need a different approach to digital transformation and how to navigate the unique challenges of emerging markets.">Pourquoi les entreprises africaines ont besoin d'une approche différente de la transformation numérique et comment surmonter les défis uniques des marchés émergents.</p>
-          <p class="bc-meta" style="margin-top:.9rem;color:rgba(var(--text-rgb),.5)"><span>Dec 20, 2024</span></p>
+          <p class="bc-meta" style="margin-top:.9rem;color:rgba(var(--text-rgb),.7)"><span>Dec 20, 2024</span></p>
         </div>
       </article>
 
@@ -191,7 +196,7 @@
           <p class="bc-meta"><span class="cat" data-fr="Design" data-en="Design">Design</span><span data-fr="7 min de lecture" data-en="7 min read">7 min de lecture</span></p>
           <h3 data-fr="Des systèmes de design évolutifs" data-en="Design Systems That Scale">Des systèmes de design évolutifs</h3>
           <p data-fr="Comment nous construisons et maintenons des systèmes de design qui servent plusieurs produits tout en préservant une identité de marque cohérente sur tous les points de contact." data-en="How we build and maintain design systems that serve multiple products while keeping a cohesive brand identity across all touchpoints.">Comment nous construisons et maintenons des systèmes de design qui servent plusieurs produits tout en préservant une identité de marque cohérente sur tous les points de contact.</p>
-          <p class="bc-meta" style="margin-top:.9rem;color:rgba(var(--text-rgb),.5)"><span>Dec 12, 2024</span></p>
+          <p class="bc-meta" style="margin-top:.9rem;color:rgba(var(--text-rgb),.7)"><span>Dec 12, 2024</span></p>
         </div>
       </article>
 
@@ -230,7 +235,7 @@
         
       </div>
       <div class="footer-col">
-        <h4 data-fr="Liens rapides" data-en="Quick Links">Liens rapides</h4>
+        <h3 data-fr="Liens rapides" data-en="Quick Links">Liens rapides</h3>
         <ul>
           <li><a href="index.html" data-fr="Accueil" data-en="Home">Accueil</a></li>
           <li><a href="about.html" data-fr="À propos" data-en="About">À propos</a></li>
@@ -241,7 +246,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4 data-fr="Services" data-en="Services">Services</h4>
+        <h3 data-fr="Services" data-en="Services">Services</h3>
         <ul>
           <li><a href="services.html" data-fr="Développement web" data-en="Website development">Développement web</a></li>
           <li><a href="services.html" data-fr="Systèmes de gestion" data-en="Management systems">Systèmes de gestion</a></li>
@@ -251,7 +256,7 @@
         </ul>
       </div>
       <div class="footer-col footer-contact">
-        <h4 data-fr="Studio &amp; Contact" data-en="Studio &amp; Contact">Studio &amp; Contact</h4>
+        <h3 data-fr="Studio &amp; Contact" data-en="Studio &amp; Contact">Studio &amp; Contact</h3>
         <ul>
           <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Douala, Cameroon</span></li>
           <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><a href="tel:+237687391985">+237 687 391 985</a></li>
@@ -269,12 +274,12 @@
 </footer>
 
 <!-- ============ QUOTE MODAL ============ -->
-<div class="quote-modal-overlay" id="quoteModal" aria-hidden="true">
+<div class="quote-modal-overlay" id="quoteModal" role="dialog" aria-modal="true" aria-labelledby="quoteModalTitle" aria-hidden="true" inert>
   <div class="quote-modal-panel">
     <div class="qm-head">
       <div>
-        <h3 data-fr="Obtenir un devis" data-en="Get a quote">Obtenir un devis</h3>
-        <p data-fr="Parlez-nous de votre projet. Nous répondons sous 24 heures." data-en="Tell us what you're building. We reply within 24 hours.">Parlez-nous de votre projet. Nous répondons sous 24 heures.</p>
+        <h3 id="quoteModalTitle" data-fr="Obtenir un devis" data-en="Get a quote">Obtenir un devis</h3>
+        <p data-fr="Parlez-nous de votre projet. Nous vous répondrons par email." data-en="Tell us what you're building. We'll reply by email.">Parlez-nous de votre projet. Nous vous répondrons par email.</p>
       </div>
       <button type="button" class="qm-close" aria-label="Fermer">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
@@ -283,7 +288,7 @@
     <form class="qm-form" id="quoteForm">
       <input type="text" name="website" class="qm-bot" tabindex="-1" autocomplete="off" aria-hidden="true">
       <div class="qm-row">
-        <div class="qm-field"><label for="qm-name" data-fr="Nom" data-en="Name">Nom</label><input id="qm-name" name="name" type="text" placeholder="Votre nom" required></div>
+        <div class="qm-field"><label for="qm-name" data-fr="Nom" data-en="Name">Nom</label><input data-autofocus id="qm-name" name="name" type="text" placeholder="Votre nom" required></div>
         <div class="qm-field"><label for="qm-email" data-fr="Email" data-en="Email">Email</label><input id="qm-email" name="email" type="email" placeholder="you@company.com" required></div>
       </div>
       <div class="qm-field"><label for="qm-service" data-fr="Service" data-en="Service">Service</label>

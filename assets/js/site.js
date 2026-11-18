@@ -31,7 +31,8 @@
       'cta-1': 'Parler au studio',
       'cta-2': 'Voir les tarifs',
       'cta-3': 'Réserver un appel',
-      'cookie-aria': 'Consentement aux cookies'
+      'cookie-aria': 'Consentement aux cookies',
+      'lightbox': 'Aperçu de l’image'
     },
     en: {
       'close': 'Close',
@@ -45,12 +46,85 @@
       'cta-1': 'Talk to the studio',
       'cta-2': 'View pricing',
       'cta-3': 'Book a call',
-      'cookie-aria': 'Cookie consent'
+      'cookie-aria': 'Cookie consent',
+      'lightbox': 'Image preview'
     }
   };
   function _t(key) {
     var s = UI_STRINGS[currentLang];
     return (s && s[key]) || key;
+  }
+
+  /* ----------------------------------------------------------
+     MODAL DIALOG HELPER
+     One modal at a time, focus trapped, focus returned to opener.
+     ---------------------------------------------------------- */
+  var activeDialog = null;
+  var returnFocusTo = null;
+  var FOCUSABLE = 'a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])';
+
+  function dialogFocusables(dialog) {
+    return Array.prototype.filter.call(dialog.querySelectorAll(FOCUSABLE), function (el) {
+      if (el.hasAttribute('disabled') || el.getAttribute('aria-hidden') === 'true') return false;
+      var style = window.getComputedStyle(el);
+      return style.display !== 'none' && style.visibility !== 'hidden';
+    });
+  }
+
+  function setDialogOpen(dialog, open) {
+    dialog.classList.toggle('open', open);
+    dialog.setAttribute('aria-hidden', open ? 'false' : 'true');
+    if (open) dialog.removeAttribute('inert');
+    else dialog.setAttribute('inert', '');
+  }
+
+  function openDialog(dialog, opener) {
+    if (activeDialog && activeDialog !== dialog) closeDialog(activeDialog, false);
+    returnFocusTo = opener || document.activeElement;
+    if (!dialog.hasAttribute('tabindex')) dialog.setAttribute('tabindex', '-1');
+    setDialogOpen(dialog, true);
+    activeDialog = dialog;
+    document.body.style.overflow = 'hidden';
+    var target = dialog.querySelector('[data-autofocus]') || dialogFocusables(dialog)[0] || dialog;
+    try { target.focus({ preventScroll: true }); } catch (e) { target.focus(); }
+  }
+
+  function closeDialog(dialog, restoreFocus) {
+    setDialogOpen(dialog, false);
+    if (activeDialog === dialog) activeDialog = null;
+    if (!activeDialog) document.body.style.overflow = '';
+    if (restoreFocus !== false && returnFocusTo && document.contains(returnFocusTo)) {
+      try { returnFocusTo.focus({ preventScroll: true }); } catch (e) { returnFocusTo.focus(); }
+    }
+    if (activeDialog !== dialog) returnFocusTo = null;
+  }
+
+  function initDialogKeyboard() {
+    document.addEventListener('keydown', function (e) {
+      if (!activeDialog) return;
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        closeDialog(activeDialog);
+        return;
+      }
+      if (e.key !== 'Tab') return;
+      var focusables = dialogFocusables(activeDialog);
+      if (!focusables.length) {
+        e.preventDefault();
+        activeDialog.focus();
+        return;
+      }
+      var first = focusables[0];
+      var last = focusables[focusables.length - 1];
+      var inside = activeDialog.contains(document.activeElement);
+      if (e.shiftKey && (!inside || document.activeElement === first)) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && (!inside || document.activeElement === last)) {
+        e.preventDefault();
+        first.focus();
+      }
+    });
   }
 
   function applyLang(l) {
@@ -188,9 +262,10 @@
     b.id = 'cookie-consent-banner';
     b.setAttribute('role', 'dialog');
     b.setAttribute('aria-label', _t('cookie-aria'));
+    b.setAttribute('aria-describedby', 'cookie-consent-text');
     b.innerHTML =
       '<div class="ccb-inner">' +
-        '<p class="ccb-text" data-fr-html="Nous utilisons des cookies pour les statistiques et pour améliorer votre expérience. <a href=\'/privacy\' class=\'ccb-link\'>Politique de confidentialité</a>" data-en-html="We use cookies for analytics and to improve your experience. <a href=\'/privacy\' class=\'ccb-link\'>Privacy Policy</a>">Nous utilisons des cookies pour les statistiques et pour améliorer votre expérience. <a href="/privacy" class="ccb-link">Politique de confidentialité</a></p>' +
+        '<p class="ccb-text" id="cookie-consent-text" data-fr-html="Nous utilisons des cookies pour les statistiques et pour améliorer votre expérience. <a href=\'/privacy\' class=\'ccb-link\'>Politique de confidentialité</a>" data-en-html="We use cookies for analytics and to improve your experience. <a href=\'/privacy\' class=\'ccb-link\'>Privacy Policy</a>">Nous utilisons des cookies pour les statistiques et pour améliorer votre expérience. <a href="/privacy" class="ccb-link">Politique de confidentialité</a></p>' +
         '<div class="ccb-actions">' +
           '<button type="button" class="ccb-btn ccb-reject" id="cookie-reject" data-fr="Refuser" data-en="Reject">Refuser</button>' +
           '<button type="button" class="ccb-btn ccb-accept" id="cookie-accept" data-fr="Accepter" data-en="Accept">Accepter</button>' +
@@ -217,17 +292,13 @@
     var closeBtn = document.getElementById('fullMenuClose');
     if (!menu) return;
 
-    function open() {
-      menu.classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
-    function close() {
-      menu.classList.remove('open');
-      document.body.style.overflow = '';
-    }
-    openBtns.forEach(function (btn) { btn.addEventListener('click', open); });
-    if (closeBtn) closeBtn.addEventListener('click', close);
-    menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', close); });
+    openBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () { openDialog(menu, btn); });
+    });
+    if (closeBtn) closeBtn.addEventListener('click', function () { closeDialog(menu); });
+    menu.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () { closeDialog(menu, false); });
+    });
   }
 
   /* ----------------------------------------------------------
@@ -378,28 +449,34 @@
     var lb = document.createElement('div');
     lb.id = 'lightbox';
     lb.className = 'quote-modal-overlay';
+    lb.setAttribute('role', 'dialog');
+    lb.setAttribute('aria-modal', 'true');
+    lb.setAttribute('aria-label', _t('lightbox'));
+    lb.setAttribute('aria-labelledby', 'lightboxTitle');
+    lb.setAttribute('aria-describedby', 'lightboxDescription');
+    lb.setAttribute('aria-hidden', 'true');
+    lb.setAttribute('inert', '');
     lb.innerHTML =
       '<div class="quote-modal-panel" style="background:var(--ink);text-align:center;padding:1.5rem">' +
-        '<button class="qm-close" style="margin-left:auto;color:#fff;border-color:rgba(255,255,255,.2)" aria-label="' + _t('close') + '">&times;</button>' +
+        '<button type="button" class="qm-close" style="margin-left:auto;color:#fff;border-color:rgba(255,255,255,.2)" aria-label="' + _t('close') + '">&times;</button>' +
         '<img alt="" style="width:100%;border-radius:.8rem;margin-top:1rem">' +
-        '<h3 style="color:#fff;font-family:var(--font-display);margin-top:1rem"></h3>' +
-        '<p style="color:rgba(255,255,255,.6);font-size:.9rem"></p>' +
+        '<h3 id="lightboxTitle" style="color:#fff;font-family:var(--font-display);margin-top:1rem"></h3>' +
+        '<p id="lightboxDescription" style="color:rgba(255,255,255,.7);font-size:.9rem"></p>' +
       '</div>';
     document.body.appendChild(lb);
     var img = lb.querySelector('img');
-    var cap = lb.querySelector('h3');
-    var desc = lb.querySelector('p');
-    lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
-    lb.querySelector('.qm-close').addEventListener('click', close);
-    function close() { lb.classList.remove('open'); document.body.style.overflow = ''; }
+    var cap = lb.querySelector('#lightboxTitle');
+    var desc = lb.querySelector('#lightboxDescription');
+    lb.addEventListener('click', function (e) { if (e.target === lb) closeDialog(lb); });
+    lb.querySelector('.qm-close').addEventListener('click', function () { closeDialog(lb); });
     items.forEach(function (item) {
       item.addEventListener('click', function (e) {
         e.preventDefault();
         img.src = item.getAttribute('data-full') || item.querySelector('img').getAttribute('src');
         cap.textContent = item.getAttribute('data-title') || '';
         desc.textContent = item.getAttribute('data-desc') || '';
-        lb.classList.add('open');
-        document.body.style.overflow = 'hidden';
+        lb.setAttribute('aria-label', _t('lightbox'));
+        openDialog(lb, item);
       });
     });
   }
@@ -469,27 +546,29 @@
     var form = document.getElementById('quoteForm');
     var status = document.getElementById('quoteStatus');
 
-    function open() {
-      overlay.classList.add('open');
-      document.body.style.overflow = 'hidden';
+    function open(trigger) {
+      openDialog(overlay, trigger || document.activeElement);
       try { window.__ensurePixel && window.__ensurePixel(); } catch (e) {}
       try { window.__ensureGtag && window.__ensureGtag(); } catch (e) {}
     }
-    function close() {
-      overlay.classList.remove('open');
-      document.body.style.overflow = '';
-    }
 
-    window.addEventListener('open-quote-modal', open);
+    window.addEventListener('open-quote-modal', function () { open(); });
     document.addEventListener('click', function (e) {
       var t = e.target && e.target.closest ? e.target.closest('[data-open-quote]') : null;
       if (!t) return;
-      open();
+      open(t);
     });
-    overlay.addEventListener('click', function (e) { if (e.target === overlay) close(); });
+    document.querySelectorAll('[data-open-quote][role="button"]').forEach(function (el) {
+      el.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          open(el);
+        }
+      });
+    });
+    overlay.addEventListener('click', function (e) { if (e.target === overlay) closeDialog(overlay); });
     var closeBtn = overlay.querySelector('.qm-close');
-    if (closeBtn) closeBtn.addEventListener('click', close);
-    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+    if (closeBtn) closeBtn.addEventListener('click', function () { closeDialog(overlay); });
 
     initLeadForm(form, status, 'quote-modal', 'qm-status');
   }
@@ -589,6 +668,7 @@
      BOOT
      ---------------------------------------------------------- */
   function boot() {
+    initDialogKeyboard();
     initMobileMenu();
     initMobileCta();
     initReveal();

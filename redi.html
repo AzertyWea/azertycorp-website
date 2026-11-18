@@ -29,6 +29,9 @@
   <link rel="stylesheet" href="assets/css/motion.css?v=20261118">
 </head>
 <body>
+<a class="skip-link" href="#main-content" data-fr="Aller au contenu principal" data-en="Skip to main content">Aller au contenu principal</a>
+
+<header class="site-header">
 
 <!-- ============ MOBILE PILL NAV ============ -->
 <div class="mobile-nav-shell">
@@ -87,7 +90,7 @@
 </div>
 
 <!-- ============ FULLSCREEN MOBILE MENU ============ -->
-<div class="full-menu" id="fullMenu" aria-hidden="true">
+<div class="full-menu" id="fullMenu" role="dialog" aria-modal="true" aria-label="Menu" aria-hidden="true" inert>
   <div class="full-menu-top">
     <a class="mobile-nav-logo" href="index.html" aria-label="AZERTYCORP accueil"><img class="logo-black" src="assets/images/logo-black.png" alt="AZERTYCORP"><img class="logo-white" src="assets/images/logo-white.png" alt="AZERTYCORP"></a>
     <div class="full-menu-actions">
@@ -112,7 +115,7 @@
     <a href="portfolio.html"><span class="idx">05</span><span data-fr="Portfolio" data-en="Portfolio">Portfolio</span></a>
     <a href="gallery.html"><span class="idx">06</span><span data-fr="Galerie" data-en="Gallery">Galerie</span></a>
     <a href="blog.html"><span class="idx">07</span><span data-fr="Blog" data-en="Blog">Blog</span></a>
-    <a href="redi.html" class="nav-active"><span class="idx">08</span>REDI</a>
+    <a href="redi.html" class="nav-active" aria-current="page"><span class="idx">08</span>REDI</a>
     <a href="elite-biz.html"><span class="idx">09</span>Elite Biz</a>
     <a href="cv.html"><span class="idx">10</span>CV</a>
     <a href="contact.html"><span class="idx">11</span><span data-fr="Contact" data-en="Contact">Contact</span></a>
@@ -124,7 +127,9 @@
   </div>
 </div>
 
-<main>
+</header>
+
+<main id="main-content" tabindex="-1">
 
 <!-- ============ PAGE HERO ============ -->
 <section class="page-hero">
@@ -155,7 +160,7 @@
         <p style="font-size:.9rem;margin-top:.5rem;opacity:.7" data-fr="manquent de soutien personnalisé" data-en="lack personalized support">manquent de soutien personnalisé</p>
       </div>
       <div class="bento-card reveal text-center" style="--d:.16s;padding:2.5rem 1.5rem;text-align:center">
-        <div style="font-family:var(--font-display);font-size:2.6rem;font-weight:800;color:var(--gold)"><span data-count="3" data-suffix="x">0x</span></div>
+        <div style="font-family:var(--font-display);font-size:2.6rem;font-weight:800;color:var(--primary-text)"><span data-count="3" data-suffix="x">0x</span></div>
         <p style="font-size:.9rem;margin-top:.5rem;opacity:.7" data-fr="plus efficaces avec l'apprentissage adaptatif" data-en="more effective with adaptive learning">plus efficaces avec l'apprentissage adaptatif</p>
       </div>
     </div>
@@ -215,22 +220,22 @@
     </div>
     <div class="grid-4 mt-12">
       <div class="bento-card reveal text-center" style="padding:2rem;text-align:center">
-        <div style="width:2.6rem;height:2.6rem;margin:0 auto 1rem;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--gold));color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800">1</div>
+        <div style="width:2.6rem;height:2.6rem;margin:0 auto 1rem;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary));color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800">1</div>
         <h3 style="font-size:1rem;margin-bottom:.4rem" data-fr="Collecte de données" data-en="Data Collection">Collecte de données</h3>
         <p style="font-size:.85rem;opacity:.7" data-fr="Les interactions des étudiants sont capturées en temps réel." data-en="Student interactions captured in real-time.">Les interactions des étudiants sont capturées en temps réel.</p>
       </div>
       <div class="bento-card reveal text-center" style="--d:.08s;padding:2rem;text-align:center">
-        <div style="width:2.6rem;height:2.6rem;margin:0 auto 1rem;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--gold));color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800">2</div>
+        <div style="width:2.6rem;height:2.6rem;margin:0 auto 1rem;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary));color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800">2</div>
         <h3 style="font-size:1rem;margin-bottom:.4rem" data-fr="Traitement" data-en="Processing">Traitement</h3>
         <p style="font-size:.85rem;opacity:.7" data-fr="Les pipelines de ML traitent via l'ingénierie de fonctionnalités." data-en="ML pipelines process through feature engineering.">Les pipelines de ML traitent via l'ingénierie de fonctionnalités.</p>
       </div>
       <div class="bento-card reveal text-center" style="--d:.16s;padding:2rem;text-align:center">
-        <div style="width:2.6rem;height:2.6rem;margin:0 auto 1rem;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--gold));color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800">3</div>
+        <div style="width:2.6rem;height:2.6rem;margin:0 auto 1rem;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary));color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800">3</div>
         <h3 style="font-size:1rem;margin-bottom:.4rem" data-fr="Entraînement du modèle" data-en="Model Training">Entraînement du modèle</h3>
         <p style="font-size:.85rem;opacity:.7" data-fr="Des modèles personnalisés entraînés sur des données éducatives." data-en="Custom models trained on educational data.">Des modèles personnalisés entraînés sur des données éducatives.</p>
       </div>
       <div class="bento-card reveal text-center" style="--d:.24s;padding:2rem;text-align:center">
-        <div style="width:2.6rem;height:2.6rem;margin:0 auto 1rem;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--gold));color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800">4</div>
+        <div style="width:2.6rem;height:2.6rem;margin:0 auto 1rem;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary));color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800">4</div>
         <h3 style="font-size:1rem;margin-bottom:.4rem" data-fr="Action intelligente" data-en="Intelligent Action">Action intelligente</h3>
         <p style="font-size:.85rem;opacity:.7" data-fr="Des recommandations pilotées par l'IA, livrées instantanément." data-en="AI-driven recommendations delivered instantly.">Des recommandations pilotées par l'IA, livrées instantanément.</p>
       </div>
@@ -250,33 +255,33 @@
       <div class="bento-card reveal" style="padding:1.75rem">
         <p style="color:var(--primary);font-family:var(--font-label);font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:1rem">Q1 2025</p>
         <ul style="display:flex;flex-direction:column;gap:.55rem;list-style:none">
-          <li style="font-size:.85rem;opacity:.8;display:flex;align-items:flex-start;gap:.6rem"><span style="width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:.4rem"></span><span data-fr="Support multilingue" data-en="Multi-language support">Support multilingue</span></li>
-          <li style="font-size:.85rem;opacity:.8;display:flex;align-items:flex-start;gap:.6rem"><span style="width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:.4rem"></span><span data-fr="Lancement de l'application mobile" data-en="Mobile app launch">Lancement de l'application mobile</span></li>
-          <li style="font-size:.85rem;opacity:.8;display:flex;align-items:flex-start;gap:.6rem"><span style="width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:.4rem"></span><span data-fr="Analytique améliorée" data-en="Enhanced analytics">Analytique améliorée</span></li>
+          <li style="font-size:.85rem;opacity:.8;display:flex;align-items:flex-start;gap:.6rem"><span style="width:6px;height:6px;border-radius:50%;background:var(--primary);flex-shrink:0;margin-top:.4rem"></span><span data-fr="Support multilingue" data-en="Multi-language support">Support multilingue</span></li>
+          <li style="font-size:.85rem;opacity:.8;display:flex;align-items:flex-start;gap:.6rem"><span style="width:6px;height:6px;border-radius:50%;background:var(--primary);flex-shrink:0;margin-top:.4rem"></span><span data-fr="Lancement de l'application mobile" data-en="Mobile app launch">Lancement de l'application mobile</span></li>
+          <li style="font-size:.85rem;opacity:.8;display:flex;align-items:flex-start;gap:.6rem"><span style="width:6px;height:6px;border-radius:50%;background:var(--primary);flex-shrink:0;margin-top:.4rem"></span><span data-fr="Analytique améliorée" data-en="Enhanced analytics">Analytique améliorée</span></li>
         </ul>
       </div>
       <div class="bento-card reveal" style="--d:.08s;padding:1.75rem">
         <p style="color:var(--primary);font-family:var(--font-label);font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:1rem">Q2 2025</p>
         <ul style="display:flex;flex-direction:column;gap:.55rem;list-style:none">
-          <li style="font-size:.85rem;opacity:.8;display:flex;align-items:flex-start;gap:.6rem"><span style="width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:.4rem"></span><span data-fr="Classe virtuelle" data-en="Virtual classroom">Classe virtuelle</span></li>
-          <li style="font-size:.85rem;opacity:.8;display:flex;align-items:flex-start;gap:.6rem"><span style="width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:.4rem"></span><span data-fr="Moteur de gamification" data-en="Gamification engine">Moteur de gamification</span></li>
-          <li style="font-size:.85rem;opacity:.8;display:flex;align-items:flex-start;gap:.6rem"><span style="width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:.4rem"></span><span data-fr="Portail parents" data-en="Parent portal">Portail parents</span></li>
+          <li style="font-size:.85rem;opacity:.8;display:flex;align-items:flex-start;gap:.6rem"><span style="width:6px;height:6px;border-radius:50%;background:var(--primary);flex-shrink:0;margin-top:.4rem"></span><span data-fr="Classe virtuelle" data-en="Virtual classroom">Classe virtuelle</span></li>
+          <li style="font-size:.85rem;opacity:.8;display:flex;align-items:flex-start;gap:.6rem"><span style="width:6px;height:6px;border-radius:50%;background:var(--primary);flex-shrink:0;margin-top:.4rem"></span><span data-fr="Moteur de gamification" data-en="Gamification engine">Moteur de gamification</span></li>
+          <li style="font-size:.85rem;opacity:.8;display:flex;align-items:flex-start;gap:.6rem"><span style="width:6px;height:6px;border-radius:50%;background:var(--primary);flex-shrink:0;margin-top:.4rem"></span><span data-fr="Portail parents" data-en="Parent portal">Portail parents</span></li>
         </ul>
       </div>
       <div class="bento-card reveal" style="--d:.16s;padding:1.75rem">
         <p style="color:var(--primary);font-family:var(--font-label);font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:1rem">Q3 2025</p>
         <ul style="display:flex;flex-direction:column;gap:.55rem;list-style:none">
-          <li style="font-size:.85rem;opacity:.8;display:flex;align-items:flex-start;gap:.6rem"><span style="width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:.4rem"></span><span data-fr="Laboratoire de recherche IA" data-en="AI research lab">Laboratoire de recherche IA</span></li>
-          <li style="font-size:.85rem;opacity:.8;display:flex;align-items:flex-start;gap:.6rem"><span style="width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:.4rem"></span><span data-fr="Partenariats universitaires" data-en="University partnerships">Partenariats universitaires</span></li>
-          <li style="font-size:.85rem;opacity:.8;display:flex;align-items:flex-start;gap:.6rem"><span style="width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:.4rem"></span><span data-fr="API ouverte" data-en="Open API">API ouverte</span></li>
+          <li style="font-size:.85rem;opacity:.8;display:flex;align-items:flex-start;gap:.6rem"><span style="width:6px;height:6px;border-radius:50%;background:var(--primary);flex-shrink:0;margin-top:.4rem"></span><span data-fr="Laboratoire de recherche IA" data-en="AI research lab">Laboratoire de recherche IA</span></li>
+          <li style="font-size:.85rem;opacity:.8;display:flex;align-items:flex-start;gap:.6rem"><span style="width:6px;height:6px;border-radius:50%;background:var(--primary);flex-shrink:0;margin-top:.4rem"></span><span data-fr="Partenariats universitaires" data-en="University partnerships">Partenariats universitaires</span></li>
+          <li style="font-size:.85rem;opacity:.8;display:flex;align-items:flex-start;gap:.6rem"><span style="width:6px;height:6px;border-radius:50%;background:var(--primary);flex-shrink:0;margin-top:.4rem"></span><span data-fr="API ouverte" data-en="Open API">API ouverte</span></li>
         </ul>
       </div>
       <div class="bento-card reveal" style="--d:.24s;padding:1.75rem">
         <p style="color:var(--primary);font-family:var(--font-label);font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:1rem">Q4 2025</p>
         <ul style="display:flex;flex-direction:column;gap:.55rem;list-style:none">
-          <li style="font-size:.85rem;opacity:.8;display:flex;align-items:flex-start;gap:.6rem"><span style="width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:.4rem"></span><span data-fr="Expansion panafricaine" data-en="Pan-African expansion">Expansion panafricaine</span></li>
-          <li style="font-size:.85rem;opacity:.8;display:flex;align-items:flex-start;gap:.6rem"><span style="width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:.4rem"></span><span data-fr="Partenariats gouvernementaux" data-en="Government partnerships">Partenariats gouvernementaux</span></li>
-          <li style="font-size:.85rem;opacity:.8;display:flex;align-items:flex-start;gap:.6rem"><span style="width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:.4rem"></span><span data-fr="Outils d'impact" data-en="Impact tools">Outils d'impact</span></li>
+          <li style="font-size:.85rem;opacity:.8;display:flex;align-items:flex-start;gap:.6rem"><span style="width:6px;height:6px;border-radius:50%;background:var(--primary);flex-shrink:0;margin-top:.4rem"></span><span data-fr="Expansion panafricaine" data-en="Pan-African expansion">Expansion panafricaine</span></li>
+          <li style="font-size:.85rem;opacity:.8;display:flex;align-items:flex-start;gap:.6rem"><span style="width:6px;height:6px;border-radius:50%;background:var(--primary);flex-shrink:0;margin-top:.4rem"></span><span data-fr="Partenariats gouvernementaux" data-en="Government partnerships">Partenariats gouvernementaux</span></li>
+          <li style="font-size:.85rem;opacity:.8;display:flex;align-items:flex-start;gap:.6rem"><span style="width:6px;height:6px;border-radius:50%;background:var(--primary);flex-shrink:0;margin-top:.4rem"></span><span data-fr="Outils d'impact" data-en="Impact tools">Outils d'impact</span></li>
         </ul>
       </div>
     </div>
@@ -316,7 +321,7 @@
         
       </div>
       <div class="footer-col">
-        <h4 data-fr="Liens rapides" data-en="Quick Links">Liens rapides</h4>
+        <h3 data-fr="Liens rapides" data-en="Quick Links">Liens rapides</h3>
         <ul>
           <li><a href="index.html" data-fr="Accueil" data-en="Home">Accueil</a></li>
           <li><a href="about.html" data-fr="À propos" data-en="About">À propos</a></li>
@@ -327,7 +332,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4 data-fr="Services" data-en="Services">Services</h4>
+        <h3 data-fr="Services" data-en="Services">Services</h3>
         <ul>
           <li><a href="services.html" data-fr="Développement web" data-en="Website development">Développement web</a></li>
           <li><a href="services.html" data-fr="Systèmes de gestion" data-en="Management systems">Systèmes de gestion</a></li>
@@ -337,7 +342,7 @@
         </ul>
       </div>
       <div class="footer-col footer-contact">
-        <h4 data-fr="Studio &amp; Contact" data-en="Studio &amp; Contact">Studio &amp; Contact</h4>
+        <h3 data-fr="Studio &amp; Contact" data-en="Studio &amp; Contact">Studio &amp; Contact</h3>
         <ul>
           <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Douala, Cameroon</span></li>
           <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><a href="tel:+237687391985">+237 687 391 985</a></li>
@@ -355,12 +360,12 @@
 </footer>
 
 <!-- ============ QUOTE MODAL ============ -->
-<div class="quote-modal-overlay" id="quoteModal" aria-hidden="true">
+<div class="quote-modal-overlay" id="quoteModal" role="dialog" aria-modal="true" aria-labelledby="quoteModalTitle" aria-hidden="true" inert>
   <div class="quote-modal-panel">
     <div class="qm-head">
       <div>
-        <h3 data-fr="Obtenir un devis" data-en="Get a quote">Obtenir un devis</h3>
-        <p data-fr="Parlez-nous de votre projet. Nous répondons sous 24 heures." data-en="Tell us what you're building. We reply within 24 hours.">Parlez-nous de votre projet. Nous répondons sous 24 heures.</p>
+        <h3 id="quoteModalTitle" data-fr="Obtenir un devis" data-en="Get a quote">Obtenir un devis</h3>
+        <p data-fr="Parlez-nous de votre projet. Nous vous répondrons par email." data-en="Tell us what you're building. We'll reply by email.">Parlez-nous de votre projet. Nous vous répondrons par email.</p>
       </div>
       <button type="button" class="qm-close" aria-label="Fermer">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
@@ -369,7 +374,7 @@
     <form class="qm-form" id="quoteForm">
       <input type="text" name="website" class="qm-bot" tabindex="-1" autocomplete="off" aria-hidden="true">
       <div class="qm-row">
-        <div class="qm-field"><label for="qm-name" data-fr="Nom" data-en="Name">Nom</label><input id="qm-name" name="name" type="text" placeholder="Votre nom" required></div>
+        <div class="qm-field"><label for="qm-name" data-fr="Nom" data-en="Name">Nom</label><input data-autofocus id="qm-name" name="name" type="text" placeholder="Votre nom" required></div>
         <div class="qm-field"><label for="qm-email" data-fr="Email" data-en="Email">Email</label><input id="qm-email" name="email" type="email" placeholder="you@company.com" required></div>
       </div>
       <div class="qm-field"><label for="qm-service" data-fr="Service" data-en="Service">Service</label>

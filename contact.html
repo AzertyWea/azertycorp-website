@@ -5,12 +5,12 @@
   <script>try{if(localStorage.getItem('azerty-theme')==='dark')document.documentElement.setAttribute('data-theme','dark')}catch(e){}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Contact | AZERTYCORP</title>
-  <meta name="description" content="Un projet en tête ? Nous serions ravis de vous entendre. Contactez AZERTYCORP pour un devis gratuit et une réponse sous 24 heures.">
+  <meta name="description" content="Un projet en tête ? Nous serions ravis de vous entendre. Contactez AZERTYCORP pour un devis gratuit.">
   <link rel="canonical" href="https://azertycorp-1.vercel.app/contact">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="AZERTYCORP">
   <meta property="og:title" content="Contact | AZERTYCORP">
-  <meta property="og:description" content="Un projet en tête ? Nous serions ravis de vous entendre. Contactez AZERTYCORP pour un devis gratuit et une réponse sous 24 heures.">
+  <meta property="og:description" content="Un projet en tête ? Nous serions ravis de vous entendre. Contactez AZERTYCORP pour un devis gratuit.">
   <meta property="og:url" content="https://azertycorp-1.vercel.app/contact">
   <meta property="og:image" content="https://azertycorp-1.vercel.app/assets/images/og-cover.png">
   <meta property="og:image:width" content="1200">
@@ -18,7 +18,7 @@
   <meta property="og:locale" content="fr_FR">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Contact | AZERTYCORP">
-  <meta name="twitter:description" content="Un projet en tête ? Nous serions ravis de vous entendre. Contactez AZERTYCORP pour un devis gratuit et une réponse sous 24 heures.">
+  <meta name="twitter:description" content="Un projet en tête ? Nous serions ravis de vous entendre. Contactez AZERTYCORP pour un devis gratuit.">
   <meta name="twitter:image" content="https://azertycorp-1.vercel.app/assets/images/og-cover.png">
   <meta name="theme-color" content="#E51B23">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23E51B23'/%3E%3Cstop offset='1' stop-color='%230B0B0D'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Ctext x='32' y='44' font-family='Arial' font-weight='800' font-size='34' text-anchor='middle' fill='white'%3EA%3C/text%3E%3C/svg%3E">
@@ -29,6 +29,9 @@
   <link rel="stylesheet" href="assets/css/motion.css?v=20261118">
 </head>
 <body>
+<a class="skip-link" href="#main-content" data-fr="Aller au contenu principal" data-en="Skip to main content">Aller au contenu principal</a>
+
+<header class="site-header">
 
 <!-- ============ MOBILE PILL NAV ============ -->
 <div class="mobile-nav-shell">
@@ -62,7 +65,7 @@
       <a href="pricing.html" data-fr="Tarifs" data-en="Pricing">Tarifs</a>
       <a href="portfolio.html" data-fr="Portfolio" data-en="Portfolio">Portfolio</a>
       <a href="blog.html" data-fr="Blog" data-en="Blog">Blog</a>
-      <a href="contact.html" class="nav-active" data-fr="Contact" data-en="Contact">Contact</a>
+      <a href="contact.html" class="nav-active" data-fr="Contact" data-en="Contact" aria-current="page">Contact</a>
     </nav>
     <div class="nav-actions">
       <button type="button" class="nav-icon-btn dark" aria-label="Obtenir un devis" data-open-quote>
@@ -87,7 +90,7 @@
 </div>
 
 <!-- ============ FULLSCREEN MOBILE MENU ============ -->
-<div class="full-menu" id="fullMenu" aria-hidden="true">
+<div class="full-menu" id="fullMenu" role="dialog" aria-modal="true" aria-label="Menu" aria-hidden="true" inert>
   <div class="full-menu-top">
     <a class="mobile-nav-logo" href="index.html" aria-label="AZERTYCORP accueil"><img class="logo-black" src="assets/images/logo-black.png" alt="AZERTYCORP"><img class="logo-white" src="assets/images/logo-white.png" alt="AZERTYCORP"></a>
     <div class="full-menu-actions">
@@ -115,7 +118,7 @@
     <a href="redi.html"><span class="idx">08</span>REDI</a>
     <a href="elite-biz.html"><span class="idx">09</span>Elite Biz</a>
     <a href="cv.html"><span class="idx">10</span>CV</a>
-    <a href="contact.html" class="nav-active"><span class="idx">11</span><span data-fr="Contact" data-en="Contact">Contact</span></a>
+    <a href="contact.html" class="nav-active" aria-current="page"><span class="idx">11</span><span data-fr="Contact" data-en="Contact">Contact</span></a>
   </nav>
   <div class="full-menu-foot">
     <span>hello@azertycorp.com</span>
@@ -124,7 +127,9 @@
   </div>
 </div>
 
-<main>
+</header>
+
+<main id="main-content" tabindex="-1">
 
 <!-- ============ PAGE HERO ============ -->
 <section class="page-hero">
@@ -264,7 +269,7 @@
         
       </div>
       <div class="footer-col">
-        <h4 data-fr="Liens rapides" data-en="Quick Links">Liens rapides</h4>
+        <h3 data-fr="Liens rapides" data-en="Quick Links">Liens rapides</h3>
         <ul>
           <li><a href="index.html" data-fr="Accueil" data-en="Home">Accueil</a></li>
           <li><a href="about.html" data-fr="À propos" data-en="About">À propos</a></li>
@@ -275,7 +280,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4 data-fr="Services" data-en="Services">Services</h4>
+        <h3 data-fr="Services" data-en="Services">Services</h3>
         <ul>
           <li><a href="services.html" data-fr="Développement web" data-en="Website development">Développement web</a></li>
           <li><a href="services.html" data-fr="Systèmes de gestion" data-en="Management systems">Systèmes de gestion</a></li>
@@ -285,7 +290,7 @@
         </ul>
       </div>
       <div class="footer-col footer-contact">
-        <h4 data-fr="Studio &amp; Contact" data-en="Studio &amp; Contact">Studio &amp; Contact</h4>
+        <h3 data-fr="Studio &amp; Contact" data-en="Studio &amp; Contact">Studio &amp; Contact</h3>
         <ul>
           <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Douala, Cameroon</span></li>
           <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><a href="tel:+237687391985">+237 687 391 985</a></li>
@@ -303,12 +308,12 @@
 </footer>
 
 <!-- ============ QUOTE MODAL ============ -->
-<div class="quote-modal-overlay" id="quoteModal" aria-hidden="true">
+<div class="quote-modal-overlay" id="quoteModal" role="dialog" aria-modal="true" aria-labelledby="quoteModalTitle" aria-hidden="true" inert>
   <div class="quote-modal-panel">
     <div class="qm-head">
       <div>
-        <h3 data-fr="Obtenir un devis" data-en="Get a quote">Obtenir un devis</h3>
-        <p data-fr="Parlez-nous de votre projet. Nous répondons sous 24 heures." data-en="Tell us what you're building. We reply within 24 hours.">Parlez-nous de votre projet. Nous répondons sous 24 heures.</p>
+        <h3 id="quoteModalTitle" data-fr="Obtenir un devis" data-en="Get a quote">Obtenir un devis</h3>
+        <p data-fr="Parlez-nous de votre projet. Nous vous répondrons par email." data-en="Tell us what you're building. We'll reply by email.">Parlez-nous de votre projet. Nous vous répondrons par email.</p>
       </div>
       <button type="button" class="qm-close" aria-label="Fermer">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
@@ -317,7 +322,7 @@
     <form class="qm-form" id="quoteForm">
       <input type="text" name="website" class="qm-bot" tabindex="-1" autocomplete="off" aria-hidden="true">
       <div class="qm-row">
-        <div class="qm-field"><label for="qm-name" data-fr="Nom" data-en="Name">Nom</label><input id="qm-name" name="name" type="text" placeholder="Votre nom" required></div>
+        <div class="qm-field"><label for="qm-name" data-fr="Nom" data-en="Name">Nom</label><input data-autofocus id="qm-name" name="name" type="text" placeholder="Votre nom" required></div>
         <div class="qm-field"><label for="qm-email" data-fr="Email" data-en="Email">Email</label><input id="qm-email" name="email" type="email" placeholder="you@company.com" required></div>
       </div>
       <div class="qm-field"><label for="qm-service" data-fr="Service" data-en="Service">Service</label>
