@@ -286,7 +286,8 @@
   function initCounters() {
     var counters = document.querySelectorAll('[data-count]');
     if (!counters.length) return;
-    if (!('IntersectionObserver' in window)) {
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion || !('IntersectionObserver' in window)) {
       counters.forEach(function (el) { el.textContent = el.getAttribute('data-count') + (el.getAttribute('data-suffix') || ''); });
       return;
     }
