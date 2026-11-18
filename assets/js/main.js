@@ -220,38 +220,8 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ===== CONTACT FORM =====
-  const contactForm = document.getElementById('contact-form');
-  if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const formData = new FormData(contactForm);
-      const submitBtn = contactForm.querySelector('button[type="submit"]');
-      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending...'; }
-
-      let saved = false;
-      if (window.AZAPI) {
-        AZAPI.submitLead(formData, 'landing-hero').then(() => { saved = true; }).catch(() => {});
-      }
-      if (window.CONFIG && CONFIG.WEB3FORMS_KEY) {
-        formData.append('access_key', CONFIG.WEB3FORMS_KEY);
-        formData.append('subject', 'New lead from AZERTYCORP website');
-        fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData })
-          .then(r => r.json())
-          .then(data => { if (data.success) saved = true; })
-          .catch(() => { saved = true; });
-      } else {
-        saved = true;
-      }
-
-      setTimeout(() => {
-        if (!saved) return;
-        contactForm.reset();
-        const msg = document.getElementById('form-success');
-        if (msg) msg.classList.remove('hidden');
-        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Send Message'; }
-      }, 900);
-    });
-  }
+  // Form handling is implemented in site.js. This legacy file is not loaded
+  // in production and must not reintroduce optimistic/fake success states.
 
   // ===== SLIDESHOW =====
   document.querySelectorAll('.slideshow').forEach(slideshow => {

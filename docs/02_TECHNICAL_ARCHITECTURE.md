@@ -319,19 +319,47 @@ No rollback or deployment is executed in Phase 2.
 Phase 2 is complete only when:
 
 - [x] Source of truth and divergent changes are documented and isolated.
-- [ ] `docs/02_TECHNICAL_ARCHITECTURE.md` is committed.
-- [ ] Supabase client is local, pinned and licensed.
-- [ ] Central config is loaded before API/site scripts on all public pages.
-- [ ] Forms succeed only on confirmed Supabase insert and fail visibly otherwise.
-- [ ] Fake Web3Forms success path is removed.
-- [ ] Fake newsletter is removed.
-- [ ] Honeypot no longer collides with the real name field.
-- [ ] RLS remediation is idempotent and least-privilege.
-- [ ] Content Engine is excluded from deployment and disallowed in robots.
-- [ ] Custom branded 404 exists.
-- [ ] CSP matches actual production dependencies.
-- [ ] `npm test` passes with all tests actually executed.
-- [ ] Local browser smoke checks show no console errors on public pages.
-- [ ] No push or deployment has occurred.
+- [x] `docs/02_TECHNICAL_ARCHITECTURE.md` is committed.
+- [x] Supabase client is local, pinned and licensed.
+- [x] Central config is loaded before API/site scripts on all public pages.
+- [x] Forms succeed only on confirmed Supabase insert and fail visibly otherwise.
+- [x] Fake Web3Forms success path is removed.
+- [x] Fake newsletter is removed.
+- [x] Honeypot no longer collides with the real name field.
+- [x] RLS remediation is idempotent and least-privilege.
+- [x] Content Engine is excluded from deployment and disallowed in robots.
+- [x] Custom branded 404 exists.
+- [x] CSP matches actual production dependencies.
+- [x] `npm test` passes with all tests actually executed.
+- [x] Local browser smoke checks show no console errors on public pages.
+- [x] No push or deployment has occurred.
 
 Remaining owner-blocked items are carried forward, not invented.
+
+---
+
+## 13. Local verification performed (2026-11-18)
+
+### 13.1 Static checks
+
+- `node --check` passed for `config.js`, `api.js`, `site.js`, `main.js`, and `scripts/static-server.mjs`.
+- `git diff --check` passed.
+- `npm test` executed 20 tests: 20 passed, 0 failed.
+
+Coverage includes CSP/configuration, central config ordering, vendored dependency availability and trackability, Content Engine exclusion, 404, form state logic, honeypot fields, RLS policy shape, rewrites, sitemap, local references, HTTP routes, and excluded paths.
+
+### 13.2 Browser smoke checks
+
+Using the local static server at `http://127.0.0.1:4174`:
+
+- All 13 public routes (`/`, `/about`, `/services`, `/pricing`, `/gallery`, `/portfolio`, `/blog`, `/contact`, `/redi`, `/elite-biz`, `/cv`, `/privacy`, `/terms`) loaded with `lang="fr"`, `AZERTY_CONFIG`, and `AZAPI` available.
+- No console errors were recorded on any public route.
+- The Supabase UMD client was not loaded on page load; it remains lazy until a Supabase operation is requested.
+- `/content-engine.html` and an unknown path both returned the branded 404 page.
+- Contact form and quote modal were exercised with `AZAPI.submitLead` stubbed locally; no live lead was sent:
+  - success → `.ok` status, form reset, button re-enabled;
+  - failure → `.err` status, data retained, button re-enabled;
+  - invalid → no API call, validation message shown;
+  - honeypot → no API call, form reset, no stale status.
+
+Live Supabase insertion and database-policy behavior were not exercised in Phase 2 because that would require a real write to the production backend. Migration application remains an authorized operator step.

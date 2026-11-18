@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /content-engine.html
+Disallow: /content-engine.js
 
 Sitemap: https://azertycorp-1.vercel.app/sitemap.xml

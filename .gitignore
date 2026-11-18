@@ -11,6 +11,7 @@ Thumbs.db
 php.ini-production
 .htaccess
 vendor/
+!assets/vendor/
 composer.*
 
 .vercel

@@ -199,19 +199,14 @@
   </div>
 </section>
 
-<!-- ============ NEWSLETTER ============ -->
+<!-- ============ CONTACT CTA ============ -->
 <section class="section bg-muted">
   <div class="container" style="max-width:42rem;text-align:center">
     <div class="reveal">
-      <p class="eyebrow" style="justify-content:center" data-fr="Newsletter" data-en="Newsletter">Newsletter</p>
-      <h2 class="h2-display" data-fr="Restez informé" data-en="Stay updated">Restez informé</h2>
-      <p style="margin-top:.75rem;color:rgba(var(--text-rgb),.65)" data-fr="Recevez les dernières analyses sur l'IA, la tech et l'innovation directement dans votre boîte mail." data-en="Get the latest insights on AI, tech, and innovation delivered to your inbox.">Recevez les dernières analyses sur l'IA, la tech et l'innovation directement dans votre boîte mail.</p>
-      <form id="nlForm" style="display:flex;flex-wrap:wrap;gap:.6rem;max-width:26rem;margin:1.5rem auto 0" novalidate>
-        <input type="email" id="nlEmail" required placeholder="you@company.com"
-               style="flex:1;min-width:13rem;border:1px solid var(--input);border-radius:99px;padding:.8rem 1.25rem;background:var(--card);color:var(--foreground)">
-        <button type="submit" class="btn-pill btn-coral" data-fr="S'abonner" data-en="Subscribe">S'abonner</button>
-      </form>
-      <p id="nlStatus" style="margin-top:1rem;font-size:.9rem;display:none"></p>
+      <p class="eyebrow" style="justify-content:center" data-fr="Échangeons" data-en="Let's talk">Échangeons</p>
+      <h2 class="h2-display" data-fr="Parlons de votre projet" data-en="Let's discuss your project">Parlons de votre projet</h2>
+      <p style="margin-top:.75rem;color:rgba(var(--text-rgb),.65)" data-fr="Pour discuter de nos analyses ou de votre projet, écrivez-nous directement." data-en="To discuss our insights or your project, contact us directly.">Pour discuter de nos analyses ou de votre projet, écrivez-nous directement.</p>
+      <a href="contact.html" class="btn-pill btn-coral" style="margin-top:1.5rem" data-fr="Nous contacter" data-en="Contact us">Nous contacter</a>
     </div>
   </div>
 </section>
@@ -286,7 +281,7 @@
       </button>
     </div>
     <form class="qm-form" id="quoteForm">
-      <input type="text" name="name" class="qm-bot" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="text" name="website" class="qm-bot" tabindex="-1" autocomplete="off" aria-hidden="true">
       <div class="qm-row">
         <div class="qm-field"><label for="qm-name" data-fr="Nom" data-en="Name">Nom</label><input id="qm-name" name="name" type="text" placeholder="Votre nom" required></div>
         <div class="qm-field"><label for="qm-email" data-fr="Email" data-en="Email">Email</label><input id="qm-email" name="email" type="email" placeholder="you@company.com" required></div>
@@ -307,23 +302,9 @@
   </div>
 </div>
 
-<script src="assets/js/api.js?v=20260911" defer></script>
+<script src="assets/js/config.js?v=20261118" defer></script>
+  <script src="assets/js/api.js?v=20260911" defer></script>
   <script src="assets/js/site.js?v=20261118" defer></script>
   <script src="assets/js/motion.js?v=20261118"></script>
-<script>
-  var nlForm = document.getElementById('nlForm');
-  var nlStatus = document.getElementById('nlStatus');
-  if (nlForm) {
-    nlForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var email = document.getElementById('nlEmail').value;
-      if (!email || email.indexOf('@') < 0) return;
-      nlStatus.style.display = 'block';
-      nlStatus.style.color = 'hsl(168 60% 25%)';
-      nlStatus.textContent = 'Thank you for subscribing!';
-      nlForm.reset();
-    });
-  }
-</script>
 </body>
 </html>

@@ -1,23 +1,16 @@
 /* ============================================================
    AZERTYCORP — site.js (static, no build step)
    Cookie consent + gated analytics, mobile menu, reveal,
-   counters, carousel, FAQ, filters, quote modal, Web3Forms.
+   counters, carousel, FAQ, filters, quote modal, verified forms.
    ============================================================ */
 (function () {
   'use strict';
 
   /* ----------------------------------------------------------
-     CONFIG — replace with your own tracking IDs / form key.
-     Empty IDs disable tracking entirely (GDPR-safe default).
+     CONFIG — loaded from assets/js/config.js before this file.
+     Empty tracking IDs disable tracking entirely.
      ---------------------------------------------------------- */
-  var CONFIG = {
-    GA4_MEASUREMENT_ID: '',            // e.g. 'G-XXXXXXX'
-    GOOGLE_ADS_ID: '',                 // e.g. 'AW-XXXXXXX'
-    META_PIXEL_ID: '',                 // e.g. '123456789'
-    WEB3FORMS_KEY: '',                 // Web3Forms access key
-    SITE_NAME: 'AZERTYCORP',
-    STORAGE_KEY: 'azertycorp:cookie-consent'
-  };
+  var CONFIG = window.AZERTY_CONFIG || {};
 
   /* ----------------------------------------------------------
      I18N — current language + UI strings (shared by all parts)
@@ -30,8 +23,9 @@
       'close': 'Fermer',
       'send': 'Envoi...',
       'form-not-config': 'Formulaire de contact non configuré. Écrivez-nous à hello@azertycorp.com',
-      'thank-you': 'Merci ! Nous vous répondrons sous 24 heures.',
-      'error': 'Une erreur est survenue. Veuillez réessayer.',
+      'form-invalid': 'Veuillez vérifier les champs obligatoires.',
+      'thank-you': 'Merci ! Votre message a bien été envoyé.',
+      'error': 'Envoi impossible. Veuillez réessayer ou nous écrire directement.',
       'theme-dark': 'Passer en thème sombre',
       'theme-light': 'Passer en thème clair',
       'cta-1': 'Parler au studio',
@@ -43,8 +37,9 @@
       'close': 'Close',
       'send': 'Sending...',
       'form-not-config': 'Contact form not configured yet. Reach us at hello@azertycorp.com',
-      'thank-you': 'Thank you! We will reply within 24 hours.',
-      'error': 'Something went wrong. Please try again.',
+      'form-invalid': 'Please check the required fields.',
+      'thank-you': 'Thank you! Your message has been sent.',
+      'error': 'We could not send your message. Please try again or email us directly.',
       'theme-dark': 'Switch to dark theme',
       'theme-light': 'Switch to light theme',
       'cta-1': 'Talk to the studio',
@@ -410,6 +405,62 @@
   }
 
   /* ----------------------------------------------------------
+     VERIFIED LEAD FORMS
+     Success is shown only after Supabase confirms the insert.
+     ---------------------------------------------------------- */
+  function initLeadForm(form, status, source, statusClass) {
+    if (!form) return;
+
+    function setStatus(message, state) {
+      if (!status) return;
+      status.textContent = message;
+      status.className = statusClass + (state ? ' ' + state : '');
+      status.setAttribute('aria-live', 'polite');
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      if (!form.checkValidity()) {
+        if (form.reportValidity) form.reportValidity();
+        setStatus(_t('form-invalid'), 'err');
+        return;
+      }
+
+      var data = new FormData(form);
+      // Honeypot submissions are discarded silently.
+      setStatus('', '');
+      if (data.get('website')) {
+        form.reset();
+        return;
+      }
+
+      var btn = form.querySelector('button[type="submit"]');
+      var original = btn ? btn.textContent : '';
+      if (btn) { btn.disabled = true; btn.textContent = _t('send'); }
+
+      function restoreButton() {
+        if (btn) { btn.disabled = false; btn.textContent = original; }
+      }
+
+      if (!window.AZAPI || typeof window.AZAPI.submitLead !== 'function') {
+        setStatus(_t('form-not-config'), 'err');
+        restoreButton();
+        return;
+      }
+
+      window.AZAPI.submitLead(data, source).then(function (result) {
+        form.reset();
+        if (!result || !result.ignored) setStatus(_t('thank-you'), 'ok');
+        restoreButton();
+      }).catch(function () {
+        setStatus(_t('error'), 'err');
+        restoreButton();
+      });
+    });
+  }
+
+  /* ----------------------------------------------------------
      QUOTE MODAL
      ---------------------------------------------------------- */
   function initQuoteModal() {
@@ -440,76 +491,17 @@
     if (closeBtn) closeBtn.addEventListener('click', close);
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
 
-    if (form) {
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        var btn = form.querySelector('button[type="submit"]');
-        var original = btn ? btn.textContent : '';
-        if (btn) { btn.disabled = true; btn.textContent = _t('send'); }
-        var data = new FormData(form);
-        var saved = false;
-        if (window.AZAPI) {
-          AZAPI.submitLead(data, 'quote-modal').then(function () { saved = true; }).catch(function () {});
-        }
-        if (CONFIG.WEB3FORMS_KEY) {
-          data.append('access_key', CONFIG.WEB3FORMS_KEY);
-          data.append('subject', 'New quote request from ' + CONFIG.SITE_NAME + ' website');
-          data.append('from_name', 'AZERTYCORP Website');
-          fetch('https://api.web3forms.com/submit', { method: 'POST', body: data })
-            .then(function (r) { return r.json(); })
-            .then(function (res) {
-              if (res.success) saved = true;
-            })
-            .catch(function () { saved = true; });
-        } else {
-          saved = true;
-        }
-        window.setTimeout(function () {
-          if (!saved) return;
-          form.reset();
-          if (status) { status.textContent = _t('thank-you'); status.className = 'qm-status ok'; }
-          try { window.fbq && window.fbq('track', 'Lead'); } catch (err) {}
-          if (btn) { btn.disabled = false; btn.textContent = original; }
-        }, 900);
-      });
-    }
+    initLeadForm(form, status, 'quote-modal', 'qm-status');
   }
 
   /* ----------------------------------------------------------
-     CONTACT PAGE FORM (Web3Forms)
+     CONTACT PAGE FORM (Supabase)
      ---------------------------------------------------------- */
   function initContactForm() {
     var form = document.getElementById('contactForm');
     if (!form) return;
     var status = document.getElementById('contactFormStatus');
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var btn = form.querySelector('button[type="submit"]');
-      var original = btn ? btn.textContent : '';
-      if (btn) { btn.disabled = true; btn.textContent = _t('send'); }
-      var data = new FormData(form);
-      var saved = false;
-      if (window.AZAPI) {
-        AZAPI.submitLead(data, 'contact-page').then(function () { saved = true; }).catch(function () {});
-      }
-      if (CONFIG.WEB3FORMS_KEY) {
-        data.append('access_key', CONFIG.WEB3FORMS_KEY);
-        data.append('subject', 'New contact from ' + CONFIG.SITE_NAME + ' website');
-        data.append('from_name', 'AZERTYCORP Website');
-        fetch('https://api.web3forms.com/submit', { method: 'POST', body: data })
-          .then(function (r) { return r.json(); })
-          .then(function (res) { if (res.success) saved = true; })
-          .catch(function () { saved = true; });
-      } else {
-        saved = true;
-      }
-      window.setTimeout(function () {
-        if (!saved) return;
-        form.reset();
-        if (status) { status.textContent = _t('thank-you'); status.className = 'form-status ok'; }
-        if (btn) { btn.disabled = false; btn.textContent = original; }
-      }, 900);
-    });
+    initLeadForm(form, status, 'contact-page', 'form-status');
   }
 
   /* ----------------------------------------------------------

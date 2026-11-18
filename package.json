@@ -1,0 +1,13 @@
+{
+  "name": "azertycorp-website",
+  "version": "2.0.0-phase2",
+  "private": true,
+  "description": "AZERTYCORP static website with local verification tooling",
+  "scripts": {
+    "test": "node --test tests/configuration.test.mjs tests/forms.test.mjs tests/rls.test.mjs tests/routes.test.mjs tests/smoke.test.mjs",
+    "serve": "node scripts/static-server.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

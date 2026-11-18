@@ -1,0 +1,9 @@
+# Non-production tooling and documentation
+content-engine.html
+content-engine.js
+docs/
+scripts/
+tests/
+package.json
+package-lock.json
+.github/
