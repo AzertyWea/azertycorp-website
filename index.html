@@ -27,7 +27,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300..900&family=Inter:wght@100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/site.css?v=20261119">
-  <link rel="stylesheet" href="assets/css/motion.css?v=20261118">
+  <link rel="stylesheet" href="assets/css/motion.css?v=20261120a">
   <link rel="preload" as="image" type="image/jpeg" href="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1440&q=80" fetchpriority="high">
   <script type="application/ld+json">
   {
@@ -338,13 +338,25 @@
   </div>
   <div class="ai-studio">
     <p class="eyebrow">AI Studio</p>
-    <div class="ai-studio-logos">
-      <span class="ai-logo">OpenAI</span>
-      <span class="ai-logo">Anthropic</span>
-      <span class="ai-logo">Midjourney</span>
-      <span class="ai-logo">Hugging Face</span>
-      <span class="ai-logo">TensorFlow</span>
-      <span class="ai-logo">PyTorch</span>
+    <div class="ai-studio-logos ai-marquee" aria-label="AI Studio">
+      <div class="ai-marquee-track">
+        <div class="ai-marquee-group">
+          <span class="ai-logo">OpenAI</span>
+          <span class="ai-logo">Anthropic</span>
+          <span class="ai-logo">Midjourney</span>
+          <span class="ai-logo">Hugging Face</span>
+          <span class="ai-logo">TensorFlow</span>
+          <span class="ai-logo">PyTorch</span>
+        </div>
+        <div class="ai-marquee-group" aria-hidden="true">
+          <span class="ai-logo">OpenAI</span>
+          <span class="ai-logo">Anthropic</span>
+          <span class="ai-logo">Midjourney</span>
+          <span class="ai-logo">Hugging Face</span>
+          <span class="ai-logo">TensorFlow</span>
+          <span class="ai-logo">PyTorch</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -468,42 +480,129 @@
 
 <!-- ============ INDUSTRY SHOWCASE ============ -->
 <section class="section bg-muted-2 py-28" data-story-scene data-story-chapter="design" data-story-depth="1.2">
-  <div class="container-wide">
-    <div class="section-head">
-      <p class="eyebrow" data-fr="Secteurs" data-en="Industries">Secteurs</p>
-      <h2 class="h2-display" data-fr="Conçu pour chaque entreprise" data-en="Built for every business">Conçu pour chaque entreprise</h2>
-      <p class="lead" data-fr="Des cliniques aux plateformes SaaS — nous construisons des outils pour des types d'entreprises précis." data-en="From clinics to SaaS platforms — we build tools for specific types of business.">Des cliniques aux plateformes SaaS — nous construisons des outils pour des types d'entreprises précis.</p>
+  <div class="curtain-scroll" data-curtain>
+    <div class="curtain-sticky">
+      <div class="container-wide">
+        <div class="section-head">
+          <p class="eyebrow" data-fr="Secteurs" data-en="Industries">Secteurs</p>
+          <h2 class="h2-display" data-fr="Conçu pour chaque entreprise" data-en="Built for every business">Conçu pour chaque entreprise</h2>
+          <p class="lead" data-fr="Des cliniques aux plateformes SaaS — nous construisons des outils pour des types d'entreprises précis." data-en="From clinics to SaaS platforms — we build tools for specific types of business.">Des cliniques aux plateformes SaaS — nous construisons des outils pour des types d'entreprises précis.</p>
+        </div>
+        <div class="showcase-stage story-layer story-stage">
+          <div class="showcase-columns">
+            <div class="showcase-column showcase-column--left">
+          <div class="showcase-card">
+            <a href="portfolio.html" class="inner">
+              <div class="thumb">
+                <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=600&q=80" alt="Wellness and clinics" loading="lazy">
+                <div class="info">
+                  <span class="tag" data-fr="Santé" data-en="Health">Santé</span>
+                  <h3 data-fr="Bien-être &amp; Cliniques" data-en="Wellness &amp; Clinics">Bien-être &amp; Cliniques</h3>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="showcase-card">
+            <a href="portfolio.html" class="inner">
+              <div class="thumb">
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=80" alt="Talent and staffing" loading="lazy">
+                <div class="info">
+                  <span class="tag" data-fr="Personnes" data-en="People">Personnes</span>
+                  <h3 data-fr="Talents &amp; Recrutement" data-en="Talent &amp; Staffing">Talents &amp; Recrutement</h3>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="showcase-card">
+            <a href="portfolio.html" class="inner">
+              <div class="thumb">
+                <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=600&q=80" alt="Cosmetics and beauty" loading="lazy">
+                <div class="info">
+                  <span class="tag" data-fr="Commerce" data-en="Retail">Commerce</span>
+                  <h3 data-fr="Cosmétiques &amp; Beauté" data-en="Cosmetics &amp; Beauty">Cosmétiques &amp; Beauté</h3>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="showcase-card">
+            <a href="portfolio.html" class="inner">
+              <div class="thumb">
+                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&q=80" alt="Mobility and connectivity" loading="lazy">
+                <div class="info">
+                  <span class="tag" data-fr="Technologie" data-en="Tech">Technologie</span>
+                  <h3 data-fr="Mobilité &amp; Connectivité" data-en="Mobility &amp; Connectivity">Mobilité &amp; Connectivité</h3>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="showcase-card">
+            <a href="portfolio.html" class="inner">
+              <div class="thumb">
+                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80" alt="Products and platforms" loading="lazy">
+                <div class="info">
+                  <span class="tag" data-fr="SaaS" data-en="SaaS">SaaS</span>
+                  <h3 data-fr="Produits &amp; Plateformes" data-en="Products &amp; Platforms">Produits &amp; Plateformes</h3>
+                </div>
+              </div>
+            </a>
+          </div>
+            </div>
+            <div class="showcase-column showcase-column--right">
+          <div class="showcase-card">
+            <a href="portfolio.html" class="inner">
+              <div class="thumb">
+                <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&q=80" alt="Salons and stylists" loading="lazy">
+                <div class="info">
+                  <span class="tag" data-fr="Beauté" data-en="Beauty">Beauté</span>
+                  <h3 data-fr="Salons de coiffure &amp; Stylistes" data-en="Hair Salons &amp; Stylists">Salons de coiffure &amp; Stylistes</h3>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="showcase-card">
+            <a href="portfolio.html" class="inner">
+              <div class="thumb">
+                <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=80" alt="Schools and education" loading="lazy">
+                <div class="info">
+                  <span class="tag" data-fr="Éducation" data-en="Education">Éducation</span>
+                  <h3 data-fr="Écoles &amp; Éducation" data-en="Schools &amp; Education">Écoles &amp; Éducation</h3>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="showcase-card">
+            <a href="portfolio.html" class="inner">
+              <div class="thumb">
+                <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&q=80" alt="Dealers and services" loading="lazy">
+                <div class="info">
+                  <span class="tag" data-fr="Automobile" data-en="Automotive">Automobile</span>
+                  <h3 data-fr="Concessionnaires &amp; Services" data-en="Dealers &amp; Services">Concessionnaires &amp; Services</h3>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="showcase-card">
+            <a href="portfolio.html" class="inner">
+              <div class="thumb">
+                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80" alt="Build and trades" loading="lazy">
+                <div class="info">
+                  <span class="tag" data-fr="Construction" data-en="Construction">Construction</span>
+                  <h3 data-fr="Bâtiment &amp; Métiers" data-en="Build &amp; Trades">Bâtiment &amp; Métiers</h3>
+                </div>
+              </div>
+            </a>
+          </div>
+            </div>
+          </div>
+          <div class="showcase-curtain" aria-hidden="true">
+            <p class="eyebrow" data-fr="Secteurs" data-en="Industries">Secteurs</p>
+            <h3 data-fr="Conçu pour chaque entreprise" data-en="Built for every business">Conçu pour chaque entreprise</h3>
+            <span class="band-link" data-fr="Voir le portfolio complet &rarr;" data-en="View full portfolio &rarr;">Voir le portfolio complet &rarr;</span>
+          </div>
+        </div>
+        <p class="text-center curtain-caption" style="margin-top:2.5rem"><a class="band-link" href="portfolio.html" data-fr="Voir le portfolio complet &rarr;" data-en="View full portfolio &rarr;">Voir le portfolio complet &rarr;</a></p>
+      </div>
     </div>
-    <div class="showcase-stage story-layer story-stage">
-      <div class="showcase-card" style="left:2%;top:8%;z-index:6;transform:rotate(-6deg)"><a href="portfolio.html" class="inner">
-        <div class="thumb"><img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=600&q=80" alt="Wellness and clinics" loading="lazy"><div class="info"><span class="tag" data-fr="Santé" data-en="Health">Santé</span><h3 data-fr="Bien-être &amp; Cliniques" data-en="Wellness &amp; Clinics">Bien-être &amp; Cliniques</h3></div></div>
-      </a></div>
-      <div class="showcase-card" style="right:2%;top:6%;z-index:7;transform:rotate(5deg)"><a href="portfolio.html" class="inner">
-        <div class="thumb"><img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&q=80" alt="Salons and stylists" loading="lazy"><div class="info"><span class="tag" data-fr="Beauté" data-en="Beauty">Beauté</span><h3 data-fr="Salons de coiffure &amp; Stylistes" data-en="Hair Salons &amp; Stylists">Salons de coiffure &amp; Stylistes</h3></div></div>
-      </a></div>
-      <div class="showcase-card" style="left:10%;bottom:4%;z-index:8;transform:rotate(3deg)"><a href="portfolio.html" class="inner">
-        <div class="thumb"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=80" alt="Talent and staffing" loading="lazy"><div class="info"><span class="tag" data-fr="Personnes" data-en="People">Personnes</span><h3 data-fr="Talents &amp; Recrutement" data-en="Talent &amp; Staffing">Talents &amp; Recrutement</h3></div></div>
-      </a></div>
-      <div class="showcase-card" style="right:8%;bottom:8%;z-index:9;transform:rotate(-4deg)"><a href="portfolio.html" class="inner">
-        <div class="thumb"><img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=80" alt="Schools and education" loading="lazy"><div class="info"><span class="tag" data-fr="Éducation" data-en="Education">Éducation</span><h3 data-fr="Écoles &amp; Éducation" data-en="Schools &amp; Education">Écoles &amp; Éducation</h3></div></div>
-      </a></div>
-      <div class="showcase-card" style="left:30%;top:2%;z-index:10;transform:rotate(4deg)"><a href="portfolio.html" class="inner">
-        <div class="thumb"><img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=600&q=80" alt="Cosmetics and beauty" loading="lazy"><div class="info"><span class="tag" data-fr="Commerce" data-en="Retail">Commerce</span><h3 data-fr="Cosmétiques &amp; Beauté" data-en="Cosmetics &amp; Beauty">Cosmétiques &amp; Beauté</h3></div></div>
-      </a></div>
-      <div class="showcase-card" style="right:30%;top:4%;z-index:11;transform:rotate(-3deg)"><a href="portfolio.html" class="inner">
-        <div class="thumb"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&q=80" alt="Dealers and services" loading="lazy"><div class="info"><span class="tag" data-fr="Automobile" data-en="Automotive">Automobile</span><h3 data-fr="Concessionnaires &amp; Services" data-en="Dealers &amp; Services">Concessionnaires &amp; Services</h3></div></div>
-      </a></div>
-      <div class="showcase-card" style="left:38%;bottom:2%;z-index:12;transform:rotate(-5deg)"><a href="portfolio.html" class="inner">
-        <div class="thumb"><img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&q=80" alt="Mobility and connectivity" loading="lazy"><div class="info"><span class="tag" data-fr="Technologie" data-en="Tech">Technologie</span><h3 data-fr="Mobilité &amp; Connectivité" data-en="Mobility &amp; Connectivity">Mobilité &amp; Connectivité</h3></div></div>
-      </a></div>
-      <div class="showcase-card" style="right:36%;bottom:0;z-index:13;transform:rotate(2deg)"><a href="portfolio.html" class="inner">
-        <div class="thumb"><img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80" alt="Build and trades" loading="lazy"><div class="info"><span class="tag" data-fr="Construction" data-en="Construction">Construction</span><h3 data-fr="Bâtiment &amp; Métiers" data-en="Build &amp; Trades">Bâtiment &amp; Métiers</h3></div></div>
-      </a></div>
-      <div class="showcase-card" style="left:50%;top:50%;z-index:20;transform:translate(-50%,-50%) scale(1.15)"><a href="portfolio.html" class="inner">
-        <div class="thumb"><img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80" alt="Products and platforms" loading="lazy"><div class="info"><span class="tag" data-fr="SaaS" data-en="SaaS">SaaS</span><h3 data-fr="Produits &amp; Plateformes" data-en="Products &amp; Platforms">Produits &amp; Plateformes</h3></div></div>
-      </a></div>
-    </div>
-    <p class="text-center" style="margin-top:2.5rem"><a class="band-link" href="portfolio.html" data-fr="Voir le portfolio complet &rarr;" data-en="View full portfolio &rarr;">Voir le portfolio complet &rarr;</a></p>
   </div>
 </section>
 
@@ -646,6 +745,6 @@
 <script src="assets/js/config.js?v=20261118" defer></script>
   <script src="assets/js/api.js?v=20260911" defer></script>
   <script src="assets/js/site.js?v=20261119" defer></script>
-  <script src="assets/js/motion.js?v=20261118"></script>
+  <script src="assets/js/motion.js?v=20261120a"></script>
 </body>
 </html>
