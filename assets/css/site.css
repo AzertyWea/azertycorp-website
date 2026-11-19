@@ -1094,7 +1094,7 @@ section[id]{scroll-margin-top:110px}
 .story-rail-step.is-active{color:#FF6B6B;opacity:1}
 .story-rail-num{font-variant-numeric:tabular-nums;color:rgba(255,255,255,.4)}
 .story-rail-step.is-active .story-rail-num{color:#FF6B6B}
-@media(max-width:1279px){.story-rail{display:none}}
+@media(max-width:767px){.story-rail{display:none}}
 
 /* reduced motion */
 @media (prefers-reduced-motion:reduce){

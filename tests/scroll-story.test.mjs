@@ -28,6 +28,8 @@ test('homepage sections are tagged as dimensional story scenes', () => {
   assert.match(html, /class="showcase-stage story-layer story-stage"/);
   assert.match(html, /class="story-bg" src=/);
   assert.match(html, /class="hero-content story-layer"/);
+  assert.match(html, /site\.css\?v=20261119/);
+  assert.match(html, /site\.js\?v=20261119/);
 });
 
 test('scroll story CSS adds depth layers and respects reduced motion', () => {
@@ -38,7 +40,7 @@ test('scroll story CSS adds depth layers and respects reduced motion', () => {
   assert.match(css, /\.story-stage\{transform:perspective\(1000px\) rotateX\(var\(--story-tilt/);
   assert.match(css, /\.story-rail\{[^}]*z-index:800/);
   assert.match(css, /\.story-rail\.is-active\{opacity:1\}/);
-  assert.match(css, /@media\(max-width:1279px\)\{\.story-rail\{display:none\}\}/);
+  assert.match(css, /@media\(max-width:767px\)\{\.story-rail\{display:none\}\}/);
 
   const reduced = css.slice(css.indexOf('@media (prefers-reduced-motion:reduce)'));
   assert.match(reduced, /\.story-rail\{display:none !important\}/);
@@ -58,5 +60,6 @@ test('scroll story script is throttled, chapter-aware and motion-safe', () => {
   assert.match(js, /setProperty\('--story-scale'/);
   assert.match(js, /setProperty\('--story-bg-shift'/);
   assert.match(js, /setProperty\('--story-tilt'/);
+  assert.match(js, /-p \* 28 \* depth/);
   assert.match(js, /data-story-step/);
 });

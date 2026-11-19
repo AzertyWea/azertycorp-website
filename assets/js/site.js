@@ -701,10 +701,10 @@
         var depth = parseFloat(scene.getAttribute('data-story-depth') || '1');
         if (!isFinite(depth)) depth = 1;
 
-        scene.style.setProperty('--story-shift', (-p * 18 * depth).toFixed(2) + 'px');
-        scene.style.setProperty('--story-scale', (1 + Math.abs(p) * 0.012 * depth).toFixed(4));
-        scene.style.setProperty('--story-bg-shift', (p * 42 * depth).toFixed(2) + 'px');
-        scene.style.setProperty('--story-tilt', (p * 2.5 * depth).toFixed(2) + 'deg');
+        scene.style.setProperty('--story-shift', (-p * 28 * depth).toFixed(2) + 'px');
+        scene.style.setProperty('--story-scale', (1 + Math.abs(p) * 0.02 * depth).toFixed(4));
+        scene.style.setProperty('--story-bg-shift', (p * 60 * depth).toFixed(2) + 'px');
+        scene.style.setProperty('--story-tilt', (p * 5 * depth).toFixed(2) + 'deg');
 
         var chapter = scene.getAttribute('data-story-chapter');
         var distance = Math.abs(center - vh / 2);
