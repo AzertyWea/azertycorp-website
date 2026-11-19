@@ -1059,12 +1059,51 @@ section[id]{scroll-margin-top:110px}
   filter:brightness(.9) saturate(.85) contrast(1.06);
 }
 
+/* ============================================================
+   SCROLL STORY — dimensional depth + chapter rail
+   ============================================================ */
+.story-layer{transform:translate3d(0,var(--story-shift,0px),0) scale(var(--story-scale,1));will-change:transform}
+.story-bg{transform:translate3d(0,var(--story-bg-shift,0px),0) scale(1.12);will-change:transform}
+.story-stage{transform:perspective(1000px) rotateX(var(--story-tilt,0deg)) translate3d(0,var(--story-shift,0px),0) scale(var(--story-scale,1))}
+
+.story-rail{
+  position:fixed;right:1rem;top:50%;transform:translateY(-50%);z-index:800;
+  display:flex;align-items:center;gap:.75rem;
+  padding:.75rem .7rem;border-radius:999px;
+  background:rgba(11,11,13,.72);border:1px solid rgba(255,255,255,.14);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  opacity:0;pointer-events:none;transition:opacity .4s ease;
+}
+.story-rail.is-active{opacity:1}
+.story-rail-line{
+  position:relative;width:2px;height:9rem;border-radius:2px;
+  background:rgba(255,255,255,.18);overflow:hidden;
+}
+.story-rail-progress{
+  position:absolute;left:0;top:0;width:100%;height:0;
+  background:#FF6B6B;border-radius:2px;transition:height .1s linear;
+}
+.story-rail-list{display:flex;flex-direction:column;gap:.85rem}
+.story-rail-step{
+  display:flex;align-items:center;gap:.45rem;
+  font-family:var(--font-label);font-size:.55rem;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(255,255,255,.55);opacity:.5;
+  transition:color .25s ease,opacity .25s ease;
+}
+.story-rail-step.is-active{color:#FF6B6B;opacity:1}
+.story-rail-num{font-variant-numeric:tabular-nums;color:rgba(255,255,255,.4)}
+.story-rail-step.is-active .story-rail-num{color:#FF6B6B}
+@media(max-width:1279px){.story-rail{display:none}}
+
 /* reduced motion */
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none !important;transition:none !important;scroll-behavior:auto !important}
   .reveal{opacity:1 !important;transform:none !important}
   .hero-title .line > span{animation:none !important;transform:none !important}
   .cta-title .word{animation:none !important;opacity:1 !important}
+  .story-rail{display:none !important}
+  .story-layer,.story-bg,.story-stage{transform:none !important;will-change:auto !important}
 }
 
 /* responsive */

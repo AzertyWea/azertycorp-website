@@ -1,10 +1,10 @@
 {
   "name": "azertycorp-website",
-  "version": "2.2.0-phase4",
+  "version": "2.3.0-scroll-story",
   "private": true,
   "description": "AZERTYCORP static website with local verification tooling",
   "scripts": {
-    "test": "node --test tests/configuration.test.mjs tests/forms.test.mjs tests/rls.test.mjs tests/routes.test.mjs tests/structure.test.mjs tests/phase4.test.mjs tests/smoke.test.mjs",
+    "test": "node --test tests/configuration.test.mjs tests/forms.test.mjs tests/rls.test.mjs tests/routes.test.mjs tests/structure.test.mjs tests/phase4.test.mjs tests/scroll-story.test.mjs tests/smoke.test.mjs",
     "serve": "node scripts/static-server.mjs"
   },
   "engines": {

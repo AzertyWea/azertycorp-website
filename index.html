@@ -45,6 +45,16 @@
 <body>
 <a class="skip-link" href="#main-content" data-fr="Aller au contenu principal" data-en="Skip to main content">Aller au contenu principal</a>
 
+<div class="story-rail" data-story-rail aria-hidden="true">
+  <div class="story-rail-line"><span class="story-rail-progress" data-story-progress-bar></span></div>
+  <div class="story-rail-list">
+    <div class="story-rail-step" data-story-step="build"><span class="story-rail-num">01</span><span class="story-rail-label" data-fr="BUILD" data-en="BUILD">BUILD</span></div>
+    <div class="story-rail-step" data-story-step="automate"><span class="story-rail-num">02</span><span class="story-rail-label" data-fr="AUTOMATE" data-en="AUTOMATE">AUTOMATE</span></div>
+    <div class="story-rail-step" data-story-step="design"><span class="story-rail-num">03</span><span class="story-rail-label" data-fr="DESIGN" data-en="DESIGN">DESIGN</span></div>
+    <div class="story-rail-step" data-story-step="transform"><span class="story-rail-num">04</span><span class="story-rail-label" data-fr="TRANSFORM" data-en="TRANSFORM">TRANSFORM</span></div>
+  </div>
+</div>
+
 <header class="site-header">
 
 <!-- ============ MOBILE PILL NAV ============ -->
@@ -146,12 +156,12 @@
 <main id="main-content" tabindex="-1">
 
 <!-- ============ HERO ============ -->
-<section class="hero" id="hero">
+<section class="hero" id="hero" data-story-scene data-story-chapter="build" data-story-depth="0.6">
   <div class="hero-panel">
     <div class="hero-media" aria-hidden="true">
-      <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1440&q=80" alt="" loading="eager">
+      <img class="story-bg" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1440&q=80" alt="" loading="eager">
     </div>
-    <div class="hero-content">
+    <div class="hero-content story-layer">
       <div class="hero-logo" aria-hidden="true"><img src="assets/images/logo-white.png" alt=""></div>
       <h1 class="hero-title">
         <span class="line"><span>BUILD.</span></span>
@@ -169,7 +179,7 @@
 </section>
 
 <!-- ============ SERVICES CAROUSEL ============ -->
-<section class="section bg-muted pt-24 pb-8" id="services">
+<section class="section bg-muted pt-24 pb-8" id="services" data-story-scene data-story-chapter="build" data-story-depth="0.8">
   <div class="container">
     <div class="section-head">
       <p class="eyebrow" data-fr="Nos services" data-en="Our Services">Nos services</p>
@@ -269,7 +279,7 @@
 </section>
 
 <!-- ============ GUARANTEES ============ -->
-<section class="section bg-muted pt-32 pb-20">
+<section class="section bg-muted pt-32 pb-20" data-story-scene data-story-chapter="build" data-story-depth="0.5">
   <div class="container">
     <div class="stats-grid">
       <div class="stat-card reveal">
@@ -289,9 +299,9 @@
 </section>
 
 <!-- ============ TECH MARQUEE + AI STUDIO ============ -->
-<section class="section pt-24 pb-32" id="stack">
+<section class="section pt-24 pb-32" id="stack" data-story-scene data-story-chapter="automate" data-story-depth="0.9">
   <div class="container-narrow">
-    <div class="section-head">
+    <div class="section-head story-layer">
       <p class="eyebrow" data-fr="Technologies utilisées" data-en="Built With">Technologies utilisées</p>
       <h2 class="h2-display" data-fr="Une stack moderne, digne de la production" data-en="A modern, production-grade stack">Une stack moderne, digne de la production</h2>
       <p class="lead" data-fr="Nous choisissons une technologie éprouvée et sans fioritures — puis nous l'utilisons à fond pour que votre produit reste rapide et maintenable pendant des années." data-en="We pick boring, proven technology — then use it aggressively so your product stays fast and maintainable for years.">Nous choisissons une technologie éprouvée et sans fioritures — puis nous l'utilisons à fond pour que votre produit reste rapide et maintenable pendant des années.</p>
@@ -340,15 +350,15 @@
 </section>
 
 <!-- ============ ACCENT BANNER ============ -->
-<section class="accent-banner" aria-label="Notre engagement">
-  <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=80" alt="" loading="lazy">
+<section class="accent-banner" aria-label="Notre engagement" data-story-scene data-story-chapter="automate" data-story-depth="1.3">
+  <img class="story-bg" src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=80" alt="" loading="lazy">
   <p class="cap" data-fr="Chaque produit AZERTYCORP est documenté, audité et remis entre vos mains pour que vous le gardiez." data-en="Every AZERTYCORP product is documented, audited, and handed off yours to keep.">Chaque produit AZERTYCORP est documenté, audité et remis entre vos mains pour que vous le gardiez.</p>
 </section>
 
 <!-- ============ WHY CHOOSE US ============ -->
-<section class="section bg-muted py-24" id="why">
+<section class="section bg-muted py-24" id="why" data-story-scene data-story-chapter="design" data-story-depth="0.9">
   <div class="container-narrow">
-    <div class="section-head">
+    <div class="section-head story-layer">
       <p class="eyebrow" data-fr="La différence AZERTYCORP" data-en="The AZERTYCORP Difference">La différence AZERTYCORP</p>
       <h2 class="h2-display" data-fr="Pourquoi c'est important pour votre entreprise" data-en="Why it matters for your business">Pourquoi c'est important pour votre entreprise</h2>
       <p class="lead" data-fr="Les grands produits sont conçus et développés dans la même pièce. C'est ainsi que nous travaillons — et cela se voit dans tout ce que nous livrons." data-en="Great products are designed and engineered in the same room. That's how we work — and it shows up in everything we ship.">Les grands produits sont conçus et développés dans la même pièce. C'est ainsi que nous travaillons — et cela se voit dans tout ce que nous livrons.</p>
@@ -457,14 +467,14 @@
 </section>
 
 <!-- ============ INDUSTRY SHOWCASE ============ -->
-<section class="section bg-muted-2 py-28">
+<section class="section bg-muted-2 py-28" data-story-scene data-story-chapter="design" data-story-depth="1.2">
   <div class="container-wide">
     <div class="section-head">
       <p class="eyebrow" data-fr="Secteurs" data-en="Industries">Secteurs</p>
       <h2 class="h2-display" data-fr="Conçu pour chaque entreprise" data-en="Built for every business">Conçu pour chaque entreprise</h2>
       <p class="lead" data-fr="Des cliniques aux plateformes SaaS — nous construisons des outils pour des types d'entreprises précis." data-en="From clinics to SaaS platforms — we build tools for specific types of business.">Des cliniques aux plateformes SaaS — nous construisons des outils pour des types d'entreprises précis.</p>
     </div>
-    <div class="showcase-stage">
+    <div class="showcase-stage story-layer story-stage">
       <div class="showcase-card" style="left:2%;top:8%;z-index:6;transform:rotate(-6deg)"><a href="portfolio.html" class="inner">
         <div class="thumb"><img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=600&q=80" alt="Wellness and clinics" loading="lazy"><div class="info"><span class="tag" data-fr="Santé" data-en="Health">Santé</span><h3 data-fr="Bien-être &amp; Cliniques" data-en="Wellness &amp; Clinics">Bien-être &amp; Cliniques</h3></div></div>
       </a></div>
@@ -498,14 +508,14 @@
 </section>
 
 <!-- ============ DASHBOARD DEMO ============ -->
-<section class="section py-20" id="demo">
+<section class="section py-20" id="demo" data-story-scene data-story-chapter="transform" data-story-depth="1.1">
   <div class="container-wide">
-    <div class="section-head">
+    <div class="section-head story-layer">
       <p class="eyebrow" data-fr="Démo en direct" data-en="Live Demo">Démo en direct</p>
       <h2 class="h2-display" data-fr-html="Découvrez ce que nous <span class=&quot;grad&quot;>construisons avant de le construire.</span>" data-en-html="See what we <span class=&quot;grad&quot;>build before we build it.</span>">Découvrez ce que nous <span class="grad">construisons avant de le construire.</span></h2>
       <p class="lead" data-fr="Voici un aperçu des tableaux de bord et des systèmes de gestion que nous livrons. Chaque projet commence avec ce type de réflexion." data-en="Here's a taste of the dashboards and management systems we ship. Every project starts with this kind of thinking.">Voici un aperçu des tableaux de bord et des systèmes de gestion que nous livrons. Chaque projet commence avec ce type de réflexion.</p>
     </div>
-    <div style="position:relative;max-width:60rem;margin-inline:auto">
+    <div class="story-layer" style="position:relative;max-width:60rem;margin-inline:auto">
       <div style="position:absolute;inset:-10%;pointer-events:none;background:radial-gradient(50% 70% at 30% 40%,rgba(249,44,83,.14),transparent 70%),radial-gradient(50% 70% at 70% 60%,rgba(238,171,33,.1),transparent 70%)"></div>
       <a href="portfolio.html" class="demo-frame">
         <div class="demo-bar">
@@ -524,9 +534,9 @@
 </section>
 
 <!-- ============ CONTACT CTA ============ -->
-<section class="section py-28" id="contact">
+<section class="section py-28" id="contact" data-story-scene data-story-chapter="transform" data-story-depth="0.7">
   <div class="container">
-    <div class="cta-center">
+    <div class="cta-center story-layer">
       <h2 class="cta-title"><span class="word" data-fr="Vous" data-en="Have">Vous</span> <span class="word" data-fr="avez" data-en="a">avez</span> <span class="word" data-fr="un" data-en="project">un</span> <span class="word" data-fr="projet" data-en="in">projet</span> <span class="word" data-fr="en" data-en="mind?">en</span> <span class="word" style="color:var(--primary)" data-fr="tête" data-en="Let's">tête</span> <span class="word" style="color:var(--primary)" data-fr="?" data-en="talk.">?</span></h2>
       <p class="cta-sub" data-fr="Dites-nous ce que vous construisez. Nous vous dirons honnêtement si nous sommes la bonne équipe." data-en="Tell us what you're building. We'll tell you honestly whether we're the right team.">Dites-nous ce que vous construisez. Nous vous dirons honnêtement si nous sommes la bonne équipe.</p>
       <div class="cta-actions">

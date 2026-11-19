@@ -665,6 +665,73 @@
   }
 
   /* ----------------------------------------------------------
+     SCROLL STORY — dimensional depth + chapter progress
+     ---------------------------------------------------------- */
+  function initScrollStory() {
+    var scenes = document.querySelectorAll('[data-story-scene]');
+    if (!scenes.length) return;
+    var rail = document.querySelector('[data-story-rail]');
+    var bar = rail ? rail.querySelector('[data-story-progress-bar]') : null;
+    var steps = rail ? rail.querySelectorAll('[data-story-step]') : [];
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (reduceMotion) {
+      if (rail) rail.style.display = 'none';
+      return;
+    }
+
+    var lastUpdate = 0;
+
+    function update() {
+      var vh = window.innerHeight || 1;
+      var docH = Math.max(document.documentElement.scrollHeight - vh, 1);
+      var pageProgress = Math.max(0, Math.min(1, (window.scrollY || window.pageYOffset || 0) / docH));
+      if (bar) bar.style.height = (pageProgress * 100).toFixed(2) + '%';
+      if (rail) rail.classList.add('is-active');
+
+      var bestChapter = null;
+      var bestDistance = Infinity;
+
+      scenes.forEach(function (scene) {
+        var rect = scene.getBoundingClientRect();
+        var center = rect.top + rect.height / 2;
+        var p = (vh / 2 - center) / (vh / 2 + rect.height / 2);
+        p = Math.max(-1, Math.min(1, p));
+
+        var depth = parseFloat(scene.getAttribute('data-story-depth') || '1');
+        if (!isFinite(depth)) depth = 1;
+
+        scene.style.setProperty('--story-shift', (-p * 18 * depth).toFixed(2) + 'px');
+        scene.style.setProperty('--story-scale', (1 + Math.abs(p) * 0.012 * depth).toFixed(4));
+        scene.style.setProperty('--story-bg-shift', (p * 42 * depth).toFixed(2) + 'px');
+        scene.style.setProperty('--story-tilt', (p * 2.5 * depth).toFixed(2) + 'deg');
+
+        var chapter = scene.getAttribute('data-story-chapter');
+        var distance = Math.abs(center - vh / 2);
+        if (chapter && distance < bestDistance) {
+          bestDistance = distance;
+          bestChapter = chapter;
+        }
+      });
+
+      steps.forEach(function (step) {
+        step.classList.toggle('is-active', step.getAttribute('data-story-step') === bestChapter);
+      });
+    }
+
+    function requestUpdate() {
+      var now = window.performance && performance.now ? performance.now() : Date.now();
+      if (now - lastUpdate < 16) return;
+      lastUpdate = now;
+      update();
+    }
+
+    window.addEventListener('scroll', requestUpdate, { passive: true });
+    window.addEventListener('resize', requestUpdate);
+    update();
+  }
+
+  /* ----------------------------------------------------------
      BOOT
      ---------------------------------------------------------- */
   function boot() {
@@ -672,6 +739,7 @@
     initMobileMenu();
     initMobileCta();
     initReveal();
+    initScrollStory();
     initCounters();
     initCarousel();
     initFaq();
